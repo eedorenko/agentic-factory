@@ -29,8 +29,6 @@ safe-outputs:
     max: 4
   add-comment:
     max: 1
-  set-issue-type:
-    max: 1
 
 timeout-minutes: 10
 ---
