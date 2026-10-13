@@ -34,13 +34,23 @@ describe('paginate', () => {
   it('should calculate correct total pages', () => {
     // 25 items / 10 per page = 3 pages (ceil)
     const result = paginate(testItems, 1, 10);
-    // This test currently FAILS because of the Math.floor bug
     assert.strictEqual(result.totalPages, 3);
   });
 
+  it('should not add a page for an exact multiple of the page size', () => {
+    const result = paginate(testItems.slice(0, 20), 1, 10);
+    assert.strictEqual(result.totalPages, 2);
+  });
+
+  it('should return zero total pages for empty items', () => {
+    const result = paginate([], 1, 10);
+    assert.strictEqual(result.totalPages, 0);
+  });
+
   it('should return items for the last page', () => {
-    const result = paginate(testItems, 3, 10);
-    assert.strictEqual(result.items.length, 5);
+    const { totalPages } = paginate(testItems, 1, 10);
+    const result = paginate(testItems, totalPages, 10);
+    assert.deepStrictEqual(result.items, testItems.slice(20));
   });
 });
 
