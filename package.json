@@ -1,0 +1,10 @@
+{
+  "name": "agentic-factory-app",
+  "version": "1.0.0",
+  "description": "Simple app for testing agentic factory pipeline",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "node --test src/**/*.test.js"
+  }
+}
