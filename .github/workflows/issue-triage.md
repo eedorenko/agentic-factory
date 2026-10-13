@@ -31,6 +31,9 @@ safe-outputs:
     max: 5
   add-comment:
     max: 1
+  dispatch-workflow:
+    workflows: [issue-planner]
+    max: 1
 
 timeout-minutes: 10
 ---
@@ -123,6 +126,9 @@ Then decide on routing:
   Planning Agent to propose an implementation plan before coding begins.
 - **Needs more info or maintainer judgment**: do NOT apply `cookie` or
   `needs-plan`. Wait for the missing information or decision first.
+
+When you apply `needs-plan`, also dispatch the `issue-planner` workflow so the
+Planning Agent starts immediately — do not wait for the next scheduled run.
 
 Add a "Routing" row to the triage report table showing which label was applied
 and why.

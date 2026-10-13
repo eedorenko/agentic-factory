@@ -5,6 +5,7 @@ description: |
   assigned to the coding agent after the plan is approved.
 
 on:
+  workflow_dispatch:
   issues:
     types: [labeled]
   reaction: eyes
