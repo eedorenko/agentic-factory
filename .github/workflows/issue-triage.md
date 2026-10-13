@@ -26,7 +26,9 @@ safe-outputs:
       - duplicate
       - invalid
       - spam
-    max: 4
+      - needs-plan
+      - cookie
+    max: 5
   add-comment:
     max: 1
 
@@ -101,7 +103,7 @@ Distinguish between:
 Include no more than three useful matches. Never mark an issue duplicate based
 only on similar words in the title.
 
-## 5. Assess next steps
+## 5. Assess next steps and route
 
 Classify coding-agent suitability:
 
@@ -111,8 +113,19 @@ Classify coding-agent suitability:
 - **Needs maintainer judgment**: requires product, policy, architecture, or
   cross-team decisions.
 
-Suggest a focused next step when the evidence supports one. Do not turn triage
-into a speculative implementation plan.
+Then decide on routing:
+
+- **Trivial fix** (one obvious change, clear root cause, well-defined scope —
+  e.g., "change Math.floor to Math.ceil", "update hardcoded year"): apply the
+  `cookie` label. This sends the issue directly to the coding agent.
+- **Complex work** (multiple files, design decisions needed, new feature with
+  edge cases, refactoring): apply the `needs-plan` label. This triggers the
+  Planning Agent to propose an implementation plan before coding begins.
+- **Needs more info or maintainer judgment**: do NOT apply `cookie` or
+  `needs-plan`. Wait for the missing information or decision first.
+
+Add a "Routing" row to the triage report table showing which label was applied
+and why.
 
 ## 6. Report
 
@@ -128,6 +141,7 @@ Post one concise comment for maintainers:
 | Type | [type or unset] | [brief evidence] |
 | Priority | [priority or unset] | [brief evidence] |
 | Coding agent | [suitability] | [brief evidence] |
+| Routing | [cookie / needs-plan / none] | [brief evidence] |
 
 ### Similar issues
 - #[number] — [duplicate or related, with a brief reason]
