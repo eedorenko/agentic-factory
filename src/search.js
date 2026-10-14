@@ -50,8 +50,7 @@ function createCachedSearch(items, cacheOptions) {
 }
 
 function paginate(items, page, pageSize = 10) {
-  // BUG: Math.floor instead of Math.ceil causes wrong page count
-  const totalPages = Math.floor(items.length / pageSize);
+  const totalPages = Math.ceil(items.length / pageSize);
   const start = (page - 1) * pageSize;
   const end = start + pageSize;
 
