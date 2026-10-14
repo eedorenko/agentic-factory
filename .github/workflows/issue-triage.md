@@ -27,7 +27,7 @@ safe-outputs:
       - invalid
       - spam
       - needs-plan
-      - cookie
+      - ready
     max: 5
   add-comment:
     max: 1
@@ -116,11 +116,11 @@ Then decide on routing:
 
 - **Trivial fix** (one obvious change, clear root cause, well-defined scope —
   e.g., "change Math.floor to Math.ceil", "update hardcoded year"): apply the
-  `cookie` label. This sends the issue directly to the coding agent.
+  `ready` label. This sends the issue directly to the coding agent.
 - **Complex work** (multiple files, design decisions needed, new feature with
   edge cases, refactoring): apply the `needs-plan` label. This triggers the
   Planning Agent to propose an implementation plan before coding begins.
-- **Needs more info or maintainer judgment**: do NOT apply `cookie` or
+- **Needs more info or maintainer judgment**: do NOT apply `ready` or
   `needs-plan`. Wait for the missing information or decision first.
 
 Add a "Routing" row to the triage report table showing which label was applied
@@ -140,7 +140,7 @@ Post one concise comment for maintainers:
 | Type | [type or unset] | [brief evidence] |
 | Priority | [priority or unset] | [brief evidence] |
 | Coding agent | [suitability] | [brief evidence] |
-| Routing | [cookie / needs-plan / none] | [brief evidence] |
+| Routing | [ready / needs-plan / none] | [brief evidence] |
 
 ### Similar issues
 - #[number] — [duplicate or related, with a brief reason]

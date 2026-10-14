@@ -1,5 +1,5 @@
-# gh-aw-metadata: {"schema_version":"v4","frontmatter_hash":"649cadc4eeca8ba237b0b1ad547e8a5622cf667a2d410ee3765fd8399f55c22c","body_hash":"c56b07f2b4a9ab75a7817ecff161acc22908ce6fcbf3340b67ee32084b4aeaae","compiler_version":"v0.89.21","strict":true,"agent_id":"copilot","engine_versions":{"copilot":"1.0.87"}}
-# gh-aw-manifest: {"version":1,"secrets":["GH_AW_AGENT_TOKEN","GH_AW_DEFAULT_OTLP_ENDPOINT","GH_AW_DEFAULT_OTLP_HEADERS","GH_AW_GITHUB_MCP_SERVER_TOKEN","GH_AW_GITHUB_TOKEN","GITHUB_TOKEN"],"actions":[{"repo":"actions/checkout","sha":"3d3c42e5aac5ba805825da76410c181273ba90b1","version":"v7.0.1"},{"repo":"actions/download-artifact","sha":"3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c","version":"v8.0.1"},{"repo":"actions/github-script","sha":"3a2844b7e9c422d3c10d287c895573f7108da1b3","version":"v9.0.0"},{"repo":"actions/setup-node","sha":"820762786026740c76f36085b0efc47a31fe5020","version":"v7.0.0"},{"repo":"actions/upload-artifact","sha":"043fb46d1a93c77aae656e7c1c64a875d1fc6a0a","version":"v7.0.1"},{"repo":"github/gh-aw-actions/setup","sha":"924af5fdc64061cfbf66fb584c8b07e2ac230c60","version":"v0.89.21"}],"containers":[{"image":"ghcr.io/github/gh-aw-firewall/agent:0.28.23","digest":"sha256:2c78aaba1c108e130e2d6d01e4f2cca334ea04c53e6f258913ac34173fe7e3b2","pinned_image":"ghcr.io/github/gh-aw-firewall/agent:0.28.23@sha256:2c78aaba1c108e130e2d6d01e4f2cca334ea04c53e6f258913ac34173fe7e3b2"},{"image":"ghcr.io/github/gh-aw-firewall/api-proxy:0.28.23","digest":"sha256:c15c3d1208df10c5b588a3657be53742aa982ae0909d1eb1812525268794ca64","pinned_image":"ghcr.io/github/gh-aw-firewall/api-proxy:0.28.23@sha256:c15c3d1208df10c5b588a3657be53742aa982ae0909d1eb1812525268794ca64"},{"image":"ghcr.io/github/gh-aw-firewall/cli-proxy:0.28.23","digest":"sha256:9e31a6e518eba44652b9ae94ce55c3b6958e06290c3b81b08de4174751bb439a","pinned_image":"ghcr.io/github/gh-aw-firewall/cli-proxy:0.28.23@sha256:9e31a6e518eba44652b9ae94ce55c3b6958e06290c3b81b08de4174751bb439a"},{"image":"ghcr.io/github/gh-aw-firewall/squid:0.28.23","digest":"sha256:02ffc56dd40158223064ef03a78c2d9717473c93723b4e403d455ea6f0b09ae0","pinned_image":"ghcr.io/github/gh-aw-firewall/squid:0.28.23@sha256:02ffc56dd40158223064ef03a78c2d9717473c93723b4e403d455ea6f0b09ae0"},{"image":"ghcr.io/github/gh-aw-mcpg:v0.4.25","digest":"sha256:9be0a86220e807a0ecc89e53d7453468f7a53fbc6b3d1efd2299025ffe01d086","pinned_image":"ghcr.io/github/gh-aw-mcpg:v0.4.25@sha256:9be0a86220e807a0ecc89e53d7453468f7a53fbc6b3d1efd2299025ffe01d086"},{"image":"ghcr.io/github/gh-aw-node","digest":"sha256:11c2c544876cdbaffefe0f7f1283b74838c209654b4934a78e23ed11f750490f","pinned_image":"ghcr.io/github/gh-aw-node@sha256:11c2c544876cdbaffefe0f7f1283b74838c209654b4934a78e23ed11f750490f"},{"image":"ghcr.io/github/github-mcp-server:v1.12.2","digest":"sha256:508a0857ec762b1ab1cece29193345b501fab1dd9d1228a7b617062954cecac6","pinned_image":"ghcr.io/github/github-mcp-server:v1.12.2@sha256:508a0857ec762b1ab1cece29193345b501fab1dd9d1228a7b617062954cecac6"}],"mcp_servers":[{"name":"safeoutputs","tools":["add_comment","assign_to_agent","missing_data","missing_tool","noop"]}]}
+# gh-aw-metadata: {"schema_version":"v4","frontmatter_hash":"289a2eb1f8d1352c79468f0ec57deba12a1faf42d8a05b9797ca253de973fc09","body_hash":"75151dc8523b391b943ef22980555b7a86d591635fb3a04720ea3defa16c84d4","compiler_version":"v0.89.21","strict":true,"agent_id":"copilot","engine_versions":{"copilot":"1.0.87"}}
+# gh-aw-manifest: {"version":1,"secrets":["COPILOT_GITHUB_TOKEN","GH_AW_AGENT_TOKEN","GH_AW_DEFAULT_OTLP_ENDPOINT","GH_AW_DEFAULT_OTLP_HEADERS","GH_AW_GITHUB_MCP_SERVER_TOKEN","GH_AW_GITHUB_TOKEN","GITHUB_TOKEN"],"actions":[{"repo":"actions/checkout","sha":"3d3c42e5aac5ba805825da76410c181273ba90b1","version":"v7.0.1"},{"repo":"actions/download-artifact","sha":"3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c","version":"v8.0.1"},{"repo":"actions/github-script","sha":"3a2844b7e9c422d3c10d287c895573f7108da1b3","version":"v9.0.0"},{"repo":"actions/setup-node","sha":"820762786026740c76f36085b0efc47a31fe5020","version":"v7.0.0"},{"repo":"actions/upload-artifact","sha":"043fb46d1a93c77aae656e7c1c64a875d1fc6a0a","version":"v7.0.1"},{"repo":"github/gh-aw-actions/setup","sha":"924af5fdc64061cfbf66fb584c8b07e2ac230c60","version":"v0.89.21"}],"containers":[{"image":"ghcr.io/github/gh-aw-firewall/agent:0.28.23","digest":"sha256:2c78aaba1c108e130e2d6d01e4f2cca334ea04c53e6f258913ac34173fe7e3b2","pinned_image":"ghcr.io/github/gh-aw-firewall/agent:0.28.23@sha256:2c78aaba1c108e130e2d6d01e4f2cca334ea04c53e6f258913ac34173fe7e3b2"},{"image":"ghcr.io/github/gh-aw-firewall/api-proxy:0.28.23","digest":"sha256:c15c3d1208df10c5b588a3657be53742aa982ae0909d1eb1812525268794ca64","pinned_image":"ghcr.io/github/gh-aw-firewall/api-proxy:0.28.23@sha256:c15c3d1208df10c5b588a3657be53742aa982ae0909d1eb1812525268794ca64"},{"image":"ghcr.io/github/gh-aw-firewall/squid:0.28.23","digest":"sha256:02ffc56dd40158223064ef03a78c2d9717473c93723b4e403d455ea6f0b09ae0","pinned_image":"ghcr.io/github/gh-aw-firewall/squid:0.28.23@sha256:02ffc56dd40158223064ef03a78c2d9717473c93723b4e403d455ea6f0b09ae0"},{"image":"ghcr.io/github/gh-aw-mcpg:v0.4.25","digest":"sha256:9be0a86220e807a0ecc89e53d7453468f7a53fbc6b3d1efd2299025ffe01d086","pinned_image":"ghcr.io/github/gh-aw-mcpg:v0.4.25@sha256:9be0a86220e807a0ecc89e53d7453468f7a53fbc6b3d1efd2299025ffe01d086"},{"image":"ghcr.io/github/gh-aw-node","digest":"sha256:11c2c544876cdbaffefe0f7f1283b74838c209654b4934a78e23ed11f750490f","pinned_image":"ghcr.io/github/gh-aw-node@sha256:11c2c544876cdbaffefe0f7f1283b74838c209654b4934a78e23ed11f750490f"},{"image":"ghcr.io/github/github-mcp-server:v1.12.2","digest":"sha256:508a0857ec762b1ab1cece29193345b501fab1dd9d1228a7b617062954cecac6","pinned_image":"ghcr.io/github/github-mcp-server:v1.12.2@sha256:508a0857ec762b1ab1cece29193345b501fab1dd9d1228a7b617062954cecac6"}],"mcp_servers":[{"name":"github","tools":["get_commit","get_file_contents","get_latest_release","get_me","get_pull_request","get_pull_request_comments","get_pull_request_diff","get_pull_request_files","get_pull_request_review_comments","get_pull_request_reviews","get_pull_request_status","get_release_by_tag","get_tag","issue_read","list_branches","list_commits","list_issue_types","list_issues","list_pull_requests","list_releases","list_starred_repositories","list_tags","pull_request_read","search_code","search_issues","search_pull_requests","search_repositories"]},{"name":"safeoutputs","tools":["add_comment","add_labels","assign_to_agent","missing_data","missing_tool","noop","remove_labels"]}]}
 # This file was automatically generated by gh-aw (v0.89.21). DO NOT EDIT. To debug this workflow, load the skill at https://github.com/github/gh-aw/blob/main/debug.md
 #
 #    ___                   _   _
@@ -23,9 +23,11 @@
 #
 # For more information: https://github.github.com/gh-aw/introduction/overview/
 #
-# The Cookie Monster of issues - assigns issues labeled 'cookie' to the Copilot coding agent every 30 minutes
+# Assigns the coding agent to issues labeled 'ready'. Simple state transition
+# handler — not a scheduler. Triggers immediately on label event.
 #
 # Secrets used:
+#   - COPILOT_GITHUB_TOKEN
 #   - GH_AW_AGENT_TOKEN
 #   - GH_AW_DEFAULT_OTLP_ENDPOINT
 #   - GH_AW_DEFAULT_OTLP_HEADERS
@@ -45,412 +47,29 @@
 # Container images used:
 #   - ghcr.io/github/gh-aw-firewall/agent:0.28.23@sha256:2c78aaba1c108e130e2d6d01e4f2cca334ea04c53e6f258913ac34173fe7e3b2
 #   - ghcr.io/github/gh-aw-firewall/api-proxy:0.28.23@sha256:c15c3d1208df10c5b588a3657be53742aa982ae0909d1eb1812525268794ca64
-#   - ghcr.io/github/gh-aw-firewall/cli-proxy:0.28.23@sha256:9e31a6e518eba44652b9ae94ce55c3b6958e06290c3b81b08de4174751bb439a
 #   - ghcr.io/github/gh-aw-firewall/squid:0.28.23@sha256:02ffc56dd40158223064ef03a78c2d9717473c93723b4e403d455ea6f0b09ae0
 #   - ghcr.io/github/gh-aw-mcpg:v0.4.25@sha256:9be0a86220e807a0ecc89e53d7453468f7a53fbc6b3d1efd2299025ffe01d086
 #   - ghcr.io/github/gh-aw-node@sha256:11c2c544876cdbaffefe0f7f1283b74838c209654b4934a78e23ed11f750490f
 #   - ghcr.io/github/github-mcp-server:v1.12.2@sha256:508a0857ec762b1ab1cece29193345b501fab1dd9d1228a7b617062954cecac6
 
-name: "Issue Monster"
+name: "Dispatcher"
 on:
-  # permissions: # Permissions applied to pre-activation job
-  # issues: read
-  # pull-requests: read
-  schedule:
-    - cron: "13/30 * * * *"  # Friendly format: every 30m (scattered)
-  # skip-if-match: # Skip-if-match processed as search check in pre-activation job
-  # max: 5
-  # query: is:pr is:open is:draft author:app/copilot-swe-agent
-  # skip-if-no-match: is:issue is:open # Skip-if-no-match processed as search check in pre-activation job
-  # steps: # Steps injected into pre-activation job
-  # - id: search
-  # name: Search for candidate issues
-  # uses: actions/github-script@v9.0.0
-  # with:
-  # script: |
-  # const { owner, repo } = context.repo;
-  # const MAX_ISSUES_WITH_BODY_CONTEXT = 8;
-  # const BODY_SNIPPET_MAX_LENGTH = 600;
-  #
-  # try {
-  # // Check for recent rate-limited PRs to avoid scheduling more work during rate limiting
-  # core.info('Checking for recent rate-limited PRs...');
-  # const rateLimitCheckDate = new Date();
-  # rateLimitCheckDate.setHours(rateLimitCheckDate.getHours() - 1); // Check last hour
-  # // Format as YYYY-MM-DDTHH:MM:SS for GitHub search API
-  # const rateLimitCheckISO = rateLimitCheckDate.toISOString().split('.')[0] + 'Z';
-  #
-  # const recentPRsQuery = `is:pr author:app/copilot-swe-agent created:>${rateLimitCheckISO} repo:${owner}/${repo}`;
-  # const recentPRsResponse = await github.rest.search.issuesAndPullRequests({
-  # q: recentPRsQuery,
-  # per_page: 10,
-  # sort: 'created',
-  # order: 'desc'
-  # });
-  #
-  # core.info(`Found ${recentPRsResponse.data.total_count} recent Copilot PRs to check for rate limiting`);
-  #
-  # // Check if any recent PRs have rate limit indicators
-  # let rateLimitDetected = false;
-  # for (const pr of recentPRsResponse.data.items) {
-  # try {
-  # const prTimelineQuery = `
-  # query($owner: String!, $repo: String!, $number: Int!) {
-  # repository(owner: $owner, name: $repo) {
-  # pullRequest(number: $number) {
-  # timelineItems(first: 50, itemTypes: [ISSUE_COMMENT]) {
-  # nodes {
-  # __typename
-  # ... on IssueComment {
-  # body
-  # createdAt
-  # }
-  # }
-  # }
-  # }
-  # }
-  # }
-  # `;
-  #
-  # const prTimelineResult = await github.graphql(prTimelineQuery, {
-  # owner,
-  # repo,
-  # number: pr.number
-  # });
-  #
-  # const comments = prTimelineResult?.repository?.pullRequest?.timelineItems?.nodes || [];
-  # const rateLimitPattern = /rate limit|API rate limit|secondary rate limit|abuse detection|\b429\b|too many requests/i;
-  #
-  # for (const comment of comments) {
-  # if (comment.body && rateLimitPattern.test(comment.body)) {
-  # core.warning(`Rate limiting detected in PR #${pr.number}: ${comment.body.substring(0, 200)}`);
-  # rateLimitDetected = true;
-  # break;
-  # }
-  # }
-  #
-  # if (rateLimitDetected) break;
-  # } catch (error) {
-  # core.warning(`Could not check PR #${pr.number} for rate limiting: ${error.message}`);
-  # }
-  # }
-  #
-  # if (rateLimitDetected) {
-  # core.warning('🛑 Rate limiting detected in recent PRs. Skipping issue assignment to prevent further rate limit issues.');
-  # core.setOutput('issue_count', 0);
-  # core.setOutput('issue_numbers', '');
-  # core.setOutput('issue_list', '');
-  # core.setOutput('issue_context', '');
-  # core.setOutput('has_issues', 'false');
-  # return;
-  # }
-  #
-  # core.info('✓ No rate limiting detected. Proceeding with issue search.');
-  #
-  # // Labels that indicate an issue should NOT be auto-assigned
-  # const excludeLabels = [
-  # 'wontfix',
-  # 'duplicate',
-  # 'invalid',
-  # 'question',
-  # 'discussion',
-  # 'needs-discussion',
-  # 'blocked',
-  # 'on-hold',
-  # 'waiting-for-feedback',
-  # 'needs-more-info',
-  # 'no-bot',
-  # 'no-campaign'
-  # ];
-  #
-  # // Labels that indicate an issue is a GOOD candidate for auto-assignment
-  # const priorityLabels = [
-  # 'community',
-  # 'good first issue',
-  # 'good-first-issue',
-  # 'bug',
-  # 'enhancement',
-  # 'feature',
-  # 'documentation',
-  # 'tech-debt',
-  # 'refactoring',
-  # 'performance',
-  # 'security'
-  # ];
-  #
-  # // Search for open issues with "cookie" label and without excluded labels
-  # // The "cookie" label indicates issues that are approved work queue items from automated workflows
-  # const query = `is:issue is:open repo:${owner}/${repo} label:cookie -label:"${excludeLabels.join('" -label:"')}"`;
-  # core.info(`Searching: ${query}`);
-  # const response = await github.rest.search.issuesAndPullRequests({
-  # q: query,
-  # per_page: 100,
-  # sort: 'created',
-  # order: 'desc'
-  # });
-  # core.info(`Found ${response.data.total_count} total issues matching basic criteria`);
-  #
-  # // Fetch full details for each issue to get labels, assignees, sub-issues, and linked PRs
-  # // Track integrity-filtered issues to emit a diagnostic summary
-  # const integrityFilteredIssues = [];
-  # const issuesWithDetails = (await Promise.all(
-  # response.data.items.map(async (issue) => {
-  # // Fetch full issue details — some issues may be blocked by integrity policy
-  # let fullIssue;
-  # try {
-  # fullIssue = await github.rest.issues.get({
-  # owner,
-  # repo,
-  # issue_number: issue.number
-  # });
-  # } catch (fetchError) {
-  # // Integrity-filtered issues (403/451) or other transient errors should be
-  # // skipped individually rather than failing the entire batch
-  # const status = fetchError.status || fetchError.response?.status;
-  # // 403 = Forbidden (integrity policy), 451 = Unavailable For Legal Reasons
-  # const isIntegrityBlock = status === 403 || status === 451 ||
-  # /\bintegrity\b/i.test(fetchError.message || '');
-  # const errorSummary = (fetchError.message || String(fetchError)).slice(0, 120);
-  # if (isIntegrityBlock) {
-  # integrityFilteredIssues.push(issue.number);
-  # core.warning(`⚠️ Skipping issue #${issue.number}: blocked by integrity policy (HTTP ${status || 'unknown'}): ${errorSummary}`);
-  # } else {
-  # core.warning(`⚠️ Skipping issue #${issue.number}: could not fetch details (HTTP ${status || 'unknown'}): ${errorSummary}`);
-  # }
-  # return null;
-  # }
-  #
-  # // Check if this issue has sub-issues and linked PRs using GraphQL
-  # let subIssuesCount = 0;
-  # let linkedPRs = [];
-  # try {
-  # const issueDetailsQuery = `
-  # query($owner: String!, $repo: String!, $number: Int!) {
-  # repository(owner: $owner, name: $repo) {
-  # issue(number: $number) {
-  # subIssues {
-  # totalCount
-  # }
-  # timelineItems(first: 100, itemTypes: [CROSS_REFERENCED_EVENT]) {
-  # nodes {
-  # ... on CrossReferencedEvent {
-  # source {
-  # __typename
-  # ... on PullRequest {
-  # number
-  # state
-  # isDraft
-  # author {
-  # login
-  # }
-  # }
-  # }
-  # }
-  # }
-  # }
-  # }
-  # }
-  # }
-  # `;
-  # const issueDetailsResult = await github.graphql(issueDetailsQuery, {
-  # owner,
-  # repo,
-  # number: issue.number
-  # });
-  #
-  # subIssuesCount = issueDetailsResult?.repository?.issue?.subIssues?.totalCount || 0;
-  #
-  # // Extract linked PRs from timeline
-  # const timelineItems = issueDetailsResult?.repository?.issue?.timelineItems?.nodes || [];
-  # linkedPRs = timelineItems
-  # .filter(item => item?.source?.__typename === 'PullRequest')
-  # .map(item => ({
-  # number: item.source.number,
-  # state: item.source.state,
-  # isDraft: item.source.isDraft,
-  # author: item.source.author?.login
-  # }));
-  #
-  # core.info(`Issue #${issue.number} has ${linkedPRs.length} linked PR(s)`);
-  # } catch (error) {
-  # // If GraphQL query fails, continue with defaults
-  # core.warning(`Could not check details for #${issue.number}: ${error.message}`);
-  # }
-  #
-  # return {
-  # ...fullIssue.data,
-  # subIssuesCount,
-  # linkedPRs
-  # };
-  # })
-  # )).filter(Boolean); // Remove null entries (integrity-filtered or otherwise skipped)
-  #
-  # // Emit diagnostic summary for integrity-filtered issues
-  # if (integrityFilteredIssues.length > 0) {
-  # core.warning(`🛡️ Integrity filter diagnostic: ${integrityFilteredIssues.length} issue(s) were skipped due to integrity policy: #${integrityFilteredIssues.join(', #')}. These issues will be excluded from this run.`);
-  # }
-  #
-  # // Filter and score issues
-  # const scoredIssues = issuesWithDetails
-  # .filter(issue => {
-  # // Exclude issues that already have assignees
-  # if (issue.assignees && issue.assignees.length > 0) {
-  # core.info(`Skipping #${issue.number}: already has assignees`);
-  # return false;
-  # }
-  #
-  # // Exclude issues with excluded labels (double check)
-  # const issueLabels = issue.labels.map(l => l.name.toLowerCase());
-  # if (issueLabels.some(label => excludeLabels.map(l => l.toLowerCase()).includes(label))) {
-  # core.info(`Skipping #${issue.number}: has excluded label`);
-  # return false;
-  # }
-  #
-  # // Exclude issues with campaign labels (campaign:*)
-  # // Campaign items are managed by campaign orchestrators
-  # if (issueLabels.some(label => label.startsWith('campaign:'))) {
-  # core.info(`Skipping #${issue.number}: has campaign label (managed by campaign orchestrator)`);
-  # return false;
-  # }
-  #
-  # // Exclude issues that have sub-issues (parent/organizing issues)
-  # if (issue.subIssuesCount > 0) {
-  # core.info(`Skipping #${issue.number}: has ${issue.subIssuesCount} sub-issue(s) - parent issues are used for organizing, not tasks`);
-  # return false;
-  # }
-  #
-  # // Exclude issues with closed PRs (treat as complete)
-  # const closedPRs = issue.linkedPRs?.filter(pr => pr.state === 'CLOSED' || pr.state === 'MERGED') || [];
-  # if (closedPRs.length > 0) {
-  # core.info(`Skipping #${issue.number}: has ${closedPRs.length} closed/merged PR(s) - treating as complete`);
-  # return false;
-  # }
-  #
-  # // Exclude issues with open PRs from Copilot coding agent
-  # const openCopilotPRs = issue.linkedPRs?.filter(pr =>
-  # pr.state === 'OPEN' &&
-  # (pr.author === 'copilot-swe-agent' || pr.author?.includes('copilot'))
-  # ) || [];
-  # if (openCopilotPRs.length > 0) {
-  # core.info(`Skipping #${issue.number}: has ${openCopilotPRs.length} open PR(s) from Copilot - already being worked on`);
-  # return false;
-  # }
-  #
-  # return true;
-  # })
-  # .map(issue => {
-  # const issueLabels = issue.labels.map(l => l.name.toLowerCase());
-  # let score = 0;
-  #
-  # // Score based on priority labels (higher score = higher priority)
-  # // Community issues always get the highest priority — these are
-  # // requests from external contributors and should be addressed first.
-  # if (issueLabels.includes('community')) {
-  # score += 60;
-  # }
-  # if (issueLabels.includes('good first issue') || issueLabels.includes('good-first-issue')) {
-  # score += 50;
-  # }
-  # if (issueLabels.includes('bug')) {
-  # score += 40;
-  # }
-  # if (issueLabels.includes('security')) {
-  # score += 45;
-  # }
-  # if (issueLabels.includes('documentation')) {
-  # score += 35;
-  # }
-  # if (issueLabels.includes('enhancement') || issueLabels.includes('feature')) {
-  # score += 30;
-  # }
-  # if (issueLabels.includes('performance')) {
-  # score += 25;
-  # }
-  # if (issueLabels.includes('tech-debt') || issueLabels.includes('refactoring')) {
-  # score += 20;
-  # }
-  #
-  # // Bonus for issues with clear labels (any priority label)
-  # if (issueLabels.some(label => priorityLabels.map(l => l.toLowerCase()).includes(label))) {
-  # score += 10;
-  # }
-  #
-  # // Age bonus: older issues get slight priority (days old / 10)
-  # const ageInDays = Math.floor((Date.now() - new Date(issue.created_at)) / (1000 * 60 * 60 * 24));
-  # score += Math.min(ageInDays / 10, 20); // Cap age bonus at 20 points
-  #
-  # return {
-  # number: issue.number,
-  # title: issue.title,
-  # labels: issue.labels.map(l => l.name),
-  # body: issue.body,
-  # created_at: issue.created_at,
-  # score
-  # };
-  # })
-  # .sort((a, b) => b.score - a.score); // Sort by score descending
-  #
-  # // Format output
-  # const issueList = scoredIssues.map(i => {
-  # const labelStr = i.labels.length > 0 ? ` [${i.labels.join(', ')}]` : '';
-  # return `#${i.number}: ${i.title}${labelStr} (score: ${i.score.toFixed(1)})`;
-  # }).join('\n');
-  #
-  # // Pre-fetch compact body context for top candidates so the agent can
-  # // triage without extra reads in most runs.
-  # const issueContext = scoredIssues.slice(0, MAX_ISSUES_WITH_BODY_CONTEXT).map(i => {
-  # const body = (i.body || '').replace(/\s+/g, ' ').trim();
-  # const bodySnippet = body.length > BODY_SNIPPET_MAX_LENGTH ? `${body.slice(0, BODY_SNIPPET_MAX_LENGTH)}…` : body;
-  # const labelStr = i.labels.length > 0 ? i.labels.join(', ') : 'none';
-  # return `#${i.number} | score=${i.score.toFixed(1)} | labels=${labelStr}\nTitle: ${i.title}\nBody: ${bodySnippet || '(no body)'}`;
-  # }).join('\n\n---\n\n');
-  #
-  # const issueNumbers = scoredIssues.map(i => i.number).join(',');
-  #
-  # core.info(`Total candidate issues after filtering: ${scoredIssues.length}`);
-  # if (scoredIssues.length > 0) {
-  # core.info(`Top candidates:\n${issueList.split('\n').slice(0, 10).join('\n')}`);
-  # }
-  #
-  # core.setOutput('issue_count', scoredIssues.length);
-  # core.setOutput('issue_numbers', issueNumbers);
-  # core.setOutput('issue_list', issueList);
-  # core.setOutput('issue_context', issueContext);
-  #
-  # if (scoredIssues.length === 0) {
-  # core.info('🍽️ No suitable candidate issues - the plate is empty!');
-  # core.setOutput('has_issues', 'false');
-  # } else {
-  # core.setOutput('has_issues', 'true');
-  # }
-  # } catch (error) {
-  # core.error(`Error searching for issues: ${error.message}`);
-  # core.setOutput('issue_count', 0);
-  # core.setOutput('issue_numbers', '');
-  # core.setOutput('issue_list', '');
-  # core.setOutput('issue_context', '');
-  # core.setOutput('has_issues', 'false');
-  # }
-  workflow_dispatch:
-    inputs:
-      aw_context:
-        default: ""
-        description: "Agent caller context (used internally by Agentic Workflows)."
-        required: false
-        type: string
+  issues:
+    types:
+      - labeled
 
 permissions: {}
 
 concurrency:
-  group: "gh-aw-${{ github.workflow }}-${{ github.event.issue.number || github.event.discussion.number || github.run_id }}"
+  group: "gh-aw-${{ github.workflow }}-${{ github.event.issue.number || github.run_id }}"
   queue: max
 
-run-name: "Issue Monster"
+run-name: "Dispatcher"
 
 env:
   OTEL_EXPORTER_OTLP_ENDPOINT: ${{ secrets.GH_AW_DEFAULT_OTLP_ENDPOINT || vars.GH_AW_DEFAULT_OTLP_ENDPOINT }}
-  OTEL_SERVICE_NAME: gh-aw.issue-monster
-  OTEL_RESOURCE_ATTRIBUTES: 'gh-aw.workflow.name=Issue%20Monster,gh-aw.repository=${{ github.repository }},gh-aw.run.id=${{ github.run_id }},github.run_id=${{ github.run_id }},gh-aw.engine.id=copilot'
+  OTEL_SERVICE_NAME: gh-aw.dispatcher
+  OTEL_RESOURCE_ATTRIBUTES: 'gh-aw.workflow.name=Dispatcher,gh-aw.repository=${{ github.repository }},gh-aw.run.id=${{ github.run_id }},github.run_id=${{ github.run_id }},gh-aw.engine.id=copilot'
   OTEL_EXPORTER_OTLP_HEADERS: ${{ secrets.GH_AW_DEFAULT_OTLP_HEADERS }}
   GH_AW_OTLP_ENDPOINTS: '[{"url":"${{ secrets.GH_AW_DEFAULT_OTLP_ENDPOINT || vars.GH_AW_DEFAULT_OTLP_ENDPOINT }}","headers":"${{ secrets.GH_AW_DEFAULT_OTLP_HEADERS }}"}]'
   GH_AW_OTLP_IF_MISSING: ignore
@@ -458,7 +77,7 @@ env:
 jobs:
   activation:
     needs: pre_activation
-    if: needs.pre_activation.outputs.activated == 'true' && (needs.pre_activation.outputs.has_issues == 'true')
+    if: needs.pre_activation.outputs.activated == 'true'
     runs-on: ubuntu-slim
     permissions:
       actions: read
@@ -468,6 +87,7 @@ jobs:
       GH_AW_MAX_DAILY_AI_CREDITS: ${{ vars.GH_AW_DEFAULT_MAX_DAILY_AI_CREDITS || '5000' }}
       GH_AW_RUNTIME_FEATURES: ${{ vars.GH_AW_RUNTIME_FEATURES }}
     outputs:
+      body: ${{ steps.sanitized.outputs.body }}
       comment_id: ""
       comment_repo: ""
       daily_ai_credits_exceeded: ${{ steps.daily-ai-credits-workflow-guardrail.outputs.daily_ai_credits_exceeded == 'true' }}
@@ -479,10 +99,13 @@ jobs:
       lockdown_check_failed: ${{ steps.generate_aw_info.outputs.lockdown_check_failed == 'true' }}
       model: ${{ steps.generate_aw_info.outputs.model }}
       oauth_token_check_failed: ${{ steps.check-oauth-tokens.outputs.oauth_token_check_failed == 'true' }}
+      secret_verification_result: ${{ steps.validate-secret.outputs.verification_result }}
       setup-parent-span-id: ${{ steps.setup.outputs.parent-span-id || steps.setup.outputs.span-id }}
       setup-span-id: ${{ steps.setup.outputs.span-id }}
       setup-trace-id: ${{ steps.setup.outputs.trace-id }}
       stale_lock_file_failed: ${{ steps.check-lock-file.outputs.stale_lock_file_failed == 'true' }}
+      text: ${{ steps.sanitized.outputs.text }}
+      title: ${{ steps.sanitized.outputs.title }}
     steps:
       - name: Setup Scripts
         id: setup
@@ -494,8 +117,8 @@ jobs:
           parent-span-id: ${{ needs.pre_activation.outputs.setup-parent-span-id || needs.pre_activation.outputs.setup-span-id }}
           safe-output-artifact-client: ${{ env.GH_AW_MAX_DAILY_AI_CREDITS != '' }}
         env:
-          GH_AW_SETUP_WORKFLOW_NAME: "Issue Monster"
-          GH_AW_CURRENT_WORKFLOW_REF: ${{ github.repository }}/.github/workflows/issue-monster.lock.yml@${{ github.ref }}
+          GH_AW_SETUP_WORKFLOW_NAME: "Dispatcher"
+          GH_AW_CURRENT_WORKFLOW_REF: ${{ github.repository }}/.github/workflows/dispatcher.lock.yml@${{ github.ref }}
           GH_AW_INFO_VERSION: "1.0.87"
           GH_AW_INFO_AWF_VERSION: "v0.28.23"
           GH_AW_INFO_ENGINE_ID: "copilot"
@@ -510,7 +133,7 @@ jobs:
           GH_AW_INFO_VERSION: "1.0.87"
           GH_AW_INFO_AGENT_VERSION: "1.0.87"
           GH_AW_INFO_CLI_VERSION: "v0.89.21"
-          GH_AW_INFO_WORKFLOW_NAME: "Issue Monster"
+          GH_AW_INFO_WORKFLOW_NAME: "Dispatcher"
           GH_AW_INFO_EXPERIMENTAL: "false"
           GH_AW_INFO_SUPPORTS_TOOLS_ALLOWLIST: "true"
           GH_AW_INFO_STAGED: "false"
@@ -520,7 +143,6 @@ jobs:
           GH_AW_INFO_AWMG_VERSION: ""
           GH_AW_INFO_FIREWALL_TYPE: "squid"
           GH_AW_INFO_AGENT_RUNTIME: ""
-          GH_AW_INFO_FRONTMATTER_EMOJI: "👾"
           GH_AW_COMPILED_STRICT: "true"
         uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         with:
@@ -552,8 +174,8 @@ jobs:
         if: ${{ env.GH_AW_MAX_DAILY_AI_CREDITS != '' }}
         uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         env:
-          GH_AW_WORKFLOW_NAME: "Issue Monster"
-          GH_AW_WORKFLOW_ID: "issue-monster"
+          GH_AW_WORKFLOW_NAME: "Dispatcher"
+          GH_AW_WORKFLOW_ID: "dispatcher"
           GH_AW_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
           GH_AW_WORKFLOW_DISPATCH_AW_CONTEXT: ${{ github.event.inputs.aw_context || '' }}
           GH_AW_HAS_SLASH_COMMAND: "false"
@@ -580,10 +202,16 @@ jobs:
           overwrite: true
           if-no-files-found: ignore
           retention-days: 3
+      - name: Validate COPILOT_GITHUB_TOKEN secret
+        id: validate-secret
+        run: bash "${RUNNER_TEMP}/gh-aw/actions/validate_multi_secret.sh" COPILOT_GITHUB_TOKEN 'GitHub Copilot CLI' https://github.github.com/gh-aw/reference/engines/#github-copilot-default
+        env:
+          COPILOT_GITHUB_TOKEN: ${{ secrets.COPILOT_GITHUB_TOKEN }}
       - name: Check for OAuth tokens
         id: check-oauth-tokens
         run: bash "${RUNNER_TEMP}/gh-aw/actions/check_oauth_tokens.sh"
         env:
+          COPILOT_GITHUB_TOKEN: ${{ secrets.COPILOT_GITHUB_TOKEN }}
           GH_AW_GITHUB_TOKEN: ${{ secrets.GH_AW_GITHUB_TOKEN }}
           GH_AW_GITHUB_MCP_SERVER_TOKEN: ${{ secrets.GH_AW_GITHUB_MCP_SERVER_TOKEN }}
       - name: Checkout .github and .agents folders
@@ -609,7 +237,7 @@ jobs:
         id: check-lock-file
         uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         env:
-          GH_AW_WORKFLOW_FILE: "issue-monster.lock.yml"
+          GH_AW_WORKFLOW_FILE: "dispatcher.lock.yml"
           GH_AW_CONTEXT_WORKFLOW_REF: "${{ github.workflow_ref }}"
         with:
           script: |
@@ -624,7 +252,7 @@ jobs:
         env:
           GH_AW_COMPILED_VERSION: "v0.89.21"
           GH_AW_BLOCKED_VERSION_REPORT_AS_ISSUE: "true"
-          GH_AW_WORKFLOW_NAME: "Issue Monster"
+          GH_AW_WORKFLOW_NAME: "Dispatcher"
         with:
           script: |
             const path = require('path');
@@ -632,6 +260,19 @@ jobs:
             const { setupGlobals } = require(path.join(actionsDir, 'setup_globals.cjs'));
             setupGlobals(core, github, context, exec, io, getOctokit);
             const { main } = require(path.join(actionsDir, 'check_version_updates.cjs'));
+            await main();
+      - name: Compute current body text
+        id: sanitized
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        env:
+          GH_AW_ALLOWED_DOMAINS: "api.snapcraft.io,archive.ubuntu.com,azure.archive.ubuntu.com,crl.geotrust.com,crl.globalsign.com,crl.identrust.com,crl.sectigo.com,crl.thawte.com,crl.usertrust.com,crl.verisign.com,crl3.digicert.com,crl4.digicert.com,crls.ssl.com,json-schema.org,json.schemastore.org,keyserver.ubuntu.com,ocsp.digicert.com,ocsp.geotrust.com,ocsp.globalsign.com,ocsp.identrust.com,ocsp.sectigo.com,ocsp.ssl.com,ocsp.thawte.com,ocsp.usertrust.com,ocsp.verisign.com,packagecloud.io,packages.cloud.google.com,packages.microsoft.com,ppa.launchpad.net,s.symcb.com,s.symcd.com,security.ubuntu.com,ts-crl.ws.symantec.com,ts-ocsp.ws.symantec.com,www.googleapis.com"
+        with:
+          script: |
+            const path = require('path');
+            const actionsDir = path.join(process.env.RUNNER_TEMP, 'gh-aw', 'actions');
+            const { setupGlobals } = require(path.join(actionsDir, 'setup_globals.cjs'));
+            setupGlobals(core, github, context, exec, io, getOctokit);
+            const { main } = require(path.join(actionsDir, 'compute_text.cjs'));
             await main();
       - name: Log runtime features
         if: ${{ contains(toJSON(vars), '"GH_AW_RUNTIME_FEATURES":') }}
@@ -642,25 +283,22 @@ jobs:
           GH_AW_ACTIONS_DIR: ${{ runner.temp }}/gh-aw/actions
           GH_AW_PROMPT: ${{ runner.temp }}/gh-aw/aw-prompts/prompt.txt
           GH_AW_SAFE_OUTPUTS: ${{ runner.temp }}/gh-aw/safeoutputs/outputs.jsonl
-          GH_AW_PROMPT_CONFIG: "{\"items\":[{\"content_env\":\"GH_AW_PROMPT_CONTENT_0000\"},{\"file\":\"xpia.md\"},{\"file\":\"temp_folder_prompt.md\"},{\"file\":\"markdown.md\"},{\"file\":\"safe_outputs_prompt.md\"},{\"content_env\":\"GH_AW_PROMPT_CONTENT_0001\"},{\"content_env\":\"GH_AW_PROMPT_CONTENT_0002\"},{\"file\":\"mcp_cli_tools_with_safeoutputs_prompt.md\"},{\"content_env\":\"GH_AW_PROMPT_CONTENT_0003\"},{\"file\":\"cli_proxy_with_safeoutputs_prompt.md\"},{\"content_env\":\"GH_AW_PROMPT_CONTENT_0004\"},{\"content_env\":\"GH_AW_PROMPT_CONTENT_0005\"}]}"
+          GH_AW_PROMPT_CONFIG: "{\"items\":[{\"content_env\":\"GH_AW_PROMPT_CONTENT_0000\"},{\"file\":\"xpia.md\"},{\"file\":\"temp_folder_prompt.md\"},{\"file\":\"markdown.md\"},{\"file\":\"safe_outputs_prompt.md\"},{\"content_env\":\"GH_AW_PROMPT_CONTENT_0001\"},{\"content_env\":\"GH_AW_PROMPT_CONTENT_0002\"},{\"file\":\"mcp_cli_tools_with_safeoutputs_prompt.md\"},{\"content_env\":\"GH_AW_PROMPT_CONTENT_0003\"},{\"file\":\"github_mcp_tools_with_safeoutputs_prompt.md\"},{\"content_env\":\"GH_AW_PROMPT_CONTENT_0004\"},{\"content_env\":\"GH_AW_PROMPT_CONTENT_0005\"}]}"
           GH_AW_EXPR_1A3A194A: ${{ github.event.discussion.number || (fromJSON(github.event.inputs.aw_context || github.event.client_payload.aw_context || '{}').item_type == 'discussion' && fromJSON(github.event.inputs.aw_context || github.event.client_payload.aw_context || '{}').item_number) }}
           GH_AW_EXPR_463A214A: ${{ github.event.pull_request.number || (fromJSON(github.event.inputs.aw_context || github.event.client_payload.aw_context || '{}').item_type == 'pull_request' && fromJSON(github.event.inputs.aw_context || github.event.client_payload.aw_context || '{}').item_number) }}
           GH_AW_EXPR_802A9F6A: ${{ github.event.issue.number || (fromJSON(github.event.inputs.aw_context || github.event.client_payload.aw_context || '{}').item_type == 'issue' && fromJSON(github.event.inputs.aw_context || github.event.client_payload.aw_context || '{}').item_number) }}
           GH_AW_EXPR_FF1D34CE: ${{ github.event.comment.id || fromJSON(github.event.inputs.aw_context || github.event.client_payload.aw_context || '{}').comment_id }}
           GH_AW_GITHUB_ACTOR: ${{ github.actor }}
+          GH_AW_GITHUB_EVENT_ISSUE_NUMBER: ${{ github.event.issue.number }}
           GH_AW_GITHUB_REPOSITORY: ${{ github.repository }}
           GH_AW_GITHUB_RUN_ID: ${{ github.run_id }}
           GH_AW_GITHUB_WORKSPACE: ${{ github.workspace }}
-          GH_AW_NEEDS_PRE_ACTIVATION_OUTPUTS_ISSUE_CONTEXT: ${{ needs.pre_activation.outputs.issue_context }}
-          GH_AW_NEEDS_PRE_ACTIVATION_OUTPUTS_ISSUE_COUNT: ${{ needs.pre_activation.outputs.issue_count }}
-          GH_AW_NEEDS_PRE_ACTIVATION_OUTPUTS_ISSUE_LIST: ${{ needs.pre_activation.outputs.issue_list }}
-          GH_AW_NEEDS_PRE_ACTIVATION_OUTPUTS_ISSUE_NUMBERS: ${{ needs.pre_activation.outputs.issue_numbers }}
           GH_AW_PROMPT_CONTENT_0000: "<system>\n"
-          GH_AW_PROMPT_CONTENT_0001: "<safe-output-tools>\nTools: add_comment(max:3), assign_to_agent(max:3), missing_tool, missing_data, noop\n"
+          GH_AW_PROMPT_CONTENT_0001: "<safe-output-tools>\nTools: add_comment, add_labels, remove_labels, assign_to_agent, missing_tool, missing_data, noop\n"
           GH_AW_PROMPT_CONTENT_0002: "</safe-output-tools>\n"
           GH_AW_PROMPT_CONTENT_0003: "<github-context>\nThe following GitHub context information is available for this workflow:\n{{#if github.actor}}\n- **actor**: __GH_AW_GITHUB_ACTOR__\n{{/if}}\n{{#if github.repository}}\n- **repository**: __GH_AW_GITHUB_REPOSITORY__\n{{/if}}\n{{#if github.workspace}}\n- **workspace**: __GH_AW_GITHUB_WORKSPACE__\n{{/if}}\n{{#if github.event.issue.number || (github.aw.context.item_type == 'issue' && github.aw.context.item_number)}}\n- **issue-number**: #__GH_AW_EXPR_802A9F6A__\n{{/if}}\n{{#if github.event.discussion.number || (github.aw.context.item_type == 'discussion' && github.aw.context.item_number)}}\n- **discussion-number**: #__GH_AW_EXPR_1A3A194A__\n{{/if}}\n{{#if github.event.pull_request.number || (github.aw.context.item_type == 'pull_request' && github.aw.context.item_number)}}\n- **pull-request-number**: #__GH_AW_EXPR_463A214A__\n{{/if}}\n{{#if github.event.comment.id || github.aw.context.comment_id}}\n- **comment-id**: __GH_AW_EXPR_FF1D34CE__\n{{/if}}\n{{#if github.run_id}}\n- **workflow-run-id**: __GH_AW_GITHUB_RUN_ID__\n{{/if}}\n</github-context>\n\n"
           GH_AW_PROMPT_CONTENT_0004: "</system>\n"
-          GH_AW_PROMPT_CONTENT_0005: "{{#runtime-import .github/workflows/issue-monster.md}}\n"
+          GH_AW_PROMPT_CONTENT_0005: "{{#runtime-import .github/workflows/dispatcher.md}}\n"
         with:
           script: |
             const { setupGlobals } = require(process.env.GH_AW_ACTIONS_DIR + '/setup_globals.cjs');
@@ -672,11 +310,7 @@ jobs:
         env:
           GH_AW_PROMPT: ${{ runner.temp }}/gh-aw/aw-prompts/prompt.txt
           GH_AW_ENGINE_ID: "copilot"
-          GH_AW_GITHUB_REPOSITORY: ${{ github.repository }}
-          GH_AW_NEEDS_PRE_ACTIVATION_OUTPUTS_ISSUE_CONTEXT: ${{ needs.pre_activation.outputs.issue_context }}
-          GH_AW_NEEDS_PRE_ACTIVATION_OUTPUTS_ISSUE_COUNT: ${{ needs.pre_activation.outputs.issue_count }}
-          GH_AW_NEEDS_PRE_ACTIVATION_OUTPUTS_ISSUE_LIST: ${{ needs.pre_activation.outputs.issue_list }}
-          GH_AW_NEEDS_PRE_ACTIVATION_OUTPUTS_ISSUE_NUMBERS: ${{ needs.pre_activation.outputs.issue_numbers }}
+          GH_AW_GITHUB_EVENT_ISSUE_NUMBER: ${{ github.event.issue.number }}
         with:
           script: |
             const path = require('path');
@@ -694,15 +328,12 @@ jobs:
           GH_AW_EXPR_802A9F6A: ${{ github.event.issue.number || (fromJSON(github.event.inputs.aw_context || github.event.client_payload.aw_context || '{}').item_type == 'issue' && fromJSON(github.event.inputs.aw_context || github.event.client_payload.aw_context || '{}').item_number) }}
           GH_AW_EXPR_FF1D34CE: ${{ github.event.comment.id || fromJSON(github.event.inputs.aw_context || github.event.client_payload.aw_context || '{}').comment_id }}
           GH_AW_GITHUB_ACTOR: ${{ github.actor }}
+          GH_AW_GITHUB_EVENT_ISSUE_NUMBER: ${{ github.event.issue.number }}
           GH_AW_GITHUB_REPOSITORY: ${{ github.repository }}
           GH_AW_GITHUB_RUN_ID: ${{ github.run_id }}
           GH_AW_GITHUB_WORKSPACE: ${{ github.workspace }}
-          GH_AW_MCP_CLI_SERVERS_LIST: '- `safeoutputs` — run `safeoutputs --help` to see available tools'
+          GH_AW_MCP_CLI_SERVERS_LIST: "- `github` — run `github --help` to see available tools\n- `safeoutputs` — run `safeoutputs --help` to see available tools"
           GH_AW_NEEDS_PRE_ACTIVATION_OUTPUTS_ACTIVATED: ${{ needs.pre_activation.outputs.activated }}
-          GH_AW_NEEDS_PRE_ACTIVATION_OUTPUTS_ISSUE_CONTEXT: ${{ needs.pre_activation.outputs.issue_context }}
-          GH_AW_NEEDS_PRE_ACTIVATION_OUTPUTS_ISSUE_COUNT: ${{ needs.pre_activation.outputs.issue_count }}
-          GH_AW_NEEDS_PRE_ACTIVATION_OUTPUTS_ISSUE_LIST: ${{ needs.pre_activation.outputs.issue_list }}
-          GH_AW_NEEDS_PRE_ACTIVATION_OUTPUTS_ISSUE_NUMBERS: ${{ needs.pre_activation.outputs.issue_numbers }}
         with:
           script: |
             const path = require('path');
@@ -721,15 +352,12 @@ jobs:
                 GH_AW_EXPR_802A9F6A: process.env.GH_AW_EXPR_802A9F6A,
                 GH_AW_EXPR_FF1D34CE: process.env.GH_AW_EXPR_FF1D34CE,
                 GH_AW_GITHUB_ACTOR: process.env.GH_AW_GITHUB_ACTOR,
+                GH_AW_GITHUB_EVENT_ISSUE_NUMBER: process.env.GH_AW_GITHUB_EVENT_ISSUE_NUMBER,
                 GH_AW_GITHUB_REPOSITORY: process.env.GH_AW_GITHUB_REPOSITORY,
                 GH_AW_GITHUB_RUN_ID: process.env.GH_AW_GITHUB_RUN_ID,
                 GH_AW_GITHUB_WORKSPACE: process.env.GH_AW_GITHUB_WORKSPACE,
                 GH_AW_MCP_CLI_SERVERS_LIST: process.env.GH_AW_MCP_CLI_SERVERS_LIST,
-                GH_AW_NEEDS_PRE_ACTIVATION_OUTPUTS_ACTIVATED: process.env.GH_AW_NEEDS_PRE_ACTIVATION_OUTPUTS_ACTIVATED,
-                GH_AW_NEEDS_PRE_ACTIVATION_OUTPUTS_ISSUE_CONTEXT: process.env.GH_AW_NEEDS_PRE_ACTIVATION_OUTPUTS_ISSUE_CONTEXT,
-                GH_AW_NEEDS_PRE_ACTIVATION_OUTPUTS_ISSUE_COUNT: process.env.GH_AW_NEEDS_PRE_ACTIVATION_OUTPUTS_ISSUE_COUNT,
-                GH_AW_NEEDS_PRE_ACTIVATION_OUTPUTS_ISSUE_LIST: process.env.GH_AW_NEEDS_PRE_ACTIVATION_OUTPUTS_ISSUE_LIST,
-                GH_AW_NEEDS_PRE_ACTIVATION_OUTPUTS_ISSUE_NUMBERS: process.env.GH_AW_NEEDS_PRE_ACTIVATION_OUTPUTS_ISSUE_NUMBERS
+                GH_AW_NEEDS_PRE_ACTIVATION_OUTPUTS_ACTIVATED: process.env.GH_AW_NEEDS_PRE_ACTIVATION_OUTPUTS_ACTIVATED
               }
             });
       - name: Validate prompt placeholders
@@ -778,7 +406,6 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      copilot-requests: write
       issues: read
       pull-requests: read
     timeout-minutes: 60
@@ -795,7 +422,7 @@ jobs:
       GH_AW_PR_HEAD_BASE_SHA: ""
       GH_AW_PR_HEAD_REPO: ""
       GH_AW_RUNTIME_FEATURES: ${{ vars.GH_AW_RUNTIME_FEATURES }}
-      GH_AW_WORKFLOW_ID_SANITIZED: issuemonster
+      GH_AW_WORKFLOW_ID_SANITIZED: dispatcher
     outputs:
       agentic_engine_timeout: ${{ steps.detect-agent-errors.outputs.agentic_engine_timeout || 'false' }}
       ai_credits_rate_limit_error: ${{ steps.parse-mcp-gateway.outputs.ai_credits_rate_limit_error || 'false' }}
@@ -829,8 +456,8 @@ jobs:
           trace-id: ${{ needs.activation.outputs.setup-trace-id }}
           parent-span-id: ${{ needs.activation.outputs.setup-parent-span-id || needs.activation.outputs.setup-span-id }}
         env:
-          GH_AW_SETUP_WORKFLOW_NAME: "Issue Monster"
-          GH_AW_CURRENT_WORKFLOW_REF: ${{ github.repository }}/.github/workflows/issue-monster.lock.yml@${{ github.ref }}
+          GH_AW_SETUP_WORKFLOW_NAME: "Dispatcher"
+          GH_AW_CURRENT_WORKFLOW_REF: ${{ github.repository }}/.github/workflows/dispatcher.lock.yml@${{ github.ref }}
           GH_AW_INFO_VERSION: "1.0.87"
           GH_AW_INFO_AWF_VERSION: "v0.28.23"
           GH_AW_INFO_ENGINE_ID: "copilot"
@@ -907,20 +534,12 @@ jobs:
         env:
           GH_AW_GITHUB_TOKEN: ${{ secrets.GH_AW_GITHUB_TOKEN }}
           GH_AW_GITHUB_MCP_SERVER_TOKEN: ${{ secrets.GH_AW_GITHUB_MCP_SERVER_TOKEN }}
-          GH_AW_GITHUB_MIN_INTEGRITY: 'approved'
         with:
           script: |
             const path = require('path');
             const actionsDir = path.join(process.env.RUNNER_TEMP, 'gh-aw', 'actions');
             const determineAutomaticLockdown = require(path.join(actionsDir, 'determine_automatic_lockdown.cjs'));
             await determineAutomaticLockdown(github, context, core);
-      - name: Parse integrity filter lists
-        id: parse-guard-vars
-        env:
-          GH_AW_BLOCKED_USERS_VAR: ${{ vars.GH_AW_GITHUB_BLOCKED_USERS || '' }}
-          GH_AW_TRUSTED_USERS_VAR: ${{ vars.GH_AW_GITHUB_TRUSTED_USERS || '' }}
-          GH_AW_APPROVAL_LABELS_VAR: ${{ vars.GH_AW_GITHUB_APPROVAL_LABELS || '' }}
-        run: bash "${RUNNER_TEMP}/gh-aw/actions/parse_guard_list.sh"
       - name: Restore agent config folders from base branch
         if: steps.checkout-pr.outcome == 'success'
         env:
@@ -937,7 +556,7 @@ jobs:
           GH_AW_SKILL_DIR: ".github/skills"
         run: bash "${RUNNER_TEMP}/gh-aw/actions/restore_inline_skills.sh"
       - name: Download container images
-        run: bash "${RUNNER_TEMP}/gh-aw/actions/download_docker_images.sh" ghcr.io/github/gh-aw-firewall/agent:0.28.23@sha256:2c78aaba1c108e130e2d6d01e4f2cca334ea04c53e6f258913ac34173fe7e3b2 ghcr.io/github/gh-aw-firewall/api-proxy:0.28.23@sha256:c15c3d1208df10c5b588a3657be53742aa982ae0909d1eb1812525268794ca64 ghcr.io/github/gh-aw-firewall/cli-proxy:0.28.23@sha256:9e31a6e518eba44652b9ae94ce55c3b6958e06290c3b81b08de4174751bb439a ghcr.io/github/gh-aw-firewall/squid:0.28.23@sha256:02ffc56dd40158223064ef03a78c2d9717473c93723b4e403d455ea6f0b09ae0 ghcr.io/github/gh-aw-mcpg:v0.4.25@sha256:9be0a86220e807a0ecc89e53d7453468f7a53fbc6b3d1efd2299025ffe01d086 ghcr.io/github/gh-aw-node@sha256:11c2c544876cdbaffefe0f7f1283b74838c209654b4934a78e23ed11f750490f ghcr.io/github/github-mcp-server:v1.12.2@sha256:508a0857ec762b1ab1cece29193345b501fab1dd9d1228a7b617062954cecac6
+        run: bash "${RUNNER_TEMP}/gh-aw/actions/download_docker_images.sh" ghcr.io/github/gh-aw-firewall/agent:0.28.23@sha256:2c78aaba1c108e130e2d6d01e4f2cca334ea04c53e6f258913ac34173fe7e3b2 ghcr.io/github/gh-aw-firewall/api-proxy:0.28.23@sha256:c15c3d1208df10c5b588a3657be53742aa982ae0909d1eb1812525268794ca64 ghcr.io/github/gh-aw-firewall/squid:0.28.23@sha256:02ffc56dd40158223064ef03a78c2d9717473c93723b4e403d455ea6f0b09ae0 ghcr.io/github/gh-aw-mcpg:v0.4.25@sha256:9be0a86220e807a0ecc89e53d7453468f7a53fbc6b3d1efd2299025ffe01d086 ghcr.io/github/gh-aw-node@sha256:11c2c544876cdbaffefe0f7f1283b74838c209654b4934a78e23ed11f750490f ghcr.io/github/github-mcp-server:v1.12.2@sha256:508a0857ec762b1ab1cece29193345b501fab1dd9d1228a7b617062954cecac6
       - name: Prepare Safe Outputs Directories
         run: |
           mkdir -p "${RUNNER_TEMP}/gh-aw/safeoutputs"
@@ -948,7 +567,7 @@ jobs:
         env:
           GH_AW_FILE_ROOT: "${{ runner.temp }}/gh-aw"
           GH_AW_FILE_CONFIG: "{\"files\":[{\"path\":\"safeoutputs/config.json\",\"content_env\":\"GH_AW_SAFE_OUTPUTS_CONFIG\"}]}"
-          GH_AW_SAFE_OUTPUTS_CONFIG: "{\"add_comment\":{\"max\":3,\"target\":\"*\"},\"assign_to_agent\":{\"allowed\":[\"copilot\"],\"ignore-if-error\":true,\"max\":3,\"target\":\"*\"},\"create_report_incomplete_issue\":{},\"missing_data\":{},\"missing_tool\":{},\"noop\":{\"max\":1,\"report-as-issue\":\"false\"},\"report_incomplete\":{}}"
+          GH_AW_SAFE_OUTPUTS_CONFIG: "{\"add_comment\":{\"max\":1},\"add_labels\":{\"allowed\":[\"in-progress\"],\"max\":1},\"assign_to_agent\":{\"allowed\":[\"copilot\"],\"ignore-if-error\":true,\"max\":1,\"target\":\"*\"},\"create_report_incomplete_issue\":{},\"missing_data\":{},\"missing_tool\":{},\"noop\":{\"max\":1,\"report-as-issue\":\"false\"},\"remove_labels\":{\"allowed\":[\"ready\"],\"max\":1},\"report_incomplete\":{}}"
         with:
           script: |
             const path = require('path');
@@ -962,8 +581,10 @@ jobs:
           GH_AW_TOOLS_META_JSON: |
             {
               "description_suffixes": {
-                "add_comment": " CONSTRAINTS: Maximum 3 comment(s) can be added. Target: *. Supports reply_to_id for discussion threading.",
-                "assign_to_agent": " CONSTRAINTS: Maximum 3 issue(s) can be assigned to agent."
+                "add_comment": " CONSTRAINTS: Maximum 1 comment(s) can be added. Supports reply_to_id for discussion threading.",
+                "add_labels": " CONSTRAINTS: Maximum 1 label(s) can be added. Only these labels are allowed: [\"in-progress\"].",
+                "assign_to_agent": " CONSTRAINTS: Maximum 1 issue(s) can be assigned to agent.",
+                "remove_labels": " CONSTRAINTS: Maximum 1 label(s) can be removed. Only these labels can be removed: [ready]."
               },
               "repo_params": {},
               "dynamic_tools": []
@@ -1008,6 +629,22 @@ jobs:
                   "temporary_id": {
                     "type": "string",
                     "pattern": "^#?aw_[A-Za-z0-9_]{3,12}$"
+                  }
+                }
+              },
+              "add_labels": {
+                "defaultMax": 5,
+                "fields": {
+                  "item_number": {
+                    "issueNumberOrTemporaryId": true
+                  },
+                  "labels": {
+                    "required": true,
+                    "type": "array"
+                  },
+                  "repo": {
+                    "type": "string",
+                    "maxLength": 256
                   }
                 }
               },
@@ -1111,6 +748,22 @@ jobs:
                   }
                 }
               },
+              "remove_labels": {
+                "defaultMax": 5,
+                "fields": {
+                  "item_number": {
+                    "issueNumberOrTemporaryId": true
+                  },
+                  "labels": {
+                    "required": true,
+                    "type": "array"
+                  },
+                  "repo": {
+                    "type": "string",
+                    "maxLength": 256
+                  }
+                }
+              },
               "report_incomplete": {
                 "defaultMax": 5,
                 "fields": {
@@ -1145,6 +798,9 @@ jobs:
           GH_AW_SAFE_OUTPUTS_CONFIG_PATH: ${{ steps.set-runtime-paths.outputs.GH_AW_SAFE_OUTPUTS_CONFIG_PATH }}
           GH_AW_SAFE_OUTPUTS_TOOLS_PATH: ${{ steps.set-runtime-paths.outputs.GH_AW_SAFE_OUTPUTS_TOOLS_PATH }}
           GH_AW_SINK_VISIBILITY: ${{ steps.determine-automatic-lockdown.outputs.visibility }}
+          GITHUB_MCP_GUARD_MIN_INTEGRITY: ${{ steps.determine-automatic-lockdown.outputs.min_integrity }}
+          GITHUB_MCP_GUARD_REPOS: ${{ steps.determine-automatic-lockdown.outputs.repos }}
+          GITHUB_MCP_SERVER_TOKEN: ${{ secrets.GH_AW_GITHUB_MCP_SERVER_TOKEN || secrets.GH_AW_GITHUB_TOKEN || secrets.GITHUB_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -eo pipefail
@@ -1175,7 +831,6 @@ jobs:
           export DEBUG="*"
 
           export GH_AW_ENGINE="copilot"
-          export GH_AW_MCP_CLI_SERVERS='["safeoutputs"]'
           MCP_GATEWAY_UID=$(id -u 2>/dev/null || echo '0')
           MCP_GATEWAY_GID=$(id -g 2>/dev/null || echo '0')
           source "${RUNNER_TEMP}/gh-aw/actions/resolve_docker_socket_gid.sh"
@@ -1183,9 +838,26 @@ jobs:
 
           mkdir -p "$HOME/.copilot"
           GH_AW_NODE=$(which node 2>/dev/null || command -v node 2>/dev/null || echo node)
-          cat << GH_AW_MCP_CONFIG_da213146dab3586b_EOF | "$GH_AW_NODE" "${RUNNER_TEMP}/gh-aw/actions/start_mcp_gateway.cjs"
+          cat << GH_AW_MCP_CONFIG_6e47705499a41fbb_EOF | "$GH_AW_NODE" "${RUNNER_TEMP}/gh-aw/actions/start_mcp_gateway.cjs"
           {
             "mcpServers": {
+              "github": {
+                "type": "stdio",
+                "container": "ghcr.io/github/github-mcp-server:v1.12.2",
+                "env": {
+                  "GITHUB_FEATURES": "fields_param",
+                  "GITHUB_HOST": "${GITHUB_SERVER_URL}",
+                  "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_MCP_SERVER_TOKEN}",
+                  "GITHUB_READ_ONLY": "1",
+                  "GITHUB_TOOLSETS": "context,repos,issues,pull_requests"
+                },
+                "guard-policies": {
+                  "allow-only": {
+                    "min-integrity": "$GITHUB_MCP_GUARD_MIN_INTEGRITY",
+                    "repos": "$GITHUB_MCP_GUARD_REPOS"
+                  }
+                }
+              },
               "safeoutputs": {
                 "type": "stdio",
                 "container": "ghcr.io/github/gh-aw-node",
@@ -1241,7 +913,7 @@ jobs:
               }
             }
           }
-          GH_AW_MCP_CONFIG_da213146dab3586b_EOF
+          GH_AW_MCP_CONFIG_6e47705499a41fbb_EOF
       - name: Mount MCP servers as CLIs
         id: mount-mcp-clis
         continue-on-error: true
@@ -1265,25 +937,10 @@ jobs:
         id: pre_agent_audit
         continue-on-error: true
         run: bash "${RUNNER_TEMP}/gh-aw/actions/audit_pre_agent_workspace.sh"
-      - name: Start CLI Proxy
-        env:
-          GH_TOKEN: ${{ secrets.GH_AW_GITHUB_MCP_SERVER_TOKEN || secrets.GH_AW_GITHUB_TOKEN || secrets.GITHUB_TOKEN }}
-          GITHUB_SERVER_URL: ${{ github.server_url }}
-          GITHUB_API_URL: ${{ github.api_url }}
-          GH_HOST: ${{ env.GH_HOST }}
-          GITHUB_HOST: ${{ env.GITHUB_HOST }}
-          GITHUB_ENTERPRISE_HOST: ${{ env.GITHUB_ENTERPRISE_HOST }}
-          GITHUB_GRAPHQL_URL: ${{ env.GITHUB_GRAPHQL_URL }}
-          GITHUB_COPILOT_BASE_URL: ${{ env.GITHUB_COPILOT_BASE_URL }}
-          GH_AW_NETWORK_ISOLATION: 'true'
-          CLI_PROXY_POLICY: '{"allow-only":{"min-integrity":"approved","repos":"${{ steps.determine-automatic-lockdown.outputs.repos }}"}}'
-          CLI_PROXY_IMAGE: 'ghcr.io/github/gh-aw-mcpg:v0.4.25'
-        run: |
-          bash "${RUNNER_TEMP}/gh-aw/actions/start_cli_proxy.sh"
       - name: Execute GitHub Copilot CLI
         id: agentic_execution
         # Copilot CLI tool arguments (sorted):
-        timeout-minutes: 30
+        timeout-minutes: 5
         run: |
           set -o pipefail
           printf '%s' "$(date +%s%3N)" > /tmp/gh-aw/agent_cli_start_ms.txt
@@ -1313,7 +970,7 @@ jobs:
           if [[ ! "$GH_AW_MAX_AI_CREDITS" =~ ^[0-9]+$ ]]; then
             GH_AW_MAX_AI_CREDITS="1000"
           fi
-          printf '%s\n' "{\"\$schema\":\"https://github.com/github/gh-aw-firewall/releases/download/v0.28.23/awf-config.schema.json\",\"network\":{\"allowDomains\":[\"api.snapcraft.io\",\"archive.ubuntu.com\",\"azure.archive.ubuntu.com\",\"crl.geotrust.com\",\"crl.globalsign.com\",\"crl.identrust.com\",\"crl.sectigo.com\",\"crl.thawte.com\",\"crl.usertrust.com\",\"crl.verisign.com\",\"crl3.digicert.com\",\"crl4.digicert.com\",\"crls.ssl.com\",\"json-schema.org\",\"json.schemastore.org\",\"keyserver.ubuntu.com\",\"ocsp.digicert.com\",\"ocsp.geotrust.com\",\"ocsp.globalsign.com\",\"ocsp.identrust.com\",\"ocsp.sectigo.com\",\"ocsp.ssl.com\",\"ocsp.thawte.com\",\"ocsp.usertrust.com\",\"ocsp.verisign.com\",\"packagecloud.io\",\"packages.cloud.google.com\",\"packages.microsoft.com\",\"ppa.launchpad.net\",\"s.symcb.com\",\"s.symcd.com\",\"security.ubuntu.com\",\"ts-crl.ws.symantec.com\",\"ts-ocsp.ws.symantec.com\",\"www.googleapis.com\"],\"isolation\":true,\"topologyAttach\":[\"awmg-mcpg\",\"awmg-cli-proxy\"]},\"apiProxy\":{\"enabled\":true,\"enableTokenSteering\":true,\"maxRuns\":500,\"maxAiCredits\":${GH_AW_MAX_AI_CREDITS},\"maxCacheMisses\":5,\"models\":{\"agent\":[\"sonnet-6x\",\"gpt-6\",\"gpt-5.4\",\"gpt-5.5\",\"gpt-5.6\",\"gpt-5.3\",\"gemini-pro\",\"any\"],\"antigravity\":[\"copilot/antigravity*\",\"google/antigravity*\",\"gemini/antigravity*\"],\"any\":[\"copilot/*\",\"anthropic/*\",\"openai/*\",\"google/*\",\"gemini/*\"],\"auto\":[\"copilot/auto\",\"large\"],\"claude\":[\"agent\"],\"codex\":[\"agent\"],\"coding\":[\"copilot/gpt-5*codex*\",\"openai/gpt-5*codex*\",\"gpt-5-codex\",\"kimi\"],\"computer-use\":[\"copilot/*computer-use*\",\"google/*computer-use*\",\"gemini/*computer-use*\",\"openai/*computer-use*\"],\"copilot\":[\"agent\"],\"deep-research\":[\"copilot/deep-research*\",\"copilot/o3-deep-research*\",\"copilot/o4-mini-deep-research*\",\"google/deep-research*\",\"gemini/deep-research*\",\"openai/o3-deep-research*\",\"openai/o4-mini-deep-research*\"],\"detection\":[\"small\"],\"evals\":[\"small\"],\"fable\":[\"copilot/*fable*\",\"anthropic/*fable*\"],\"gemini\":[\"agent\"],\"gemini-3-flash\":[\"copilot/gemini-3*flash*\",\"google/gemini-3*flash*\",\"gemini/gemini-3*flash*\"],\"gemini-3-pro\":[\"copilot/gemini-3*pro*\",\"google/gemini-3*pro*\",\"google/nano-banana*\",\"gemini/gemini-3*pro*\"],\"gemini-3.1-flash\":[\"copilot/gemini-3.1*flash*\",\"google/gemini-3.1*flash*\",\"gemini/gemini-3.1*flash*\"],\"gemini-3.1-pro\":[\"copilot/gemini-3.1*pro*\",\"google/gemini-3.1*pro*\",\"gemini/gemini-3.1*pro*\"],\"gemini-3.5-flash\":[\"copilot/gemini-3.5*flash*\",\"google/gemini-3.5*flash*\",\"gemini/gemini-3.5*flash*\"],\"gemini-3.6-flash\":[\"copilot/gemini-3.6*flash*\",\"google/gemini-3.6*flash*\",\"gemini/gemini-3.6*flash*\"],\"gemini-3.7-flash\":[\"copilot/gemini-3.7*flash*\",\"google/gemini-3.7*flash*\",\"gemini/gemini-3.7*flash*\"],\"gemini-3.8-flash\":[\"copilot/gemini-3.8*flash*\",\"google/gemini-3.8*flash*\",\"gemini/gemini-3.8*flash*\"],\"gemini-flash\":[\"copilot/gemini-*flash*\",\"google/gemini-*flash*\",\"gemini/gemini-*flash*\"],\"gemini-flash-lite\":[\"copilot/gemini-*flash*lite*\",\"google/gemini-*flash*lite*\",\"gemini/gemini-*flash*lite*\"],\"gemini-omni\":[\"copilot/gemini-omni*\",\"google/gemini-omni*\",\"gemini/gemini-omni*\"],\"gemini-pro\":[\"copilot/gemini-*pro*\",\"google/gemini-*pro*\",\"gemini/gemini-*pro*\"],\"gemma\":[\"copilot/gemma*\",\"google/gemma*\",\"gemini/gemma*\"],\"gpt-5\":[\"copilot/gpt-5*\",\"openai/gpt-5*\"],\"gpt-5-codex\":[\"copilot/gpt-5*codex*\",\"openai/gpt-5*codex*\"],\"gpt-5-mini\":[\"copilot/gpt-5*mini*\",\"openai/gpt-5*mini*\"],\"gpt-5-nano\":[\"copilot/gpt-5*nano*\",\"openai/gpt-5*nano*\"],\"gpt-5-pro\":[\"copilot/gpt-5*pro*\",\"openai/gpt-5*pro*\"],\"gpt-5.1\":[\"copilot/gpt-5.1*\",\"openai/gpt-5.1*\"],\"gpt-5.2\":[\"copilot/gpt-5.2*\",\"openai/gpt-5.2*\"],\"gpt-5.3\":[\"copilot/gpt-5.3*\",\"openai/gpt-5.3*\"],\"gpt-5.4\":[\"copilot/gpt-5.4*\",\"openai/gpt-5.4*\"],\"gpt-5.5\":[\"copilot/gpt-5.5*\",\"openai/gpt-5.5*\"],\"gpt-5.6\":[\"copilot/gpt-5.6*\",\"openai/gpt-5.6*\"],\"gpt-6\":[\"copilot/gpt-6*\",\"openai/gpt-6*\"],\"grok\":[\"copilot/*grok*\",\"openai/*grok*\"],\"haiku\":[\"copilot/*haiku*\",\"anthropic/*haiku*\"],\"image-generation\":[\"copilot/gpt-image*\",\"openai/gpt-image*\",\"openai/chatgpt-image*\",\"copilot/gemini-*image*\",\"google/gemini-*image*\",\"gemini/gemini-*image*\",\"google/imagen*\"],\"kimi\":[\"copilot/kimi*\",\"openai/kimi*\"],\"kiwi\":[\"copilot/kiwi*\",\"openai/kiwi*\"],\"large\":[\"sonnet\",\"gpt-6\",\"gpt-5-pro\",\"gpt-5\",\"gemini-pro\"],\"lyria\":[\"google/lyria*\",\"gemini/lyria*\",\"copilot/lyria*\"],\"mai-code\":[\"copilot/MAI-Code*\",\"copilot/mai-code*\",\"openai/MAI-Code*\"],\"mai-code-1-flash-picker\":[\"copilot/MAI-Code-1-Flash-picker*\",\"copilot/mai-code-1-flash-picker*\",\"openai/MAI-Code-1-Flash-picker*\"],\"mini\":[\"haiku\",\"gpt-5-mini\",\"gpt-5-nano\",\"gemini-flash-lite\"],\"nano-banana\":[\"copilot/nano-banana*\",\"google/nano-banana*\",\"gemini/nano-banana*\"],\"opus\":[\"copilot/*opus*\",\"anthropic/*opus*\"],\"opusplan\":[\"opus?effort=high\"],\"raptor-mini\":[\"copilot/raptor*\",\"openai/raptor*\"],\"reasoning\":[\"copilot/o1*\",\"copilot/o3*\",\"copilot/o4*\",\"openai/o1*\",\"openai/o3*\",\"openai/o4*\"],\"robotics\":[\"copilot/*robotics*\",\"google/*robotics*\",\"gemini/*robotics*\"],\"small\":[\"mini\"],\"small-agent\":[\"haiku\",\"gpt-5-mini\",\"gemini-flash\"],\"sonnet\":[\"copilot/*sonnet*\",\"anthropic/*sonnet*\"],\"sonnet-6x\":[\"copilot/*sonnet-4.5*\",\"copilot/*sonnet-4.6*\",\"copilot/*sonnet-5*\",\"copilot/*sonnet-4-5-*\",\"anthropic/*sonnet-4-5-*\",\"copilot/*sonnet-4-6*\",\"anthropic/*sonnet-4-6*\",\"anthropic/*sonnet-5*\"],\"summarization\":[\"haiku\",\"gpt-5-mini\",\"gemini-flash-lite\",\"mini\"],\"veo\":[\"google/veo*\",\"gemini/veo*\"],\"vision\":[\"copilot/gemini-*image*\",\"google/gemini-*image*\",\"gemini/gemini-*image*\",\"copilot/gemini-*flash*\",\"google/gemini-*flash*\",\"gemini/gemini-*flash*\"]}},\"container\":{\"imageTag\":\"0.28.23,squid=sha256:02ffc56dd40158223064ef03a78c2d9717473c93723b4e403d455ea6f0b09ae0,agent=sha256:2c78aaba1c108e130e2d6d01e4f2cca334ea04c53e6f258913ac34173fe7e3b2,api-proxy=sha256:c15c3d1208df10c5b588a3657be53742aa982ae0909d1eb1812525268794ca64,cli-proxy=sha256:9e31a6e518eba44652b9ae94ce55c3b6958e06290c3b81b08de4174751bb439a\"},\"logging\":{\"proxyLogsDir\":\"/tmp/gh-aw/sandbox/firewall/logs\",\"auditDir\":\"/tmp/gh-aw/sandbox/firewall/audit\"}}" > "${RUNNER_TEMP}/gh-aw/awf-config.json"
+          printf '%s\n' "{\"\$schema\":\"https://github.com/github/gh-aw-firewall/releases/download/v0.28.23/awf-config.schema.json\",\"network\":{\"allowDomains\":[\"api.snapcraft.io\",\"archive.ubuntu.com\",\"azure.archive.ubuntu.com\",\"crl.geotrust.com\",\"crl.globalsign.com\",\"crl.identrust.com\",\"crl.sectigo.com\",\"crl.thawte.com\",\"crl.usertrust.com\",\"crl.verisign.com\",\"crl3.digicert.com\",\"crl4.digicert.com\",\"crls.ssl.com\",\"json-schema.org\",\"json.schemastore.org\",\"keyserver.ubuntu.com\",\"ocsp.digicert.com\",\"ocsp.geotrust.com\",\"ocsp.globalsign.com\",\"ocsp.identrust.com\",\"ocsp.sectigo.com\",\"ocsp.ssl.com\",\"ocsp.thawte.com\",\"ocsp.usertrust.com\",\"ocsp.verisign.com\",\"packagecloud.io\",\"packages.cloud.google.com\",\"packages.microsoft.com\",\"ppa.launchpad.net\",\"s.symcb.com\",\"s.symcd.com\",\"security.ubuntu.com\",\"ts-crl.ws.symantec.com\",\"ts-ocsp.ws.symantec.com\",\"www.googleapis.com\"],\"isolation\":true,\"topologyAttach\":[\"awmg-mcpg\"]},\"apiProxy\":{\"enabled\":true,\"enableTokenSteering\":true,\"maxRuns\":500,\"maxAiCredits\":${GH_AW_MAX_AI_CREDITS},\"maxCacheMisses\":5,\"models\":{\"agent\":[\"sonnet-6x\",\"gpt-6\",\"gpt-5.4\",\"gpt-5.5\",\"gpt-5.6\",\"gpt-5.3\",\"gemini-pro\",\"any\"],\"antigravity\":[\"copilot/antigravity*\",\"google/antigravity*\",\"gemini/antigravity*\"],\"any\":[\"copilot/*\",\"anthropic/*\",\"openai/*\",\"google/*\",\"gemini/*\"],\"auto\":[\"copilot/auto\",\"large\"],\"claude\":[\"agent\"],\"codex\":[\"agent\"],\"coding\":[\"copilot/gpt-5*codex*\",\"openai/gpt-5*codex*\",\"gpt-5-codex\",\"kimi\"],\"computer-use\":[\"copilot/*computer-use*\",\"google/*computer-use*\",\"gemini/*computer-use*\",\"openai/*computer-use*\"],\"copilot\":[\"agent\"],\"deep-research\":[\"copilot/deep-research*\",\"copilot/o3-deep-research*\",\"copilot/o4-mini-deep-research*\",\"google/deep-research*\",\"gemini/deep-research*\",\"openai/o3-deep-research*\",\"openai/o4-mini-deep-research*\"],\"detection\":[\"small\"],\"evals\":[\"small\"],\"fable\":[\"copilot/*fable*\",\"anthropic/*fable*\"],\"gemini\":[\"agent\"],\"gemini-3-flash\":[\"copilot/gemini-3*flash*\",\"google/gemini-3*flash*\",\"gemini/gemini-3*flash*\"],\"gemini-3-pro\":[\"copilot/gemini-3*pro*\",\"google/gemini-3*pro*\",\"google/nano-banana*\",\"gemini/gemini-3*pro*\"],\"gemini-3.1-flash\":[\"copilot/gemini-3.1*flash*\",\"google/gemini-3.1*flash*\",\"gemini/gemini-3.1*flash*\"],\"gemini-3.1-pro\":[\"copilot/gemini-3.1*pro*\",\"google/gemini-3.1*pro*\",\"gemini/gemini-3.1*pro*\"],\"gemini-3.5-flash\":[\"copilot/gemini-3.5*flash*\",\"google/gemini-3.5*flash*\",\"gemini/gemini-3.5*flash*\"],\"gemini-3.6-flash\":[\"copilot/gemini-3.6*flash*\",\"google/gemini-3.6*flash*\",\"gemini/gemini-3.6*flash*\"],\"gemini-3.7-flash\":[\"copilot/gemini-3.7*flash*\",\"google/gemini-3.7*flash*\",\"gemini/gemini-3.7*flash*\"],\"gemini-3.8-flash\":[\"copilot/gemini-3.8*flash*\",\"google/gemini-3.8*flash*\",\"gemini/gemini-3.8*flash*\"],\"gemini-flash\":[\"copilot/gemini-*flash*\",\"google/gemini-*flash*\",\"gemini/gemini-*flash*\"],\"gemini-flash-lite\":[\"copilot/gemini-*flash*lite*\",\"google/gemini-*flash*lite*\",\"gemini/gemini-*flash*lite*\"],\"gemini-omni\":[\"copilot/gemini-omni*\",\"google/gemini-omni*\",\"gemini/gemini-omni*\"],\"gemini-pro\":[\"copilot/gemini-*pro*\",\"google/gemini-*pro*\",\"gemini/gemini-*pro*\"],\"gemma\":[\"copilot/gemma*\",\"google/gemma*\",\"gemini/gemma*\"],\"gpt-5\":[\"copilot/gpt-5*\",\"openai/gpt-5*\"],\"gpt-5-codex\":[\"copilot/gpt-5*codex*\",\"openai/gpt-5*codex*\"],\"gpt-5-mini\":[\"copilot/gpt-5*mini*\",\"openai/gpt-5*mini*\"],\"gpt-5-nano\":[\"copilot/gpt-5*nano*\",\"openai/gpt-5*nano*\"],\"gpt-5-pro\":[\"copilot/gpt-5*pro*\",\"openai/gpt-5*pro*\"],\"gpt-5.1\":[\"copilot/gpt-5.1*\",\"openai/gpt-5.1*\"],\"gpt-5.2\":[\"copilot/gpt-5.2*\",\"openai/gpt-5.2*\"],\"gpt-5.3\":[\"copilot/gpt-5.3*\",\"openai/gpt-5.3*\"],\"gpt-5.4\":[\"copilot/gpt-5.4*\",\"openai/gpt-5.4*\"],\"gpt-5.5\":[\"copilot/gpt-5.5*\",\"openai/gpt-5.5*\"],\"gpt-5.6\":[\"copilot/gpt-5.6*\",\"openai/gpt-5.6*\"],\"gpt-6\":[\"copilot/gpt-6*\",\"openai/gpt-6*\"],\"grok\":[\"copilot/*grok*\",\"openai/*grok*\"],\"haiku\":[\"copilot/*haiku*\",\"anthropic/*haiku*\"],\"image-generation\":[\"copilot/gpt-image*\",\"openai/gpt-image*\",\"openai/chatgpt-image*\",\"copilot/gemini-*image*\",\"google/gemini-*image*\",\"gemini/gemini-*image*\",\"google/imagen*\"],\"kimi\":[\"copilot/kimi*\",\"openai/kimi*\"],\"kiwi\":[\"copilot/kiwi*\",\"openai/kiwi*\"],\"large\":[\"sonnet\",\"gpt-6\",\"gpt-5-pro\",\"gpt-5\",\"gemini-pro\"],\"lyria\":[\"google/lyria*\",\"gemini/lyria*\",\"copilot/lyria*\"],\"mai-code\":[\"copilot/MAI-Code*\",\"copilot/mai-code*\",\"openai/MAI-Code*\"],\"mai-code-1-flash-picker\":[\"copilot/MAI-Code-1-Flash-picker*\",\"copilot/mai-code-1-flash-picker*\",\"openai/MAI-Code-1-Flash-picker*\"],\"mini\":[\"haiku\",\"gpt-5-mini\",\"gpt-5-nano\",\"gemini-flash-lite\"],\"nano-banana\":[\"copilot/nano-banana*\",\"google/nano-banana*\",\"gemini/nano-banana*\"],\"opus\":[\"copilot/*opus*\",\"anthropic/*opus*\"],\"opusplan\":[\"opus?effort=high\"],\"raptor-mini\":[\"copilot/raptor*\",\"openai/raptor*\"],\"reasoning\":[\"copilot/o1*\",\"copilot/o3*\",\"copilot/o4*\",\"openai/o1*\",\"openai/o3*\",\"openai/o4*\"],\"robotics\":[\"copilot/*robotics*\",\"google/*robotics*\",\"gemini/*robotics*\"],\"small\":[\"mini\"],\"small-agent\":[\"haiku\",\"gpt-5-mini\",\"gemini-flash\"],\"sonnet\":[\"copilot/*sonnet*\",\"anthropic/*sonnet*\"],\"sonnet-6x\":[\"copilot/*sonnet-4.5*\",\"copilot/*sonnet-4.6*\",\"copilot/*sonnet-5*\",\"copilot/*sonnet-4-5-*\",\"anthropic/*sonnet-4-5-*\",\"copilot/*sonnet-4-6*\",\"anthropic/*sonnet-4-6*\",\"anthropic/*sonnet-5*\"],\"summarization\":[\"haiku\",\"gpt-5-mini\",\"gemini-flash-lite\",\"mini\"],\"veo\":[\"google/veo*\",\"gemini/veo*\"],\"vision\":[\"copilot/gemini-*image*\",\"google/gemini-*image*\",\"gemini/gemini-*image*\",\"copilot/gemini-*flash*\",\"google/gemini-*flash*\",\"gemini/gemini-*flash*\"]}},\"container\":{\"imageTag\":\"0.28.23,squid=sha256:02ffc56dd40158223064ef03a78c2d9717473c93723b4e403d455ea6f0b09ae0,agent=sha256:2c78aaba1c108e130e2d6d01e4f2cca334ea04c53e6f258913ac34173fe7e3b2,api-proxy=sha256:c15c3d1208df10c5b588a3657be53742aa982ae0909d1eb1812525268794ca64,cli-proxy=sha256:9e31a6e518eba44652b9ae94ce55c3b6958e06290c3b81b08de4174751bb439a\"},\"logging\":{\"proxyLogsDir\":\"/tmp/gh-aw/sandbox/firewall/logs\",\"auditDir\":\"/tmp/gh-aw/sandbox/firewall/audit\"}}" > "${RUNNER_TEMP}/gh-aw/awf-config.json"
           cp "${RUNNER_TEMP}/gh-aw/awf-config.json" /tmp/gh-aw/awf-config.json
           export GH_AW_MODELS_JSON_PATH="/tmp/gh-aw/models.json"
           GH_AW_DOCKER_HOST=""
@@ -1342,13 +999,13 @@ jobs:
           GH_AW_AWF_LOG_FILE=/tmp/gh-aw/agent-stdio.log \
           GH_AW_AWF_ATTEMPT_LOG_NAME=copilot \
           bash "${RUNNER_TEMP}/gh-aw/actions/run_awf_with_startup_retries.sh" -- \
-            awf --config "${RUNNER_TEMP}/gh-aw/awf-config.json" --container-workdir "${GITHUB_WORKSPACE}" --mount "${RUNNER_TEMP}/gh-aw:${RUNNER_TEMP}/gh-aw:ro" --mount "${RUNNER_TEMP}/gh-aw:/host${RUNNER_TEMP}/gh-aw:ro" ${GH_AW_TOOL_CACHE_MOUNT:+--mount "$GH_AW_TOOL_CACHE_MOUNT"} ${GH_AW_DOCKER_HOST:+--docker-host "$GH_AW_DOCKER_HOST"} --env-all --exclude-env ACTIONS_ID_TOKEN_REQUEST_TOKEN --exclude-env ACTIONS_ID_TOKEN_REQUEST_URL --exclude-env COPILOT_GITHUB_TOKEN --exclude-env GH_TOKEN --exclude-env GITHUB_MCP_SERVER_TOKEN --exclude-env MCP_GATEWAY_AGENT_ID --mount /tmp/gh-aw:/tmp/gh-aw:rw --log-level info --skip-pull --difc-proxy-host awmg-cli-proxy:18443 --difc-proxy-ca-cert /tmp/gh-aw/difc-proxy-tls/ca.crt \
+            awf --config "${RUNNER_TEMP}/gh-aw/awf-config.json" --container-workdir "${GITHUB_WORKSPACE}" --mount "${RUNNER_TEMP}/gh-aw:${RUNNER_TEMP}/gh-aw:ro" --mount "${RUNNER_TEMP}/gh-aw:/host${RUNNER_TEMP}/gh-aw:ro" ${GH_AW_TOOL_CACHE_MOUNT:+--mount "$GH_AW_TOOL_CACHE_MOUNT"} ${GH_AW_DOCKER_HOST:+--docker-host "$GH_AW_DOCKER_HOST"} --env-all --exclude-env ACTIONS_ID_TOKEN_REQUEST_TOKEN --exclude-env ACTIONS_ID_TOKEN_REQUEST_URL --exclude-env COPILOT_GITHUB_TOKEN --exclude-env GITHUB_MCP_SERVER_TOKEN --exclude-env MCP_GATEWAY_AGENT_ID --mount /tmp/gh-aw:/tmp/gh-aw:rw --log-level info --skip-pull \
             -- /bin/bash -c 'set +o histexpand; export PATH="${RUNNER_TEMP}/gh-aw/mcp-cli/bin:$PATH" && : "${RUNNER_TOOL_CACHE:?RUNNER_TOOL_CACHE must be set}"; GH_AW_TOOL_CACHE="$RUNNER_TOOL_CACHE"; GH_AW_TOOL_BINS="$(find "$GH_AW_TOOL_CACHE" -maxdepth 5 -type d -name bin 2>/dev/null | tr '\''\n'\'' '\'':'\'')"; GH_AW_TOOL_BINS="${GH_AW_TOOL_BINS%:}"; export PATH="$PATH${GH_AW_TOOL_BINS:+:}$GH_AW_TOOL_BINS"; [ -n "$GOROOT" ] && export PATH="$GOROOT/bin:$PATH" || true; [ -n "$ERLANG_HOME" ] && export PATH="$ERLANG_HOME/bin:$PATH" || true && GH_AW_NODE_EXEC="${GH_AW_NODE_BIN:-}"; if [ -z "$GH_AW_NODE_EXEC" ] || [ ! -x "$GH_AW_NODE_EXEC" ]; then GH_AW_NODE_EXEC="$(command -v node 2>/dev/null || true)"; fi; if [ -z "$GH_AW_NODE_EXEC" ]; then echo "node runtime missing on this runner — check runtimes.node in workflow YAML" >&2; exit 127; fi; GH_AW_NPM_GLOBAL_ROOT="$(npm root -g 2>/dev/null || true)"; if [ -n "$GH_AW_NPM_GLOBAL_ROOT" ]; then export NODE_PATH="${GH_AW_NPM_GLOBAL_ROOT}${NODE_PATH:+:${NODE_PATH}}"; fi; "$GH_AW_NODE_EXEC" "${RUNNER_TEMP}/gh-aw/actions/copilot_harness.cjs" "${RUNNER_TEMP}/gh-aw/bin/copilot" --add-dir /tmp/gh-aw/ --log-level all --log-dir /tmp/gh-aw/sandbox/agent/logs/ --disable-builtin-mcps --no-ask-user --allow-all-tools --allow-all-paths --add-dir "${GITHUB_WORKSPACE}" --prompt-file /tmp/gh-aw/aw-prompts/prompt.txt'
         env:
           AWF_REFLECT_ENABLED: 1
           COPILOT_AGENT_RUNNER_TYPE: STANDALONE
           COPILOT_DUMMY_BYOK: dummy-byok-key-for-offline-mode
-          COPILOT_GITHUB_TOKEN: ${{ github.token }}
+          COPILOT_GITHUB_TOKEN: ${{ secrets.COPILOT_GITHUB_TOKEN }}
           COPILOT_MODEL: ${{ vars.GH_AW_MODEL_AGENT_COPILOT || vars.GH_AW_DEFAULT_MODEL_COPILOT || 'auto' }}
           GH_AW_LLM_PROVIDER: github
           GH_AW_MAX_AI_CREDITS: ${{ vars.GH_AW_DEFAULT_MAX_AI_CREDITS || '1000' }}
@@ -1356,9 +1013,8 @@ jobs:
           GH_AW_PHASE: agent
           GH_AW_PROMPT: /tmp/gh-aw/aw-prompts/prompt.txt
           GH_AW_SAFE_OUTPUTS: ${{ steps.set-runtime-paths.outputs.GH_AW_SAFE_OUTPUTS }}
-          GH_AW_TIMEOUT_MINUTES: 30
+          GH_AW_TIMEOUT_MINUTES: 5
           GH_AW_VERSION: v0.89.21
-          GH_TOKEN: ${{ secrets.GH_AW_GITHUB_TOKEN || github.token }}
           GITHUB_API_URL: ${{ github.api_url }}
           GITHUB_AW: true
           GITHUB_COPILOT_INTEGRATION_ID: agentic-workflows
@@ -1373,19 +1029,14 @@ jobs:
           GIT_COMMITTER_EMAIL: github-actions[bot]@users.noreply.github.com
           GIT_COMMITTER_NAME: github-actions[bot]
           RUNNER_TEMP: ${{ runner.temp }}
-          S2STOKENS: true
           TRACEPARENT: ${{ env.GITHUB_AW_OTEL_TRACE_ID != '' && env.GITHUB_AW_OTEL_PARENT_SPAN_ID != '' && format('00-{0}-{1}-01', env.GITHUB_AW_OTEL_TRACE_ID, env.GITHUB_AW_OTEL_PARENT_SPAN_ID) || '' }}
-      - name: Stop CLI Proxy
-        if: always()
-        continue-on-error: true
-        run: bash "${RUNNER_TEMP}/gh-aw/actions/stop_cli_proxy.sh"
       - name: Detect agent errors
         if: always()
         id: detect-agent-errors
         continue-on-error: true
         env:
           GH_AW_AGENTIC_EXECUTION_OUTCOME: ${{ steps.agentic_execution.outcome }}
-          GH_AW_ENGINE_STEP_TIMEOUT_MINUTES: 30
+          GH_AW_ENGINE_STEP_TIMEOUT_MINUTES: 5
         uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         with:
           script: |
@@ -1426,7 +1077,8 @@ jobs:
             const { main } = require(path.join(actionsDir, 'redact_secrets.cjs'));
             await main();
         env:
-          GH_AW_SECRET_NAMES: 'GH_AW_GITHUB_MCP_SERVER_TOKEN,GH_AW_GITHUB_TOKEN,GITHUB_TOKEN'
+          GH_AW_SECRET_NAMES: 'COPILOT_GITHUB_TOKEN,GH_AW_GITHUB_MCP_SERVER_TOKEN,GH_AW_GITHUB_TOKEN,GITHUB_TOKEN'
+          SECRET_COPILOT_GITHUB_TOKEN: ${{ secrets.COPILOT_GITHUB_TOKEN }}
           SECRET_GH_AW_GITHUB_MCP_SERVER_TOKEN: ${{ secrets.GH_AW_GITHUB_MCP_SERVER_TOKEN }}
           SECRET_GH_AW_GITHUB_TOKEN: ${{ secrets.GH_AW_GITHUB_TOKEN }}
           SECRET_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -1561,8 +1213,6 @@ jobs:
             /tmp/gh-aw/sandbox/agent/logs/
             /tmp/gh-aw/redacted-urls.log
             /tmp/gh-aw/mcp-logs/
-            /tmp/gh-aw/proxy-logs/
-            !/tmp/gh-aw/proxy-logs/proxy-tls/
             /tmp/gh-aw/agent_usage.json
             /tmp/gh-aw/agent_usage.jsonl
             /tmp/gh-aw/agent-stdio.log
@@ -1589,15 +1239,15 @@ jobs:
     if: >
       always() && (needs.agent.result != 'skipped' || needs.activation.outputs.lockdown_check_failed == 'true' ||
       needs.activation.outputs.oauth_token_check_failed == 'true' || needs.activation.outputs.stale_lock_file_failed == 'true' ||
-      needs.activation.outputs.daily_ai_credits_exceeded == 'true' || needs.activation.outputs.daily_ai_credits_guardrail_status == 'structural_error' ||
-      needs.activation.outputs.daily_ai_credits_guardrail_status == 'transient_error')
+      needs.activation.outputs.secret_verification_result == 'failed' || needs.activation.outputs.daily_ai_credits_exceeded == 'true' ||
+      needs.activation.outputs.daily_ai_credits_guardrail_status == 'structural_error' || needs.activation.outputs.daily_ai_credits_guardrail_status == 'transient_error')
     runs-on: ubuntu-slim
     permissions:
       actions: read
       issues: write
       pull-requests: write
     concurrency:
-      group: "gh-aw-conclusion-issue-monster"
+      group: "gh-aw-conclusion-dispatcher"
       cancel-in-progress: false
       queue: max
     env:
@@ -1617,8 +1267,8 @@ jobs:
           trace-id: ${{ needs.activation.outputs.setup-trace-id }}
           parent-span-id: ${{ needs.activation.outputs.setup-parent-span-id || needs.activation.outputs.setup-span-id }}
         env:
-          GH_AW_SETUP_WORKFLOW_NAME: "Issue Monster"
-          GH_AW_CURRENT_WORKFLOW_REF: ${{ github.repository }}/.github/workflows/issue-monster.lock.yml@${{ github.ref }}
+          GH_AW_SETUP_WORKFLOW_NAME: "Dispatcher"
+          GH_AW_CURRENT_WORKFLOW_REF: ${{ github.repository }}/.github/workflows/dispatcher.lock.yml@${{ github.ref }}
           GH_AW_INFO_VERSION: "1.0.87"
           GH_AW_INFO_AWF_VERSION: "v0.28.23"
           GH_AW_INFO_ENGINE_ID: "copilot"
@@ -1719,15 +1369,15 @@ jobs:
         env:
           GH_AW_AGENT_OUTPUT: ${{ steps.setup-agent-output-env.outputs.GH_AW_AGENT_OUTPUT }}
           GH_AW_NOOP_MAX: "1"
-          GH_AW_WORKFLOW_NAME: "Issue Monster"
-          GH_AW_WORKFLOW_SOURCE_URL: "${{ github.server_url }}/${{ github.repository }}/blob/${{ github.ref_name }}/.github/workflows/issue-monster.md"
+          GH_AW_WORKFLOW_NAME: "Dispatcher"
+          GH_AW_WORKFLOW_SOURCE_URL: "${{ github.server_url }}/${{ github.repository }}/blob/${{ github.ref_name }}/.github/workflows/dispatcher.md"
           GH_AW_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
           GH_AW_AGENT_CONCLUSION: ${{ needs.agent.result }}
           GH_AW_NOOP_REPORT_AS_ISSUE: "false"
           GH_AW_AIC: ${{ needs.agent.outputs.aic }}
           GH_AW_THREAT_DETECTION_AIC: ${{ needs.detection.outputs.aic }}
           GH_AW_AMBIENT_CONTEXT: ${{ needs.agent.outputs.ambient_context }}
-          GH_AW_WORKFLOW_ID: "issue-monster"
+          GH_AW_WORKFLOW_ID: "dispatcher"
         with:
           github-token: ${{ secrets.GH_AW_GITHUB_TOKEN || secrets.GITHUB_TOKEN }}
           script: |
@@ -1742,8 +1392,8 @@ jobs:
         uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         env:
           GH_AW_AGENT_OUTPUT: ${{ steps.setup-agent-output-env.outputs.GH_AW_AGENT_OUTPUT }}
-          GH_AW_WORKFLOW_NAME: "Issue Monster"
-          GH_AW_WORKFLOW_SOURCE_URL: "${{ github.server_url }}/${{ github.repository }}/blob/${{ github.ref_name }}/.github/workflows/issue-monster.md"
+          GH_AW_WORKFLOW_NAME: "Dispatcher"
+          GH_AW_WORKFLOW_SOURCE_URL: "${{ github.server_url }}/${{ github.repository }}/blob/${{ github.ref_name }}/.github/workflows/dispatcher.md"
           GH_AW_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
           GH_AW_DETECTION_CONCLUSION: ${{ needs.detection.outputs.detection_conclusion }}
           GH_AW_DETECTION_REASON: ${{ needs.detection.outputs.detection_reason }}
@@ -1762,8 +1412,8 @@ jobs:
         env:
           GH_AW_AGENT_OUTPUT: ${{ steps.setup-agent-output-env.outputs.GH_AW_AGENT_OUTPUT }}
           GH_AW_MISSING_TOOL_CREATE_ISSUE: "true"
-          GH_AW_WORKFLOW_NAME: "Issue Monster"
-          GH_AW_WORKFLOW_SOURCE_URL: "${{ github.server_url }}/${{ github.repository }}/blob/${{ github.ref_name }}/.github/workflows/issue-monster.md"
+          GH_AW_WORKFLOW_NAME: "Dispatcher"
+          GH_AW_WORKFLOW_SOURCE_URL: "${{ github.server_url }}/${{ github.repository }}/blob/${{ github.ref_name }}/.github/workflows/dispatcher.md"
         with:
           github-token: ${{ secrets.GH_AW_GITHUB_TOKEN || secrets.GITHUB_TOKEN }}
           script: |
@@ -1779,8 +1429,8 @@ jobs:
         env:
           GH_AW_AGENT_OUTPUT: ${{ steps.setup-agent-output-env.outputs.GH_AW_AGENT_OUTPUT }}
           GH_AW_REPORT_INCOMPLETE_CREATE_ISSUE: "true"
-          GH_AW_WORKFLOW_NAME: "Issue Monster"
-          GH_AW_WORKFLOW_SOURCE_URL: "${{ github.server_url }}/${{ github.repository }}/blob/${{ github.ref_name }}/.github/workflows/issue-monster.md"
+          GH_AW_WORKFLOW_NAME: "Dispatcher"
+          GH_AW_WORKFLOW_SOURCE_URL: "${{ github.server_url }}/${{ github.repository }}/blob/${{ github.ref_name }}/.github/workflows/dispatcher.md"
         with:
           github-token: ${{ secrets.GH_AW_GITHUB_TOKEN || secrets.GITHUB_TOKEN }}
           script: |
@@ -1796,13 +1446,15 @@ jobs:
         uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         env:
           GH_AW_AGENT_OUTPUT: ${{ steps.setup-agent-output-env.outputs.GH_AW_AGENT_OUTPUT }}
-          GH_AW_WORKFLOW_NAME: "Issue Monster"
-          GH_AW_WORKFLOW_SOURCE_URL: "${{ github.server_url }}/${{ github.repository }}/blob/${{ github.ref_name }}/.github/workflows/issue-monster.md"
+          GH_AW_WORKFLOW_NAME: "Dispatcher"
+          GH_AW_WORKFLOW_SOURCE_URL: "${{ github.server_url }}/${{ github.repository }}/blob/${{ github.ref_name }}/.github/workflows/dispatcher.md"
           GH_AW_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
           GH_AW_AGENT_CONCLUSION: ${{ needs.agent.result }}
-          GH_AW_WORKFLOW_ID: "issue-monster"
+          GH_AW_WORKFLOW_ID: "dispatcher"
           GH_AW_ACTION_FAILURE_ISSUE_EXPIRES_HOURS: "0"
           GH_AW_ENGINE_ID: "copilot"
+          GH_AW_SECRET_VERIFICATION_RESULT: ${{ needs.activation.outputs.secret_verification_result }}
+          GH_AW_ENGINE_SECRET_FAILURE_MESSAGE: "**Alternative**: If your organization has a Copilot subscription, you can avoid the need for a personal access token by adding a top-level `permissions` block to your workflow file. This enables Copilot inference through the org using the built-in GitHub Actions token.\n\n```yaml\npermissions:\n  copilot-requests: write\n```\n\nSee: https://github.github.com/gh-aw/reference/engines/#github-copilot-default"
           GH_AW_CHECKOUT_PR_SUCCESS: ${{ needs.agent.outputs.checkout_pr_success }}
           GH_AW_AI_CREDITS_RATE_LIMIT_ERROR: ${{ needs.agent.outputs.ai_credits_rate_limit_error || 'false' }}
           GH_AW_UNKNOWN_MODEL_AI_CREDITS: ${{ needs.agent.outputs.unknown_model_ai_credits || 'false' }}
@@ -1830,12 +1482,11 @@ jobs:
           GH_AW_DAILY_AI_CREDITS_TOTAL: ${{ needs.activation.outputs.daily_ai_credits_total }}
           GH_AW_DAILY_AI_CREDITS_THRESHOLD: ${{ needs.activation.outputs.daily_ai_credits_threshold }}
           GH_AW_DAILY_AI_CREDITS_CONTINUE_ON_ERROR: "false"
-          GH_AW_SAFE_OUTPUT_MESSAGES: "{\"footer\":\"\\u003e 🍪 *Om nom nom by [{workflow_name}]({run_url})*{ai_credits_suffix}{history_link}\",\"runStarted\":\"🍪 ISSUE! ISSUE! [{workflow_name}]({run_url}) hungry for issues on this {event_type}! Om nom nom...\",\"runSuccess\":\"🍪 YUMMY! [{workflow_name}]({run_url}) ate the issues! That was DELICIOUS! Me want MORE! 😋\",\"runFailure\":\"🍪 Aww... [{workflow_name}]({run_url}) {status}. No cookie for monster today... 😢\"}"
           GH_AW_GROUP_REPORTS: "false"
           GH_AW_FAILURE_REPORT_AS_ISSUE: "true"
           GH_AW_MISSING_TOOL_REPORT_AS_FAILURE: "true"
           GH_AW_MISSING_DATA_REPORT_AS_FAILURE: "true"
-          GH_AW_TIMEOUT_MINUTES: "30"
+          GH_AW_TIMEOUT_MINUTES: "5"
         with:
           github-token: ${{ secrets.GH_AW_GITHUB_TOKEN || secrets.GITHUB_TOKEN }}
           script: |
@@ -1851,8 +1502,8 @@ jobs:
         uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         env:
           GH_AW_AGENT_OUTPUT: ${{ steps.setup-agent-output-env.outputs.GH_AW_AGENT_OUTPUT }}
-          GH_AW_WORKFLOW_NAME: "Issue Monster"
-          GH_AW_WORKFLOW_SOURCE_URL: "${{ github.server_url }}/${{ github.repository }}/blob/${{ github.ref_name }}/.github/workflows/issue-monster.md"
+          GH_AW_WORKFLOW_NAME: "Dispatcher"
+          GH_AW_WORKFLOW_SOURCE_URL: "${{ github.server_url }}/${{ github.repository }}/blob/${{ github.ref_name }}/.github/workflows/dispatcher.md"
           GH_AW_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
           GH_AW_REPORT_FAILED_JOBS: "true"
         with:
@@ -1873,7 +1524,6 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      copilot-requests: write
     timeout-minutes: 10
     env:
       GH_AW_RUNTIME_FEATURES: ${{ vars.GH_AW_RUNTIME_FEATURES }}
@@ -1892,8 +1542,8 @@ jobs:
           trace-id: ${{ needs.activation.outputs.setup-trace-id }}
           parent-span-id: ${{ needs.activation.outputs.setup-parent-span-id || needs.activation.outputs.setup-span-id }}
         env:
-          GH_AW_SETUP_WORKFLOW_NAME: "Issue Monster"
-          GH_AW_CURRENT_WORKFLOW_REF: ${{ github.repository }}/.github/workflows/issue-monster.lock.yml@${{ github.ref }}
+          GH_AW_SETUP_WORKFLOW_NAME: "Dispatcher"
+          GH_AW_CURRENT_WORKFLOW_REF: ${{ github.repository }}/.github/workflows/dispatcher.lock.yml@${{ github.ref }}
           GH_AW_INFO_VERSION: "1.0.87"
           GH_AW_INFO_AWF_VERSION: "v0.28.23"
           GH_AW_INFO_ENGINE_ID: "copilot"
@@ -1968,8 +1618,8 @@ jobs:
         if: always() && steps.detection_guard.outputs.run_detection == 'true'
         uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         env:
-          WORKFLOW_NAME: "Issue Monster"
-          WORKFLOW_DESCRIPTION: "The Cookie Monster of issues - assigns issues labeled 'cookie' to the Copilot coding agent every 30 minutes"
+          WORKFLOW_NAME: "Dispatcher"
+          WORKFLOW_DESCRIPTION: "Assigns the coding agent to issues labeled 'ready'. Simple state transition\nhandler — not a scheduler. Triggers immediately on label event."
           HAS_PATCH: ${{ needs.agent.outputs.has_patch }}
           GH_AW_DETECTION_CONTINUE_ON_ERROR: "true"
           GH_AW_DETECTION_SKIP_PROMPT_SUMMARY: "true"
@@ -2013,7 +1663,7 @@ jobs:
           AWF_REFLECT_ENABLED: 1
           COPILOT_AGENT_RUNNER_TYPE: STANDALONE
           COPILOT_DUMMY_BYOK: dummy-byok-key-for-offline-mode
-          COPILOT_GITHUB_TOKEN: ${{ github.token }}
+          COPILOT_GITHUB_TOKEN: ${{ secrets.COPILOT_GITHUB_TOKEN }}
           COPILOT_MODEL: detection
           GH_AW_HARNESS_MAX_RETRIES: 0
           GH_AW_LLM_PROVIDER: github
@@ -2036,10 +1686,9 @@ jobs:
           GIT_COMMITTER_EMAIL: github-actions[bot]@users.noreply.github.com
           GIT_COMMITTER_NAME: github-actions[bot]
           RUNNER_TEMP: ${{ runner.temp }}
-          S2STOKENS: true
           TRACEPARENT: ${{ env.GITHUB_AW_OTEL_TRACE_ID != '' && env.GITHUB_AW_OTEL_PARENT_SPAN_ID != '' && format('00-{0}-{1}-01', env.GITHUB_AW_OTEL_TRACE_ID, env.GITHUB_AW_OTEL_PARENT_SPAN_ID) || '' }}
-          WORKFLOW_NAME: "Issue Monster"
-          WORKFLOW_DESCRIPTION: "The Cookie Monster of issues - assigns issues labeled 'cookie' to the Copilot coding agent every 30 minutes"
+          WORKFLOW_NAME: "Dispatcher"
+          WORKFLOW_DESCRIPTION: "Assigns the coding agent to issues labeled 'ready'. Simple state transition\nhandler — not a scheduler. Triggers immediately on label event."
           HAS_PATCH: ${{ needs.agent.outputs.has_patch }}
           GH_AW_DETECTION_CONTINUE_ON_ERROR: "true"
         run: |
@@ -2153,20 +1802,11 @@ jobs:
 
   pre_activation:
     runs-on: ubuntu-slim
-    permissions:
-      issues: read
-      pull-requests: read
     env:
       GH_AW_RUNTIME_FEATURES: ${{ vars.GH_AW_RUNTIME_FEATURES }}
     outputs:
-      activated: ${{ steps.check_membership.outputs.is_team_member == 'true' && steps.check_skip_if_match.outputs.skip_check_ok == 'true' && steps.check_skip_if_no_match.outputs.skip_no_match_check_ok == 'true' }}
-      has_issues: ${{ steps.search.outputs.has_issues }}
-      issue_context: ${{ steps.search.outputs.issue_context }}
-      issue_count: ${{ steps.search.outputs.issue_count }}
-      issue_list: ${{ steps.search.outputs.issue_list }}
-      issue_numbers: ${{ steps.search.outputs.issue_numbers }}
+      activated: ${{ steps.check_membership.outputs.is_team_member == 'true' }}
       matched_command: ''
-      search_result: ${{ steps.search.outcome }}
       setup-parent-span-id: ${{ steps.setup.outputs.parent-span-id || steps.setup.outputs.span-id }}
       setup-span-id: ${{ steps.setup.outputs.span-id }}
       setup-trace-id: ${{ steps.setup.outputs.trace-id }}
@@ -2178,8 +1818,8 @@ jobs:
           destination: ${{ runner.temp }}/gh-aw/actions
           job-name: ${{ github.job }}
         env:
-          GH_AW_SETUP_WORKFLOW_NAME: "Issue Monster"
-          GH_AW_CURRENT_WORKFLOW_REF: ${{ github.repository }}/.github/workflows/issue-monster.lock.yml@${{ github.ref }}
+          GH_AW_SETUP_WORKFLOW_NAME: "Dispatcher"
+          GH_AW_CURRENT_WORKFLOW_REF: ${{ github.repository }}/.github/workflows/dispatcher.lock.yml@${{ github.ref }}
           GH_AW_INFO_VERSION: "1.0.87"
           GH_AW_INFO_AWF_VERSION: "v0.28.23"
           GH_AW_INFO_ENGINE_ID: "copilot"
@@ -2197,404 +1837,6 @@ jobs:
             setupGlobals(core, github, context, exec, io, getOctokit);
             const { main } = require(path.join(actionsDir, 'check_membership.cjs'));
             await main();
-      - name: Check skip-if-match query
-        id: check_skip_if_match
-        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
-        env:
-          GH_AW_SKIP_QUERY: "is:pr is:open is:draft author:app/copilot-swe-agent"
-          GH_AW_WORKFLOW_NAME: "Issue Monster"
-          GH_AW_SKIP_MAX_MATCHES: "5"
-        with:
-          script: |
-            const path = require('path');
-            const actionsDir = path.join(process.env.RUNNER_TEMP, 'gh-aw', 'actions');
-            const { setupGlobals } = require(path.join(actionsDir, 'setup_globals.cjs'));
-            setupGlobals(core, github, context, exec, io, getOctokit);
-            const { main } = require(path.join(actionsDir, 'check_skip_if_match.cjs'));
-            await main();
-      - name: Check skip-if-no-match query
-        id: check_skip_if_no_match
-        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
-        env:
-          GH_AW_SKIP_QUERY: "is:issue is:open"
-          GH_AW_WORKFLOW_NAME: "Issue Monster"
-          GH_AW_SKIP_MIN_MATCHES: "1"
-        with:
-          script: |
-            const path = require('path');
-            const actionsDir = path.join(process.env.RUNNER_TEMP, 'gh-aw', 'actions');
-            const { setupGlobals } = require(path.join(actionsDir, 'setup_globals.cjs'));
-            setupGlobals(core, github, context, exec, io, getOctokit);
-            const { main } = require(path.join(actionsDir, 'check_skip_if_no_match.cjs'));
-            await main();
-      - name: Search for candidate issues
-        id: search
-        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
-        with:
-          script: |
-            const { owner, repo } = context.repo;
-            const MAX_ISSUES_WITH_BODY_CONTEXT = 8;
-            const BODY_SNIPPET_MAX_LENGTH = 600;
-
-            try {
-              // Check for recent rate-limited PRs to avoid scheduling more work during rate limiting
-              core.info('Checking for recent rate-limited PRs...');
-              const rateLimitCheckDate = new Date();
-              rateLimitCheckDate.setHours(rateLimitCheckDate.getHours() - 1); // Check last hour
-              // Format as YYYY-MM-DDTHH:MM:SS for GitHub search API
-              const rateLimitCheckISO = rateLimitCheckDate.toISOString().split('.')[0] + 'Z';
-
-              const recentPRsQuery = `is:pr author:app/copilot-swe-agent created:>${rateLimitCheckISO} repo:${owner}/${repo}`;
-              const recentPRsResponse = await github.rest.search.issuesAndPullRequests({
-                q: recentPRsQuery,
-                per_page: 10,
-                sort: 'created',
-                order: 'desc'
-              });
-
-              core.info(`Found ${recentPRsResponse.data.total_count} recent Copilot PRs to check for rate limiting`);
-
-              // Check if any recent PRs have rate limit indicators
-              let rateLimitDetected = false;
-              for (const pr of recentPRsResponse.data.items) {
-                try {
-                  const prTimelineQuery = `
-                    query($owner: String!, $repo: String!, $number: Int!) {
-                      repository(owner: $owner, name: $repo) {
-                        pullRequest(number: $number) {
-                          timelineItems(first: 50, itemTypes: [ISSUE_COMMENT]) {
-                            nodes {
-                              __typename
-                              ... on IssueComment {
-                                body
-                                createdAt
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  `;
-
-                  const prTimelineResult = await github.graphql(prTimelineQuery, {
-                    owner,
-                    repo,
-                    number: pr.number
-                  });
-
-                  const comments = prTimelineResult?.repository?.pullRequest?.timelineItems?.nodes || [];
-                  const rateLimitPattern = /rate limit|API rate limit|secondary rate limit|abuse detection|\b429\b|too many requests/i;
-
-                  for (const comment of comments) {
-                    if (comment.body && rateLimitPattern.test(comment.body)) {
-                      core.warning(`Rate limiting detected in PR #${pr.number}: ${comment.body.substring(0, 200)}`);
-                      rateLimitDetected = true;
-                      break;
-                    }
-                  }
-
-                  if (rateLimitDetected) break;
-                } catch (error) {
-                  core.warning(`Could not check PR #${pr.number} for rate limiting: ${error.message}`);
-                }
-              }
-
-              if (rateLimitDetected) {
-                core.warning('🛑 Rate limiting detected in recent PRs. Skipping issue assignment to prevent further rate limit issues.');
-                core.setOutput('issue_count', 0);
-                core.setOutput('issue_numbers', '');
-                core.setOutput('issue_list', '');
-                core.setOutput('issue_context', '');
-                core.setOutput('has_issues', 'false');
-                return;
-              }
-
-              core.info('✓ No rate limiting detected. Proceeding with issue search.');
-
-              // Labels that indicate an issue should NOT be auto-assigned
-              const excludeLabels = [
-                'wontfix',
-                'duplicate',
-                'invalid',
-                'question',
-                'discussion',
-                'needs-discussion',
-                'blocked',
-                'on-hold',
-                'waiting-for-feedback',
-                'needs-more-info',
-                'no-bot',
-                'no-campaign'
-              ];
-
-              // Labels that indicate an issue is a GOOD candidate for auto-assignment
-              const priorityLabels = [
-                'community',
-                'good first issue',
-                'good-first-issue',
-                'bug',
-                'enhancement',
-                'feature',
-                'documentation',
-                'tech-debt',
-                'refactoring',
-                'performance',
-                'security'
-              ];
-
-              // Search for open issues with "cookie" label and without excluded labels
-              // The "cookie" label indicates issues that are approved work queue items from automated workflows
-              const query = `is:issue is:open repo:${owner}/${repo} label:cookie -label:"${excludeLabels.join('" -label:"')}"`;
-              core.info(`Searching: ${query}`);
-              const response = await github.rest.search.issuesAndPullRequests({
-                q: query,
-                per_page: 100,
-                sort: 'created',
-                order: 'desc'
-              });
-              core.info(`Found ${response.data.total_count} total issues matching basic criteria`);
-
-              // Fetch full details for each issue to get labels, assignees, sub-issues, and linked PRs
-              // Track integrity-filtered issues to emit a diagnostic summary
-              const integrityFilteredIssues = [];
-              const issuesWithDetails = (await Promise.all(
-                response.data.items.map(async (issue) => {
-                  // Fetch full issue details — some issues may be blocked by integrity policy
-                  let fullIssue;
-                  try {
-                    fullIssue = await github.rest.issues.get({
-                      owner,
-                      repo,
-                      issue_number: issue.number
-                    });
-                  } catch (fetchError) {
-                    // Integrity-filtered issues (403/451) or other transient errors should be
-                    // skipped individually rather than failing the entire batch
-                    const status = fetchError.status || fetchError.response?.status;
-                    // 403 = Forbidden (integrity policy), 451 = Unavailable For Legal Reasons
-                    const isIntegrityBlock = status === 403 || status === 451 ||
-                      /\bintegrity\b/i.test(fetchError.message || '');
-                    const errorSummary = (fetchError.message || String(fetchError)).slice(0, 120);
-                    if (isIntegrityBlock) {
-                      integrityFilteredIssues.push(issue.number);
-                      core.warning(`⚠️ Skipping issue #${issue.number}: blocked by integrity policy (HTTP ${status || 'unknown'}): ${errorSummary}`);
-                    } else {
-                      core.warning(`⚠️ Skipping issue #${issue.number}: could not fetch details (HTTP ${status || 'unknown'}): ${errorSummary}`);
-                    }
-                    return null;
-                  }
-
-                  // Check if this issue has sub-issues and linked PRs using GraphQL
-                  let subIssuesCount = 0;
-                  let linkedPRs = [];
-                  try {
-                    const issueDetailsQuery = `
-                      query($owner: String!, $repo: String!, $number: Int!) {
-                        repository(owner: $owner, name: $repo) {
-                          issue(number: $number) {
-                            subIssues {
-                              totalCount
-                            }
-                            timelineItems(first: 100, itemTypes: [CROSS_REFERENCED_EVENT]) {
-                              nodes {
-                                ... on CrossReferencedEvent {
-                                  source {
-                                    __typename
-                                    ... on PullRequest {
-                                      number
-                                      state
-                                      isDraft
-                                      author {
-                                        login
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    `;
-                    const issueDetailsResult = await github.graphql(issueDetailsQuery, {
-                      owner,
-                      repo,
-                      number: issue.number
-                    });
-
-                    subIssuesCount = issueDetailsResult?.repository?.issue?.subIssues?.totalCount || 0;
-
-                    // Extract linked PRs from timeline
-                    const timelineItems = issueDetailsResult?.repository?.issue?.timelineItems?.nodes || [];
-                    linkedPRs = timelineItems
-                      .filter(item => item?.source?.__typename === 'PullRequest')
-                      .map(item => ({
-                        number: item.source.number,
-                        state: item.source.state,
-                        isDraft: item.source.isDraft,
-                        author: item.source.author?.login
-                      }));
-
-                    core.info(`Issue #${issue.number} has ${linkedPRs.length} linked PR(s)`);
-                  } catch (error) {
-                    // If GraphQL query fails, continue with defaults
-                    core.warning(`Could not check details for #${issue.number}: ${error.message}`);
-                  }
-
-                  return {
-                    ...fullIssue.data,
-                    subIssuesCount,
-                    linkedPRs
-                  };
-                })
-              )).filter(Boolean); // Remove null entries (integrity-filtered or otherwise skipped)
-
-              // Emit diagnostic summary for integrity-filtered issues
-              if (integrityFilteredIssues.length > 0) {
-                core.warning(`🛡️ Integrity filter diagnostic: ${integrityFilteredIssues.length} issue(s) were skipped due to integrity policy: #${integrityFilteredIssues.join(', #')}. These issues will be excluded from this run.`);
-              }
-
-              // Filter and score issues
-              const scoredIssues = issuesWithDetails
-                .filter(issue => {
-                  // Exclude issues that already have assignees
-                  if (issue.assignees && issue.assignees.length > 0) {
-                    core.info(`Skipping #${issue.number}: already has assignees`);
-                    return false;
-                  }
-
-                  // Exclude issues with excluded labels (double check)
-                  const issueLabels = issue.labels.map(l => l.name.toLowerCase());
-                  if (issueLabels.some(label => excludeLabels.map(l => l.toLowerCase()).includes(label))) {
-                    core.info(`Skipping #${issue.number}: has excluded label`);
-                    return false;
-                  }
-
-                  // Exclude issues with campaign labels (campaign:*)
-                  // Campaign items are managed by campaign orchestrators
-                  if (issueLabels.some(label => label.startsWith('campaign:'))) {
-                    core.info(`Skipping #${issue.number}: has campaign label (managed by campaign orchestrator)`);
-                    return false;
-                  }
-
-                  // Exclude issues that have sub-issues (parent/organizing issues)
-                  if (issue.subIssuesCount > 0) {
-                    core.info(`Skipping #${issue.number}: has ${issue.subIssuesCount} sub-issue(s) - parent issues are used for organizing, not tasks`);
-                    return false;
-                  }
-
-                  // Exclude issues with closed PRs (treat as complete)
-                  const closedPRs = issue.linkedPRs?.filter(pr => pr.state === 'CLOSED' || pr.state === 'MERGED') || [];
-                  if (closedPRs.length > 0) {
-                    core.info(`Skipping #${issue.number}: has ${closedPRs.length} closed/merged PR(s) - treating as complete`);
-                    return false;
-                  }
-
-                  // Exclude issues with open PRs from Copilot coding agent
-                  const openCopilotPRs = issue.linkedPRs?.filter(pr => 
-                    pr.state === 'OPEN' && 
-                    (pr.author === 'copilot-swe-agent' || pr.author?.includes('copilot'))
-                  ) || [];
-                  if (openCopilotPRs.length > 0) {
-                    core.info(`Skipping #${issue.number}: has ${openCopilotPRs.length} open PR(s) from Copilot - already being worked on`);
-                    return false;
-                  }
-
-                  return true;
-                })
-                .map(issue => {
-                  const issueLabels = issue.labels.map(l => l.name.toLowerCase());
-                  let score = 0;
-
-                  // Score based on priority labels (higher score = higher priority)
-                  // Community issues always get the highest priority — these are
-                  // requests from external contributors and should be addressed first.
-                  if (issueLabels.includes('community')) {
-                    score += 60;
-                  }
-                  if (issueLabels.includes('good first issue') || issueLabels.includes('good-first-issue')) {
-                    score += 50;
-                  }
-                  if (issueLabels.includes('bug')) {
-                    score += 40;
-                  }
-                  if (issueLabels.includes('security')) {
-                    score += 45;
-                  }
-                  if (issueLabels.includes('documentation')) {
-                    score += 35;
-                  }
-                  if (issueLabels.includes('enhancement') || issueLabels.includes('feature')) {
-                    score += 30;
-                  }
-                  if (issueLabels.includes('performance')) {
-                    score += 25;
-                  }
-                  if (issueLabels.includes('tech-debt') || issueLabels.includes('refactoring')) {
-                    score += 20;
-                  }
-
-                  // Bonus for issues with clear labels (any priority label)
-                  if (issueLabels.some(label => priorityLabels.map(l => l.toLowerCase()).includes(label))) {
-                    score += 10;
-                  }
-
-                  // Age bonus: older issues get slight priority (days old / 10)
-                  const ageInDays = Math.floor((Date.now() - new Date(issue.created_at)) / (1000 * 60 * 60 * 24));
-                  score += Math.min(ageInDays / 10, 20); // Cap age bonus at 20 points
-
-                  return {
-                    number: issue.number,
-                    title: issue.title,
-                    labels: issue.labels.map(l => l.name),
-                    body: issue.body,
-                    created_at: issue.created_at,
-                    score
-                  };
-                })
-                .sort((a, b) => b.score - a.score); // Sort by score descending
-
-              // Format output
-              const issueList = scoredIssues.map(i => {
-                const labelStr = i.labels.length > 0 ? ` [${i.labels.join(', ')}]` : '';
-                return `#${i.number}: ${i.title}${labelStr} (score: ${i.score.toFixed(1)})`;
-              }).join('\n');
-
-              // Pre-fetch compact body context for top candidates so the agent can
-              // triage without extra reads in most runs.
-              const issueContext = scoredIssues.slice(0, MAX_ISSUES_WITH_BODY_CONTEXT).map(i => {
-                const body = (i.body || '').replace(/\s+/g, ' ').trim();
-                const bodySnippet = body.length > BODY_SNIPPET_MAX_LENGTH ? `${body.slice(0, BODY_SNIPPET_MAX_LENGTH)}…` : body;
-                const labelStr = i.labels.length > 0 ? i.labels.join(', ') : 'none';
-                return `#${i.number} | score=${i.score.toFixed(1)} | labels=${labelStr}\nTitle: ${i.title}\nBody: ${bodySnippet || '(no body)'}`;
-              }).join('\n\n---\n\n');
-
-              const issueNumbers = scoredIssues.map(i => i.number).join(',');
-
-              core.info(`Total candidate issues after filtering: ${scoredIssues.length}`);
-              if (scoredIssues.length > 0) {
-                core.info(`Top candidates:\n${issueList.split('\n').slice(0, 10).join('\n')}`);
-              }
-
-              core.setOutput('issue_count', scoredIssues.length);
-              core.setOutput('issue_numbers', issueNumbers);
-              core.setOutput('issue_list', issueList);
-              core.setOutput('issue_context', issueContext);
-
-              if (scoredIssues.length === 0) {
-                core.info('🍽️ No suitable candidate issues - the plate is empty!');
-                core.setOutput('has_issues', 'false');
-              } else {
-                core.setOutput('has_issues', 'true');
-              }
-            } catch (error) {
-              core.error(`Error searching for issues: ${error.message}`);
-              core.setOutput('issue_count', 0);
-              core.setOutput('issue_numbers', '');
-              core.setOutput('issue_list', '');
-              core.setOutput('issue_context', '');
-              core.setOutput('has_issues', 'false');
-            }
 
   safe_outputs:
     needs:
@@ -2611,18 +1853,16 @@ jobs:
       GH_AW_AGENT_AIC: ${{ needs.agent.outputs.aic }}
       GH_AW_AIC: ${{ needs.agent.outputs.aic }}
       GH_AW_AMBIENT_CONTEXT: ${{ needs.agent.outputs.ambient_context }}
-      GH_AW_CALLER_WORKFLOW_ID: "${{ github.repository }}/issue-monster"
+      GH_AW_CALLER_WORKFLOW_ID: "${{ github.repository }}/dispatcher"
       GH_AW_DETECTION_CONCLUSION: ${{ needs.detection.outputs.detection_conclusion }}
       GH_AW_DETECTION_REASON: ${{ needs.detection.outputs.detection_reason }}
       GH_AW_ENGINE_ID: "copilot"
       GH_AW_ENGINE_MODEL: ${{ needs.agent.outputs.model }}
       GH_AW_RUNTIME_FEATURES: ${{ vars.GH_AW_RUNTIME_FEATURES }}
-      GH_AW_SAFE_OUTPUT_MESSAGES: "{\"footer\":\"\\u003e 🍪 *Om nom nom by [{workflow_name}]({run_url})*{ai_credits_suffix}{history_link}\",\"runStarted\":\"🍪 ISSUE! ISSUE! [{workflow_name}]({run_url}) hungry for issues on this {event_type}! Om nom nom...\",\"runSuccess\":\"🍪 YUMMY! [{workflow_name}]({run_url}) ate the issues! That was DELICIOUS! Me want MORE! 😋\",\"runFailure\":\"🍪 Aww... [{workflow_name}]({run_url}) {status}. No cookie for monster today... 😢\"}"
       GH_AW_THREAT_DETECTION_AIC: ${{ needs.detection.outputs.aic }}
-      GH_AW_WORKFLOW_EMOJI: "👾"
-      GH_AW_WORKFLOW_ID: "issue-monster"
-      GH_AW_WORKFLOW_NAME: "Issue Monster"
-      GH_AW_WORKFLOW_SOURCE_URL: "${{ github.server_url }}/${{ github.repository }}/blob/${{ github.ref_name }}/.github/workflows/issue-monster.md"
+      GH_AW_WORKFLOW_ID: "dispatcher"
+      GH_AW_WORKFLOW_NAME: "Dispatcher"
+      GH_AW_WORKFLOW_SOURCE_URL: "${{ github.server_url }}/${{ github.repository }}/blob/${{ github.ref_name }}/.github/workflows/dispatcher.md"
     outputs:
       assign_to_agent_assigned: ${{ steps.process_safe_outputs.outputs.assign_to_agent_assigned }}
       assign_to_agent_assignment_error_count: ${{ steps.process_safe_outputs.outputs.assign_to_agent_assignment_error_count }}
@@ -2652,8 +1892,8 @@ jobs:
           trace-id: ${{ needs.activation.outputs.setup-trace-id }}
           parent-span-id: ${{ needs.activation.outputs.setup-parent-span-id || needs.activation.outputs.setup-span-id }}
         env:
-          GH_AW_SETUP_WORKFLOW_NAME: "Issue Monster"
-          GH_AW_CURRENT_WORKFLOW_REF: ${{ github.repository }}/.github/workflows/issue-monster.lock.yml@${{ github.ref }}
+          GH_AW_SETUP_WORKFLOW_NAME: "Dispatcher"
+          GH_AW_CURRENT_WORKFLOW_REF: ${{ github.repository }}/.github/workflows/dispatcher.lock.yml@${{ github.ref }}
           GH_AW_INFO_VERSION: "1.0.87"
           GH_AW_INFO_AWF_VERSION: "v0.28.23"
           GH_AW_INFO_ENGINE_ID: "copilot"
@@ -2694,7 +1934,7 @@ jobs:
           GH_AW_ALLOWED_DOMAINS: "api.snapcraft.io,archive.ubuntu.com,azure.archive.ubuntu.com,crl.geotrust.com,crl.globalsign.com,crl.identrust.com,crl.sectigo.com,crl.thawte.com,crl.usertrust.com,crl.verisign.com,crl3.digicert.com,crl4.digicert.com,crls.ssl.com,json-schema.org,json.schemastore.org,keyserver.ubuntu.com,ocsp.digicert.com,ocsp.geotrust.com,ocsp.globalsign.com,ocsp.identrust.com,ocsp.sectigo.com,ocsp.ssl.com,ocsp.thawte.com,ocsp.usertrust.com,ocsp.verisign.com,packagecloud.io,packages.cloud.google.com,packages.microsoft.com,ppa.launchpad.net,s.symcb.com,s.symcd.com,security.ubuntu.com,ts-crl.ws.symantec.com,ts-ocsp.ws.symantec.com,www.googleapis.com"
           GITHUB_SERVER_URL: ${{ github.server_url }}
           GITHUB_API_URL: ${{ github.api_url }}
-          GH_AW_SAFE_OUTPUTS_HANDLER_CONFIG: "{\"add_comment\":{\"max\":3,\"target\":\"*\"},\"assign_to_agent\":{\"allowed\":[\"copilot\"],\"ignore-if-error\":true,\"max\":3,\"target\":\"*\"},\"create_report_incomplete_issue\":{},\"missing_data\":{},\"missing_tool\":{},\"noop\":{\"max\":1,\"report-as-issue\":\"false\"},\"report_incomplete\":{}}"
+          GH_AW_SAFE_OUTPUTS_HANDLER_CONFIG: "{\"add_comment\":{\"max\":1},\"add_labels\":{\"allowed\":[\"in-progress\"],\"max\":1},\"assign_to_agent\":{\"allowed\":[\"copilot\"],\"ignore-if-error\":true,\"max\":1,\"target\":\"*\"},\"create_report_incomplete_issue\":{},\"missing_data\":{},\"missing_tool\":{},\"noop\":{\"max\":1,\"report-as-issue\":\"false\"},\"remove_labels\":{\"allowed\":[\"ready\"],\"max\":1},\"report_incomplete\":{}}"
           GH_AW_ASSIGN_TO_AGENT_TOKEN: ${{ secrets.GH_AW_AGENT_TOKEN || secrets.GH_AW_GITHUB_TOKEN || secrets.GITHUB_TOKEN }}
         with:
           github-token: ${{ secrets.GH_AW_GITHUB_TOKEN || secrets.GITHUB_TOKEN }}

@@ -1,8 +1,8 @@
 ---
 description: |
   Analyzes an issue and proposes an implementation plan before coding begins.
-  Posts the plan as a comment for human review. The issue should only be
-  assigned to the coding agent after the plan is approved.
+  Posts the plan as a comment for human review. Transitions state from
+  needs-plan to plan-ready.
 
 on:
   workflow_dispatch:
@@ -25,10 +25,14 @@ safe-outputs:
     max: 1
   add-labels:
     allowed:
-      - plan-approved
+      - plan-ready
       - needs-info
       - needs-architecture-review
     max: 2
+  remove-labels:
+    allowed:
+      - needs-plan
+    max: 1
 
 timeout-minutes: 15
 ---
@@ -37,6 +41,10 @@ timeout-minutes: 15
 
 You are a planning agent. Your job is to analyze issue #${{ github.event.issue.number }}
 and propose a concrete implementation plan. You do NOT write code — you plan.
+
+**State guard:** First check if this issue has the `needs-plan` label. If it does
+NOT have `needs-plan`, call `noop` — another workflow should handle this state.
+If it already has a `plan-ready` label, call `noop` — the plan was already posted.
 
 ## 1. Understand the issue
 
@@ -99,9 +107,17 @@ Post ONE comment with this structure:
 - Confidence: [High / Medium / Low — how confident are you in this plan?]
 
 ---
-**Next step:** Review this plan. If approved, add the `cookie` label to
+**Next step:** Review this plan. If approved, add the `ready` label to
 assign this issue to the coding agent.
 ```
+
+## 5. Transition state
+
+After posting the plan:
+1. Remove the `needs-plan` label
+2. Add the `plan-ready` label
+
+This signals that the plan is posted and awaiting human review.
 
 ## Rules
 
