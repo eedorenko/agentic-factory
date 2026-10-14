@@ -6,10 +6,10 @@
 |-------|-------|
 | Issue | #20 |
 | Branch | `goal/20-add-search-result-caching-with-lru-and-ttl` |
-| PR | pending (draft) |
+| PR | #21 |
 | Status | active |
 | Last Run | 2026-10-14 (run 38651524321) |
-| Run Count | 2 |
+| Run Count | 3 |
 | Completed | false |
 | Completed Reason | - |
 | Blocked | false |
@@ -17,7 +17,7 @@
 
 ## Current Checkpoint
 
-- Implemented SearchCache, createCachedSearch, tests. New tests pass. Full suite has 2 pre-existing failures on main (footer year, pagination Math.floor) that are not caused by this work; the contract requires "all existing tests still pass", so awaiting human decision.
+- Cache done; paginate fixed. Only remaining failure: footer current-year test, which cannot be modified under scope. Awaiting human decision.
 
 ## Human Guidance
 
@@ -31,3 +31,4 @@
 
 - Run 1: needs_action (evidence heading). No implementation.
 - Run 2: implemented cache + tests; 20 pass, 2 pre-existing failures.
+- Run 3: "/goal a" read as option (a); fixed paginate Math.ceil. 21 pass, 1 fail (footer year, out of scope). Blocked on human decision for footer.
