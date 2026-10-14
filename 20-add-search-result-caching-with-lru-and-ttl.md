@@ -6,10 +6,10 @@
 |-------|-------|
 | Issue | #20 |
 | Branch | `goal/20-add-search-result-caching-with-lru-and-ttl` |
-| PR | - |
-| Status | needs_action |
-| Last Run | 2026-10-14 (run 38650314767) |
-| Run Count | 1 |
+| PR | pending (draft) |
+| Status | active |
+| Last Run | 2026-10-14 (run 38651524321) |
+| Run Count | 2 |
 | Completed | false |
 | Completed Reason | - |
 | Blocked | false |
@@ -17,12 +17,17 @@
 
 ## Current Checkpoint
 
-- Waiting on issue heading fix: scheduler did not detect the `evidence` section.
+- Implemented SearchCache, createCachedSearch, tests. New tests pass. Full suite has 2 pre-existing failures on main (footer year, pagination Math.floor) that are not caused by this work; the contract requires "all existing tests still pass", so awaiting human decision.
 
 ## Human Guidance
 
 - Read new non-bot issue comments before every run.
 
+## Decisions
+
+- Key = trimmed lowercase query (no sort options yet). Invalidation targeted: add -> entries whose query matches the new item; remove -> entries containing the item.
+
 ## Run History
 
-- Run 1: definition_status needs_action (missing: evidence). No implementation.
+- Run 1: needs_action (evidence heading). No implementation.
+- Run 2: implemented cache + tests; 20 pass, 2 pre-existing failures.
