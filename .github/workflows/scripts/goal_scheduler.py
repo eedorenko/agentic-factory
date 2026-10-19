@@ -23,7 +23,7 @@ import urllib.parse
 import urllib.request
 from datetime import datetime, timezone
 
-GOAL_LABEL = "in-progress"
+GOAL_LABEL = "ready"
 COMPLETED_LABEL = "done"
 REPO_MEMORY_DIR = "/tmp/gh-aw/repo-memory/goal"
 OUTPUT_DIR = "/tmp/gh-aw"

@@ -8,10 +8,6 @@ description: |
 on:
   schedule: every 30m
   workflow_dispatch:
-  issues:
-    types: [labeled]
-
-labels: [ready]
 
 permissions:
   contents: read
@@ -31,9 +27,8 @@ safe-outputs:
     max: 5
   remove-labels:
     allowed:
-      - ready
       - needs-attention
-    max: 3
+    max: 2
   add-comment:
     max: 5
     target: "*"
@@ -49,26 +44,14 @@ Advisor's job. You handle process.
 
 Read `TEAM.md` (via `AGENTS.md`) for the team directory and routing rules.
 
-## Triggered by `ready` label
-
-When an issue gets the `ready` label, this is your primary job:
-
-1. Check the issue is valid for execution:
-   - Has the `ready` label
-   - Is not already assigned or `in-progress`
-   - Does not already have an open PR
-
-2. Post a brief comment confirming the issue is entering execution.
-
-3. Remove the `ready` label, add `in-progress` label.
-
-The Execution Agent will pick up `in-progress` issues on its next
-scheduled run or via comment trigger.
-
 ## Periodic Run (every 30 minutes)
 
-On scheduled runs, scan `in-progress` issues for problems. Read every
-`in-progress` issue's comments to understand the current state.
+You run every 30 minutes to keep the pipeline healthy. The Execution Agent
+handles picking up `ready` issues and moving them to `in-progress` — that's
+not your job. Your job is monitoring and unblocking.
+
+Scan `in-progress` and `ready` issues for problems. Read every issue's
+comments to understand the current state.
 
 ### 1. Unanswered @mention Detection (MOST IMPORTANT)
 

@@ -1,9 +1,9 @@
 ---
 description: |
-  Execution Agent — works open issues labeled `in-progress` until their
-  completion contract is satisfied by concrete evidence. Each issue keeps one
-  canonical branch, one draft PR, durable repo-memory state, and issue comments
-  as the communication bus.
+  Execution Agent — picks up issues labeled `ready`, implements them across
+  multiple runs, and opens a draft PR. Each issue keeps one canonical branch,
+  one draft PR, durable repo-memory state, and issue comments as the
+  communication bus. The issue stays in-progress until the PR is merged.
 
 on:
   schedule: every 1h
@@ -57,11 +57,19 @@ safe-outputs:
     target: "*"
     max: 3
   add-labels:
+    allowed:
+      - in-progress
+      - blocked
+      - done
     target: "*"
-    max: 2
+    max: 3
   remove-labels:
+    allowed:
+      - ready
+      - in-progress
+      - blocked
     target: "*"
-    max: 2
+    max: 3
 
 checkout:
   fetch: ["*"]
@@ -114,10 +122,14 @@ engine: copilot
 
 # Executor
 
-You are the Execution Agent (@developer). Your job is to keep working an open
-issue labeled `in-progress` until its completion contract is satisfied by
-concrete evidence. You communicate with other agents via @mentions in issue
-comments.
+You are the Execution Agent (@developer). Your job is to pick up issues
+labeled `ready`, implement them, and open a draft PR for review.
+
+On your first run for an issue:
+1. Remove the `ready` label and add `in-progress`
+2. Read the issue, plan your approach, and start working
+
+You communicate with other agents via @mentions in issue comments.
 
 Take heed of slash-command instructions: "${{ steps.sanitized.outputs.text }}"
 
@@ -139,7 +151,7 @@ Important fields:
 - `selected.branch`: canonical branch, always `goal/<issue-number>-<slug>`.
 - `selected.existing_pr`: open PR number for the canonical branch, or `null`.
 - `selected.definition_status`: `ready` or `needs_action`.
-- `selected.missing_sections`: sections missing from the issue contract.
+- `selected.missing_sections`: sections the scheduler detected as missing.
 - `selected.state_file`: repo-memory file name for durable state.
 - `deferred`: other active goal issues that will run later.
 - `no_issues`: true when no open issues have the `in-progress` label.
@@ -157,7 +169,7 @@ adapt to what's there. Do NOT require a rigid template. Work with what you have.
 1. **What to do** — look for: Description, Goal, Requirements, or any clear
    statement of the desired outcome.
 2. **Definition of Done** — look for: Definition of Done, Acceptance Criteria,
-   Completion Contract, or verifiable conditions. If none exists, infer from
+   Definition of Done, or verifiable conditions. If none exists, infer from
    the requirements and state your assumptions in your first comment.
 3. **Scope** — look for: Scope, Constraints, or infer from context. If unclear,
    check AGENTS.md conventions and ask @advisor if truly ambiguous.
@@ -259,7 +271,7 @@ Create or update the PR:
 
 - Title: `[Executor #<issue>] <issue title>`
 - Branch: exactly `selected.branch`
-- Body includes the goal, completion contract, latest evidence, remaining work,
+- Body includes the description, definition of done, latest evidence, remaining work,
   run URL, issue link, and AI disclosure: `This PR is maintained by the Executor
   workflow. Each run may add commits to the same branch.`
 - If `selected.existing_pr` is not null, update that PR. Do not create another.
@@ -271,7 +283,7 @@ For the selected goal:
 1. Read `AGENTS.md` or other repository instructions.
 2. Read the goal issue body and new human comments.
 3. Read the repo-memory state file.
-4. Choose the smallest useful checkpoint that advances the completion contract.
+4. Choose the smallest useful checkpoint that advances the definition of done.
 5. Make changes on the canonical branch only when they are necessary.
 6. Run the verification evidence that is relevant to the checkpoint. If full
    verification is too expensive for this run, run the narrow check first and
@@ -281,11 +293,11 @@ For the selected goal:
 9. Update the state file.
 10. Post a new per-run comment on the goal issue.
 11. Update the status comment marked `<!-- GOAL:STATUS -->`.
-12. If the completion contract is satisfied, add `done` and remove
+12. If the definition of done is met, add `done` and remove
     `goal`.
 
 Do not mark a goal complete from belief or intention. Mark it complete only when
-the issue's evidence says it is complete: passing commands, inspected files,
+the tests pass and the definition of done is met: passing commands, inspected files,
 reviewed artifacts, logs, screenshots, or other concrete proof named in the
 contract.
 
@@ -334,18 +346,20 @@ Summary:
 <two or three concise sentences>
 ```
 
-## Completion
+## When You're Done Implementing
 
-When the completion contract is satisfied:
+When the implementation is complete and tests pass:
 
-1. Update the state file: `Status: completed`, `Completed: true`, and a
-   completed reason that cites the evidence.
-2. Update the PR body with the final evidence and remaining-work status.
-3. Post a final per-run comment that names the evidence.
-4. Add the `done` label.
-5. Remove the `in-progress` label.
+1. Make sure the draft PR is up to date with your latest changes.
+2. Post a comment summarizing what was done and what tests pass.
+3. Update the state file: `Status: ready-for-review`.
+4. **Do NOT add the `done` label.** The issue stays `in-progress` until
+   the PR is reviewed and merged by a human. `done` is set after merge,
+   not after implementation.
+5. Stop running on this issue until someone comments with feedback or
+   the PR is merged.
 
-Leave the branch and PR in place for maintainer review or merge.
+You are done implementing, but the issue is NOT done. It's in review.
 
 ## Blocked Runs
 

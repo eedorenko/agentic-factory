@@ -37,9 +37,9 @@ to know who to ask for help, who to escalate to, and what each team member
 
 | Label | Meaning | Set by | Consumed by |
 | --- | --- | --- | --- |
-| `ready` | Triaged and approved for execution | Advisor | Orchestrator |
-| `in-progress` | Execution Agent is working on it | Orchestrator | Executor |
-| `done` | Completed, PR ready for review | Executor | — |
+| `ready` | Triaged and approved for execution | Advisor | Executor |
+| `in-progress` | Execution Agent is working on it | Executor | Executor |
+| `done` | PR merged, issue closed | (after merge) | — |
 | `needs-info` | Missing information, waiting for reporter | Advisor | — |
 | `complex` | Multiple files, design decisions needed | Advisor | Executor (plans first) |
 | `risky` | Breaking changes, security, production impact | Advisor | Executor (plans + waits for approval) |
