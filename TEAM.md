@@ -6,14 +6,15 @@ to know who to ask for help, who to escalate to, and what each team member
 
 ## Pipeline Agents
 
-| Handle | Role | What they handle |
-| --- | --- | --- |
-| @advisor | Advisor Agent | Triages issues, answers product questions, makes priority/scope decisions. The product knowledge center. |
-| @developer | Execution Agent | Implements tasks via Goal pattern: plans if complex, codes, tests, opens PRs. Communicates via issue comments. |
+| Handle | Agent | Workflow | What they handle |
+| --- | --- | --- | --- |
+| @advisor | Advisor | advisor.md | Triages issues, answers product questions, makes priority/scope decisions. The product knowledge center. |
+| @developer | Execution Agent | executor.md | Implements tasks via multi-run Goal pattern: plans if complex, codes, tests, opens PRs. Communicates via issue comments. |
+| — | Orchestrator | orchestrator.md | Routes work between stages, tracks blockers, manages capacity, pushes stuck work. Pure plumbing — no product decisions. |
 
 ## Feedback Agents
 
-| Handle | Role | What they handle |
+| Handle | Agent | What they handle |
 | --- | --- | --- |
 | @sre | SRE Agent | Detects + diagnoses production anomalies, creates incident/bug issues |
 | @analyst | Analyst | Analyzes usage patterns and trends, creates feature/enhancement issues |
@@ -21,7 +22,7 @@ to know who to ask for help, who to escalate to, and what each team member
 
 ## Specialist Agents
 
-| Handle | Role | What they handle |
+| Handle | Agent | What they handle |
 | --- | --- | --- |
 | @architect | Architecture Agent | Design patterns, architectural tradeoffs, system coherence |
 | @qa | QA Agent | Test strategy, coverage gaps, acceptance criteria, edge cases |
@@ -31,6 +32,19 @@ to know who to ask for help, who to escalate to, and what each team member
 | Handle | Responsibility | Areas | Escalate when |
 | --- | --- | --- | --- |
 | @eedorenko | Tech lead / Product owner | All areas | Agent is uncertain, high-risk decisions, architectural changes |
+
+## State Machine (Labels)
+
+| Label | Meaning | Set by | Consumed by |
+| --- | --- | --- | --- |
+| `ready` | Triaged and approved for execution | Advisor | Orchestrator |
+| `in-progress` | Execution Agent is working on it | Orchestrator | Executor |
+| `done` | Completed, PR ready for review | Executor | — |
+| `needs-info` | Missing information, waiting for reporter | Advisor | — |
+| `complex` | Multiple files, design decisions needed | Advisor | Executor (plans first) |
+| `risky` | Breaking changes, security, production impact | Advisor | Executor (plans + waits for approval) |
+| `blocked` | Stuck, needs human input | Any agent | Orchestrator (re-escalates) |
+| `needs-attention` | Orchestrator detected a problem | Orchestrator | Humans |
 
 ## Routing Rules
 

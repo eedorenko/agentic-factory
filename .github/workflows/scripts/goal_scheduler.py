@@ -23,8 +23,8 @@ import urllib.parse
 import urllib.request
 from datetime import datetime, timezone
 
-GOAL_LABEL = "goal"
-COMPLETED_LABEL = "goal-completed"
+GOAL_LABEL = "in-progress"
+COMPLETED_LABEL = "done"
 REPO_MEMORY_DIR = "/tmp/gh-aw/repo-memory/goal"
 OUTPUT_DIR = "/tmp/gh-aw"
 OUTPUT_FILE = os.path.join(OUTPUT_DIR, "goal.json")

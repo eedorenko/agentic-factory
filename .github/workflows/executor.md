@@ -1,8 +1,9 @@
 ---
 description: |
-  Work open GitHub issues labeled `goal` until their completion contract is
-  satisfied by concrete evidence. Each issue keeps one canonical branch, one
-  draft PR, durable repo-memory state, a status comment, and a per-run comment.
+  Execution Agent — works open issues labeled `in-progress` until their
+  completion contract is satisfied by concrete evidence. Each issue keeps one
+  canonical branch, one draft PR, durable repo-memory state, and issue comments
+  as the communication bus.
 
 on:
   schedule: every 1h
@@ -37,7 +38,7 @@ safe-outputs:
     hide-older-comments: false
   create-pull-request:
     draft: true
-    labels: [automation, goal]
+    labels: [automation]
     protected-files:
       policy: fallback-to-issue
       exclude:
@@ -113,15 +114,17 @@ engine: copilot
 
 # Goal
 
-You are the Goal workflow. Your job is to keep working an open GitHub issue
-labeled `goal` until its completion contract is satisfied by concrete evidence.
+You are the Execution Agent (@developer). Your job is to keep working an open
+issue labeled `in-progress` until its completion contract is satisfied by
+concrete evidence. You communicate with other agents via @mentions in issue
+comments.
 
 Take heed of slash-command instructions: "${{ steps.sanitized.outputs.text }}"
 
 If the slash-command text is non-empty, treat it as steering for the selected
 goal issue. If no issue is selected and the command includes an issue number,
 run that issue. If it does not identify a goal issue, comment asking for the
-issue number or add the `goal` label to the intended issue, then stop.
+issue number or add the `in-progress` label to the intended issue, then stop.
 
 ## Read The Scheduler Output
 
@@ -139,7 +142,7 @@ Important fields:
 - `selected.missing_sections`: sections missing from the issue contract.
 - `selected.state_file`: repo-memory file name for durable state.
 - `deferred`: other active goal issues that will run later.
-- `no_goals`: true when no open issues have the `goal` label.
+- `no_issues`: true when no open issues have the `in-progress` label.
 
 If `selected` is `null`, there is no goal to work. Stop without creating files or
 PRs.
@@ -272,7 +275,7 @@ For the selected goal:
 9. Update the state file.
 10. Post a new per-run comment on the goal issue.
 11. Update the status comment marked `<!-- GOAL:STATUS -->`.
-12. If the completion contract is satisfied, add `goal-completed` and remove
+12. If the completion contract is satisfied, add `done` and remove
     `goal`.
 
 Do not mark a goal complete from belief or intention. Mark it complete only when
@@ -333,8 +336,8 @@ When the completion contract is satisfied:
    completed reason that cites the evidence.
 2. Update the PR body with the final evidence and remaining-work status.
 3. Post a final per-run comment that names the evidence.
-4. Add the `goal-completed` label.
-5. Remove the `goal` label.
+4. Add the `done` label.
+5. Remove the `in-progress` label.
 
 Leave the branch and PR in place for maintainer review or merge.
 
@@ -347,7 +350,7 @@ If the blocked stop condition is reached, stop substantive work and comment with
 - Why no defensible next action remains under the current constraints.
 - The smallest user action that would unlock progress.
 
-Do not add `goal-completed` for a blocked goal. Keep the goal active unless the
+Do not add `done` for a blocked goal. Keep the goal active unless the
 issue explicitly says a blocked report should end the workflow.
 
 ## Factory Integration
