@@ -1,18 +1,30 @@
 # Team
 
-This file is the factory's team directory. Every agent reads it at the start
-of each run to know who to ask for help, who to escalate to, and what each
-team member (agent or human) is responsible for.
+This file is the factory's team directory. Every agent reads it (via AGENTS.md)
+to know who to ask for help, who to escalate to, and what each team member
+(agent or human) is responsible for.
 
-## Agents
+## Pipeline Agents
 
-| Handle | Role | What they handle | When to @mention |
-| --- | --- | --- | --- |
-| @developer | Execution Agent | Writes code, fixes bugs, restarts services, rolls back deploys, scales infrastructure | When work needs to be done on a specific issue |
-| @advisor | Advisor Agent | Product decisions, feature priorities, business context, backlog analysis | When you need a product-level decision or priority call |
-| @architect | Architecture Agent | Design patterns, architectural tradeoffs, system coherence, tech debt | When you face a design choice or structural question |
-| @qa | QA Agent | Test strategy, coverage gaps, acceptance criteria, edge cases | When you need test guidance or coverage validation |
-| @sre | SRE Agent | Operational questions, blast radius, rollback decisions, incident triage | When changes affect production reliability or safety |
+| Handle | Role | What they handle |
+| --- | --- | --- |
+| @advisor | Advisor Agent | Triages issues, answers product questions, makes priority/scope decisions. The product knowledge center. |
+| @developer | Execution Agent | Implements tasks via Goal pattern: plans if complex, codes, tests, opens PRs. Communicates via issue comments. |
+
+## Feedback Agents
+
+| Handle | Role | What they handle |
+| --- | --- | --- |
+| @sre | SRE Agent | Detects + diagnoses production anomalies, creates incident/bug issues |
+| @analyst | Analyst | Analyzes usage patterns and trends, creates feature/enhancement issues |
+| @healer | Healer | Scores agent performance, creates harness improvement issues |
+
+## Specialist Agents
+
+| Handle | Role | What they handle |
+| --- | --- | --- |
+| @architect | Architecture Agent | Design patterns, architectural tradeoffs, system coherence |
+| @qa | QA Agent | Test strategy, coverage gaps, acceptance criteria, edge cases |
 
 ## Humans
 
@@ -22,26 +34,20 @@ team member (agent or human) is responsible for.
 
 ## Routing Rules
 
-When an agent needs input:
+When an agent needs input, choose the best responder:
 
-1. **Routine product question** → @advisor responds autonomously
-2. **Architecture decision** → @architect responds, human gets notified if risky
-3. **Test strategy** → @qa responds autonomously
-4. **Production/risk concern** → @sre responds, human gets notified
-5. **Agent uncertain or low confidence** → escalate to the human in the matching area
-6. **No matching agent** → escalate to human directly
+1. **Trivial decision** → just decide, don't ask anyone
+2. **Routine product question** → @advisor
+3. **Architecture/design question** → @architect
+4. **Test strategy question** → @qa
+5. **Operational/safety concern** → @sre
+6. **Need input from issue reporter** → @mention the issue author directly
+7. **Uncertain or high-risk** → @mention human from this file with your suggestion
+8. **Wrong agent asked you** → redirect to the right agent with context
 
-When escalating to a human, @mention them directly in the issue comment.
-GitHub sends them a native notification.
+## Anti-Loop Rules
 
-## How to Use
-
-**Agents asking agents:**
-Post a comment on the issue: "@advisor should we support multi-tenant caching?"
-
-**Agents asking humans:**
-Post a comment: "@eedorenko this needs a business decision — single-tenant or multi-tenant?"
-
-**Humans steering agents:**
-Post a comment on the issue. The relevant agent picks it up on its next run.
-@mention a specific agent to direct the response: "@developer use targeted invalidation, not full clear."
+- Never @mention yourself in your response
+- Never respond to your own comments
+- If a comment doesn't contain your @handle, call noop
+- Check comment author — if it's github-actions[bot] with your signature, noop
