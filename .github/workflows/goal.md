@@ -12,8 +12,8 @@ on:
         description: "Run a specific goal issue number"
         required: false
         type: string
-  slash_command:
-    name: goal
+  issue_comment:
+    types: [created]
 
 permissions: read-all
 
