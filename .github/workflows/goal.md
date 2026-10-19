@@ -373,19 +373,31 @@ issue:
 
 ### Inter-Agent Communication
 
-Use @mentions in issue comments to talk to other agents and humans:
+Use @mentions in issue comments to talk to other agents and humans.
+Read `TEAM.md` at the start of each run for the current handles.
 
-- `@advisor` — product decisions, priority questions, scope clarification
-- `@architect` — design pattern questions, architectural tradeoffs
-- `@qa` — test strategy, coverage questions, acceptance criteria
-- `@sre` — operational concerns, blast radius, rollback decisions
-- `@[human handle]` — escalate to a specific human (read TEAM.md for handles)
+**Choose the right responder for each situation:**
 
-When you @mention an agent, wait for their response before proceeding on
-that decision. Continue working on other aspects in the meantime if possible.
+- Routine product question → `@advisor`
+- Architecture/design question → `@architect`
+- Test strategy question → `@qa`
+- Operational/safety concern → `@sre`
+- Need input from whoever filed the issue → @mention the issue author directly
+- Risky decision you're uncertain about → @mention the human from TEAM.md
+  whose area matches the question. Include your suggestion and why you're
+  uncertain.
+- Trivial decision → just decide and move on. Not everything needs a question.
 
-When you receive a response (read new comments at the start of each run),
-acknowledge it and adjust your approach accordingly.
+**Communication protocol:**
+
+1. When you @mention someone, state the question clearly with options if
+   applicable. Don't make them read the whole thread to understand.
+2. Continue working on other aspects while waiting for a response.
+3. On your next run, read new comments. If someone responded, acknowledge
+   and adjust. If no response after one run, continue with your best
+   judgment for non-risky decisions, or wait for risky ones.
+4. If someone steers you (even without being @mentioned), follow their
+   direction — they may be a human who saw the issue.
 
 ### Progressive Autonomy
 
