@@ -34,3 +34,4 @@ function formatSearchResults(results) {
 }
 
 module.exports = { searchItems, paginate, formatSearchResults };
+// test
