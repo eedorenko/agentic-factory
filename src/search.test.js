@@ -1,6 +1,6 @@
 const { describe, it } = require('node:test');
 const assert = require('node:assert');
-const { searchItems, paginate, formatSearchResults } = require('./search');
+const { searchItems, paginate, formatSearchResults, highlightResults } = require('./search');
 
 const testItems = Array.from({ length: 25 }, (_, i) => ({
   title: `Item ${i + 1}`,
@@ -49,5 +49,47 @@ describe('formatSearchResults', () => {
     const results = paginate(testItems, 1, 10);
     const formatted = formatSearchResults(results);
     assert.ok(formatted.summary.includes('page 1'));
+  });
+});
+
+describe('highlightResults', () => {
+  const items = [{ title: 'Apple pie', description: 'An apple a day' }];
+
+  it('highlights a single match in title and description', () => {
+    const [r] = highlightResults(items, 'pie');
+    assert.strictEqual(r.title, 'Apple <mark>pie</mark>');
+    assert.strictEqual(r.description, 'An apple a day');
+  });
+
+  it('highlights multiple matches case-insensitively', () => {
+    const [r] = highlightResults(items, 'APPLE');
+    assert.strictEqual(r.title, '<mark>Apple</mark> pie');
+    assert.strictEqual(r.description, 'An <mark>apple</mark> a day');
+    const [m] = highlightResults([{ title: 'aa Aa', description: '' }], 'aa');
+    assert.strictEqual(m.title, '<mark>aa</mark> <mark>Aa</mark>');
+  });
+
+  it('returns unchanged copies for no match and empty query', () => {
+    assert.deepStrictEqual(highlightResults(items, 'zzz'), items);
+    const out = highlightResults(items, '');
+    assert.deepStrictEqual(out, items);
+    assert.notStrictEqual(out[0], items[0]);
+  });
+
+  it('escapes regex special characters', () => {
+    const [r] = highlightResults([{ title: 'a.b (c)', description: 'axb' }], '.');
+    assert.strictEqual(r.title, 'a<mark>.</mark>b (c)');
+    assert.strictEqual(r.description, 'axb');
+  });
+
+  it('does not alter tags or entities', () => {
+    const [r] = highlightResults([{ title: '<b class="amp">x</b> &amp; amp', description: '' }], 'amp');
+    assert.strictEqual(r.title, '<b class="amp">x</b> &amp; <mark>amp</mark>');
+  });
+
+  it('supports a custom wrapper and does not mutate input', () => {
+    const [r] = highlightResults(items, 'pie', { wrapper: ['<em>', '</em>'] });
+    assert.strictEqual(r.title, 'Apple <em>pie</em>');
+    assert.strictEqual(items[0].title, 'Apple pie');
   });
 });
