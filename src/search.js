@@ -2,13 +2,26 @@
  * Search module with pagination support.
  */
 
+const SCORES = { exactTitle: 100, partialTitle: 50, description: 10 };
+
+function scoreItem(item, query) {
+  const q = query.toLowerCase();
+  const title = (item.title || '').toLowerCase();
+  const description = (item.description || '').toLowerCase();
+  let score = 0;
+  if (title === q) score += SCORES.exactTitle;
+  else if (title.includes(q)) score += SCORES.partialTitle;
+  if (description.includes(q)) score += SCORES.description;
+  return score;
+}
+
 function searchItems(items, query) {
   if (!query) return [];
-  const lowerQuery = query.toLowerCase();
-  return items.filter(item =>
-    item.title.toLowerCase().includes(lowerQuery) ||
-    item.description.toLowerCase().includes(lowerQuery)
-  );
+  return items
+    .map((item, index) => ({ item, index, score: scoreItem(item, query) }))
+    .filter(r => r.score > 0)
+    .sort((a, b) => b.score - a.score || a.index - b.index)
+    .map(r => ({ ...r.item, score: r.score }));
 }
 
 function paginate(items, page, pageSize = 10) {
@@ -33,4 +46,4 @@ function formatSearchResults(results) {
   };
 }
 
-module.exports = { searchItems, paginate, formatSearchResults };
+module.exports = { scoreItem, searchItems, paginate, formatSearchResults };

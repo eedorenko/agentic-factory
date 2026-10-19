@@ -1,6 +1,6 @@
 const { describe, it } = require('node:test');
 const assert = require('node:assert');
-const { searchItems, paginate, formatSearchResults } = require('./search');
+const { scoreItem, searchItems, paginate, formatSearchResults } = require('./search');
 
 const testItems = Array.from({ length: 25 }, (_, i) => ({
   title: `Item ${i + 1}`,
@@ -49,5 +49,33 @@ describe('formatSearchResults', () => {
     const results = paginate(testItems, 1, 10);
     const formatted = formatSearchResults(results);
     assert.ok(formatted.summary.includes('page 1'));
+  });
+});
+
+describe('relevance scoring', () => {
+  const items = [
+    { title: 'Other', description: 'about apple pie' },
+    { title: 'Green apple tart', description: 'dessert' },
+    { title: 'Apple', description: 'fruit' },
+    { title: 'Apple pie', description: 'apple filling' },
+  ];
+
+  it('scores exact title, partial title and description matches', () => {
+    assert.strictEqual(scoreItem(items[2], 'apple'), 100);
+    assert.strictEqual(scoreItem(items[1], 'apple'), 50);
+    assert.strictEqual(scoreItem(items[0], 'apple'), 10);
+    assert.strictEqual(scoreItem(items[3], 'apple'), 60);
+    assert.strictEqual(scoreItem(items[0], 'zzz'), 0);
+  });
+
+  it('sorts by score descending and includes score', () => {
+    const results = searchItems(items, 'apple');
+    assert.deepStrictEqual(results.map(r => r.score), [100, 60, 50, 10]);
+    assert.strictEqual(results[0].title, 'Apple');
+  });
+
+  it('keeps original order for ties and excludes non-matches', () => {
+    const r = searchItems([{ title: 'b x', description: '' }, { title: 'a x', description: '' }, { title: 'q', description: '' }], 'x');
+    assert.deepStrictEqual(r.map(i => i.title), ['b x', 'a x']);
   });
 });
