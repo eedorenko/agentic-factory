@@ -47,7 +47,7 @@ safe-outputs:
     max: 1
   push-to-pull-request-branch:
     target: "*"
-    title-prefix: "[Goal"
+    title-prefix: "[Executor"
     protected-files:
       policy: fallback-to-issue
       exclude:
@@ -108,11 +108,11 @@ steps:
     run: |
       python3 .github/workflows/scripts/goal_scheduler.py
 
-source: githubnext/goal
+source: githubnext/goal # forked and customized
 engine: copilot
 ---
 
-# Goal
+# Executor
 
 You are the Execution Agent (@developer). Your job is to keep working an open
 issue labeled `in-progress` until its completion contract is satisfied by
@@ -147,29 +147,35 @@ Important fields:
 If `selected` is `null`, there is no goal to work. Stop without creating files or
 PRs.
 
-## Goal Definition Quality
+## Issue Understanding
 
-Before changing code, inspect the goal issue body. A runnable goal must define:
+Before changing code, read the issue body. Issues come in different formats —
+adapt to what's there. Do NOT require a rigid template. Work with what you have.
 
-1. `Goal`: the intended outcome.
-2. `Completion Contract`: what must be true before relabeling complete.
-3. `Evidence / Verification`: commands, artifacts, screenshots, logs, or checks.
-4. `Scope and Constraints`: allowed changes and protected behavior.
-5. `Iteration Policy`: how to choose the next checkpoint between runs.
-6. `Blocked Stop Condition`: when to stop and report a blocker instead of
-   guessing.
+**What you need to start working:**
 
-If `definition_status` is `needs_action`, do not implement. Post a concise
-comment on the issue that:
+1. **What to do** — look for: Description, Goal, Requirements, or any clear
+   statement of the desired outcome.
+2. **Definition of Done** — look for: Definition of Done, Acceptance Criteria,
+   Completion Contract, or verifiable conditions. If none exists, infer from
+   the requirements and state your assumptions in your first comment.
+3. **Scope** — look for: Scope, Constraints, or infer from context. If unclear,
+   check AGENTS.md conventions and ask @advisor if truly ambiguous.
 
-- Names the missing or weak sections.
-- Proposes a stronger draft contract using what is already in the issue.
-- Asks only for details that cannot be discovered from the repository.
-- Explains that Goal will continue once the issue is updated.
+**What you can work without (infer or discover):**
 
-Also update the repo-memory state file with `Status: needs_action`, the run URL,
-and the requested clarifications. This still counts as the required per-run
-comment.
+- Evidence/verification commands — infer from the codebase (e.g., `npm test`)
+- Iteration policy — use your judgment to pick the smallest useful checkpoint
+- Blocked conditions — use common sense (missing info, unclear requirements,
+  breaking changes)
+
+**Only ask for clarification when you genuinely cannot proceed.** Most issues
+have enough information to start. If the issue is truly empty or gibberish,
+post a brief comment asking for requirements.
+
+Ignore the `definition_status` field from the scheduler if the issue body
+clearly describes what needs to be done — the scheduler's section detection
+is strict but your understanding should be flexible.
 
 ## State
 
@@ -177,9 +183,9 @@ Use repo-memory file `{state_file}` on `memory/goal` as durable state. If it doe
 not exist, create it with this structure:
 
 ```markdown
-# Goal #<issue>: <title>
+# Executor #<issue>: <title>
 
-This file is maintained by the Goal workflow. Maintainers may edit guidance
+This file is maintained by the Executor. Maintainers may edit guidance
 sections directly.
 
 ## Machine State
@@ -251,10 +257,10 @@ fi
 
 Create or update the PR:
 
-- Title: `[Goal #<issue>] <issue title>`
+- Title: `[Executor #<issue>] <issue title>`
 - Branch: exactly `selected.branch`
 - Body includes the goal, completion contract, latest evidence, remaining work,
-  run URL, issue link, and AI disclosure: `This PR is maintained by the Goal
+  run URL, issue link, and AI disclosure: `This PR is maintained by the Executor
   workflow. Each run may add commits to the same branch.`
 - If `selected.existing_pr` is not null, update that PR. Do not create another.
 
@@ -288,7 +294,7 @@ contract.
 Post a new comment after every run using this shape:
 
 ```markdown
-Goal run: <status> - [run](<run_url>)
+Executor run: <status> - [run](<run_url>)
 
 Branch: `<branch>`
 PR: #<pr or "-">
@@ -313,7 +319,7 @@ containing `<!-- GOAL:STATUS -->`; edit it if it exists, otherwise create it.
 
 ```markdown
 <!-- GOAL:STATUS -->
-Goal status: <active | needs_action | blocked | completed>
+Executor status: <active | needs_action | blocked | completed>
 
 | Field | Value |
 |-------|-------|
