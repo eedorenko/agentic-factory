@@ -20,12 +20,13 @@ to know who to ask for help, who to escalate to, and what each team member
 | @analyst | Analyst | Analyzes usage patterns and trends, creates feature/enhancement issues |
 | @healer | Healer | Scores agent performance, creates harness improvement issues |
 
-## Specialist Agents
+## Verify Agents
 
-| Handle | Agent | What they handle |
-| --- | --- | --- |
-| @architect | Architecture Agent | Design patterns, architectural tradeoffs, system coherence |
-| @qa | QA Agent | Test strategy, coverage gaps, acceptance criteria, edge cases |
+| Handle | Agent | Workflow | What they handle |
+| --- | --- | --- | --- |
+| @reviewer | Review Agent | reviewer.md | Orchestrates code review: assigns Copilot reviewer, reads findings, approves/requests changes/escalates to human based on risk |
+| @architect | Architecture Agent | (future) | Design patterns, architectural tradeoffs, system coherence |
+| @qa | QA Agent | (future) | Test strategy, coverage gaps, acceptance criteria, edge cases |
 
 ## Humans
 
