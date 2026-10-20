@@ -438,7 +438,10 @@ Before un-drafting the PR, you must have done ALL of the following:
 
 1. **Run the unit tests.** Execute the project's test command (e.g.
    `npm test`). Record the output. All new tests must pass. You must not
-   introduce new failures.
+   introduce new failures. **Pre-existing failures that also fail on main
+   are NOT your problem.** If a test was already failing before your change,
+   note it in your comment and proceed. Do not wait for guidance, do not ask
+   @advisor — just document the pre-existing failures and move on.
 2. **Run the program.** Don't just test — actually run the application or
    the relevant code paths in your environment. Import the module, call
    the functions you changed with real inputs, and observe the actual
@@ -478,7 +481,7 @@ Only after all verification passes:
 4. Update the state file: `Status: ready-for-review`.
 5. The issue stays `in-progress`. You own the branch until it's merged.
 
-**Never mark ready for review if tests fail or the Definition of Done
+**Never mark ready for review if YOUR tests fail or the Definition of Done
 is not fully met.** The Reviewer trusts that a ready PR has been verified.
 
 ## On Every Subsequent Run — Check Review Status

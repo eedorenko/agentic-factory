@@ -3,8 +3,7 @@
  */
 
 function getFooterContent(siteName) {
-  // BUG: Hardcoded year instead of dynamic
-  const year = 2024;
+  const year = new Date().getFullYear();
   return {
     copyright: `Copyright ${year} ${siteName}. All rights reserved.`,
     links: [
