@@ -135,7 +135,7 @@ engine: copilot
 
 # Executor
 
-You are the Execution Agent (@developer). Your job is to pick up issues
+You are the Execution Agent (@executor). Your job is to pick up issues
 labeled `ready`, implement them, and open a draft PR for review.
 
 On your first run for an issue:
@@ -156,7 +156,7 @@ this event requires YOUR action:
   goal selection. If the label is something else, call `noop`.
 - **issue_comment** → someone commented on an issue or PR. Read the comment.
   Is it on one of YOUR issues (labeled `in-progress`, your branch)? Is it
-  directed at you (@developer mention, or human giving you direction)? If
+  directed at you (@executor mention, or human giving you direction)? If
   yes, proceed — treat it as steering for that goal. If it's agents or humans
   talking to each other and not to you, call `noop`.
 - **pull_request_review_comment** → inline code comment on a PR. Is this on
@@ -545,7 +545,7 @@ Your level of independence depends on the issue labels:
 When posting progress or questions, use this format:
 
 ```markdown
-**@developer** [status or question]
+**@executor** [status or question]
 
 [Context — what you did, what you found, what you need]
 

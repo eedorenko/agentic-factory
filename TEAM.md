@@ -9,7 +9,8 @@ to know who to ask for help, who to escalate to, and what each team member
 | Handle | Agent | Workflow | What they handle |
 | --- | --- | --- | --- |
 | @advisor | Advisor | advisor.md | Triages issues, answers product questions, makes priority/scope decisions. The product knowledge center. |
-| @developer | Execution Agent | executor.md | Implements tasks via multi-run Goal pattern: plans if complex, codes, tests, opens PRs. Communicates via issue comments. |
+| @executor | Execution Agent | executor.md | Implements tasks via multi-run Goal pattern: plans if complex, codes, runs tests, runs the program, verifies Definition of Done, opens PRs. Communicates via issue and PR comments. |
+| @reviewer | Review Agent | reviewer.md | Multi-lens code review (Functional, Standards, Security, Readiness). Assigns Copilot as reviewer, incorporates its findings. Submits proper GitHub reviews (APPROVE/REQUEST_CHANGES). Severity taxonomy: Critical/High/Medium/Low. Depth tiers based on risk labels. |
 | — | Orchestrator | orchestrator.md | Routes work between stages, tracks blockers, manages capacity, pushes stuck work. Pure plumbing — no product decisions. |
 
 ## Feedback Agents
@@ -20,11 +21,10 @@ to know who to ask for help, who to escalate to, and what each team member
 | @analyst | Analyst | Analyzes usage patterns and trends, creates feature/enhancement issues |
 | @healer | Healer | Scores agent performance, creates harness improvement issues |
 
-## Verify Agents
+## Verify Agents (Future)
 
 | Handle | Agent | Workflow | What they handle |
 | --- | --- | --- | --- |
-| @reviewer | Review Agent | reviewer.md | Orchestrates code review: assigns Copilot reviewer, reads findings, approves/requests changes/escalates to human based on risk |
 | @architect | Architecture Agent | (future) | Design patterns, architectural tradeoffs, system coherence |
 | @qa | QA Agent | (future) | Test strategy, coverage gaps, acceptance criteria, edge cases |
 

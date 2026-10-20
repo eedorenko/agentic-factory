@@ -3,7 +3,7 @@
 ## Team Directory
 
 Read `TEAM.md` for the full team directory — agent handles (@advisor,
-@developer, @architect, @qa, @sre, @analyst, @healer), human contacts,
+@executor, @reviewer, @architect, @qa, @sre, @analyst, @healer), human contacts,
 responsibilities, and routing rules for when to ask whom.
 
 ## Communication

@@ -75,7 +75,7 @@ Scan comments on `in-progress` issues for unanswered @mentions:
 ### 2. Stuck Work Detection
 
 - Issues labeled `in-progress` with no PR and no agent comment in 24+ hours
-  → post: "@developer this issue appears stuck. What's blocking progress?"
+  → post: "@executor this issue appears stuck. What's blocking progress?"
   → add `needs-attention` label
 - Issues labeled `ready` that haven't moved to `in-progress` in 2+ hours
   → process them (add `in-progress`, remove `ready`)
