@@ -21,16 +21,6 @@ tools:
     toolsets: [issues, pull_requests, search]
 
 safe-outputs:
-  add-labels:
-    allowed:
-      - in-progress
-      - blocked
-      - needs-attention
-    max: 5
-  remove-labels:
-    allowed:
-      - needs-attention
-    max: 2
   add-comment:
     max: 5
     target: "*"
@@ -57,10 +47,14 @@ monitoring and unblocking — not picking up work yourself.
 2. Scan all open issues and their linked PRs.
 3. For each row in the Escalation Policy table, check if the condition
    is met for any issue or PR. If the threshold has passed, take the
-   action: post a comment @mentioning the target.
-4. When nudging or escalating, always quote the original question or
+   action: post a comment on that issue @mentioning the target.
+4. When posting a comment, you MUST specify the issue number. You run
+   on a schedule with no issue context — always use `add_comment` with
+   an explicit issue number.
+5. When nudging or escalating, always quote the original question or
    state so the target doesn't have to read the whole thread.
-5. Add `needs-attention` label to issues with stuck or escalated state.
+6. Do NOT use `add_labels` — you run without issue context and it will
+   fail. Let the target agent handle its own labels.
 
 The Escalation Policy table in TEAM.md is the single source of truth
 for detection rules, thresholds, and actions. Do not invent rules
