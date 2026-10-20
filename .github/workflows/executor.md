@@ -336,29 +336,43 @@ Create or update the PR:
 
 ## Run Loop
 
+**Goal: complete as much as possible in every run.** Do not stop after
+coding — always attempt verification in the same run. Only split across
+runs when you genuinely run out of time (approaching the timeout).
+
 For the selected goal:
 
 1. Read `AGENTS.md` or other repository instructions.
 2. Read the goal issue body and new human comments.
 3. Read the repo-memory state file.
-4. Choose the smallest useful checkpoint that advances the definition of done.
-5. Make changes on the canonical branch only when they are necessary.
-6. **Run the tests.** After every code change, run the project test command
-   (e.g. `npm test`). Do not skip this. Record the output.
-7. If tests fail on your new code, fix it before committing. Iterate until
-   your changes pass.
-8. Commit and push meaningful changes to the canonical branch.
-9. Create or update the single draft PR (stays draft while you work).
-10. Update the state file.
-11. Post a new per-run comment on the goal issue, including test results.
-12. Update the status comment marked `<!-- GOAL:STATUS -->`.
-13. If the definition of done is fully met and verified, follow the
-    "Verification Before Review" section to mark the PR ready for review.
+4. **Implement.** Write the code changes needed.
+5. **Run the tests.** Execute the project test command (e.g. `npm test`).
+   If your new tests fail, fix and iterate until they pass.
+6. **Run the program.** Exercise the changed code with real inputs (see
+   Verification Before Review). Confirm it works as expected.
+7. **Check the Definition of Done.** Go through each item. If all items
+   are met with evidence, proceed to mark ready for review.
+8. Commit and push to the canonical branch.
+9. Create or update the draft PR.
+10. **If the Definition of Done is met:** follow the Verification Before
+    Review section — un-draft the PR in the SAME run. Do not leave it
+    for a future run.
+11. Update the state file.
+12. Post a per-run comment on the issue with test results and evidence.
+13. Update the status comment marked `<!-- GOAL:STATUS -->`.
 
-Do not mark a goal complete from belief or intention. Mark it complete only when
-the tests pass and the definition of done is met: passing commands, inspected files,
-reviewed artifacts, logs, screenshots, or other concrete proof named in the
-contract.
+**Critical: do not end a run with a draft PR if the work is done.** If
+you implemented the code, ran the tests, and the DoD is met — un-draft
+the PR before the run ends. The Reviewer will never see a draft PR.
+
+Only use multi-run for complex issues that genuinely cannot be completed
+in one run. For most issues: implement → test → verify → un-draft, all
+in one run.
+
+Do not mark a goal complete from belief or intention. Mark it complete
+only when the tests pass and the definition of done is met: passing
+commands, inspected files, reviewed artifacts, logs, screenshots, or
+other concrete proof named in the contract.
 
 ## Per-Run Issue Comment
 
