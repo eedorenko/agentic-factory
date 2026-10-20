@@ -5,6 +5,10 @@ description: |
   capacity, ensures process compliance. Runs periodically and on label
   events. Pure plumbing — no product decisions.
 
+concurrency:
+  cancel-in-progress: false
+  queue: max
+
 on:
   schedule: every 30m
   workflow_dispatch:

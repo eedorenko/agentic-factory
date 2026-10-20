@@ -6,6 +6,7 @@ description: |
   communication bus. The issue stays in-progress until the PR is merged.
 
 concurrency:
+  job-discriminator: "${{ github.event.issue.number || github.event.pull_request.number || github.run_id }}"
   cancel-in-progress: false
   queue: max
 

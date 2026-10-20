@@ -5,6 +5,11 @@ description: |
   2. Answers @advisor mentions from other agents and humans
   Reads TEAM.md for routing rules. Escalates to humans when uncertain.
 
+concurrency:
+  job-discriminator: "${{ github.event.issue.number || github.run_id }}"
+  cancel-in-progress: false
+  queue: max
+
 on:
   issues:
     types: [opened, reopened]
