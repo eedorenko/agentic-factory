@@ -76,6 +76,9 @@ safe-outputs:
       - blocked
     target: "*"
     max: 3
+  update-pull-request:
+    max: 1
+    target: "*"
   merge-pull-request:
     max: 1
     required-labels: [automation]
@@ -386,10 +389,16 @@ Summary:
 When the implementation is complete and tests pass:
 
 1. Make sure the draft PR is up to date with your latest changes.
-2. Mark the PR as ready for review (not draft).
+2. Use `update-pull-request` to mark the PR as ready for review (set
+   `draft: false`). This is critical — the Reviewer will NOT review draft
+   PRs. The `ready_for_review` event triggers the review process.
 3. Post a comment summarizing what was done and what tests pass.
 4. Update the state file: `Status: ready-for-review`.
 5. The issue stays `in-progress`. You own the branch until it's merged.
+
+**Important:** Do all implementation work BEFORE marking ready for review.
+The PR stays draft while you're still working. Only un-draft it when the
+implementation is complete and you want the Reviewer to start.
 
 ## On Every Subsequent Run — Check Review Status
 

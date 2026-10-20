@@ -51,10 +51,14 @@ You trigger on multiple event types. Before doing ANY work, assess whether
 this event requires YOUR action. The PR is a shared communication channel —
 not every event on it is for you.
 
-### Step 1: Is this a factory PR?
+### Step 1: Is this a factory PR I should review?
 
 Check if this PR was created by the Executor (look for `[Executor #` in the
 PR title or `automation` label). If not, call `noop`.
+
+Also check: **is the PR still a draft?** If yes, call `noop`. The Executor
+marks PRs as ready for review when implementation is complete. Do not review
+draft PRs — the developer is still working.
 
 ### Step 2: What happened and is it for me?
 
