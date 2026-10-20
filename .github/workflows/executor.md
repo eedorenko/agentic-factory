@@ -323,16 +323,17 @@ For the selected goal:
 3. Read the repo-memory state file.
 4. Choose the smallest useful checkpoint that advances the definition of done.
 5. Make changes on the canonical branch only when they are necessary.
-6. Run the verification evidence that is relevant to the checkpoint. If full
-   verification is too expensive for this run, run the narrow check first and
-   explain exactly what remains.
-7. Commit and push meaningful changes to the canonical branch.
-8. Create or update the single draft PR.
-9. Update the state file.
-10. Post a new per-run comment on the goal issue.
-11. Update the status comment marked `<!-- GOAL:STATUS -->`.
-12. If the definition of done is met, add `done` and remove
-    `goal`.
+6. **Run the tests.** After every code change, run the project test command
+   (e.g. `npm test`). Do not skip this. Record the output.
+7. If tests fail on your new code, fix it before committing. Iterate until
+   your changes pass.
+8. Commit and push meaningful changes to the canonical branch.
+9. Create or update the single draft PR (stays draft while you work).
+10. Update the state file.
+11. Post a new per-run comment on the goal issue, including test results.
+12. Update the status comment marked `<!-- GOAL:STATUS -->`.
+13. If the definition of done is fully met and verified, follow the
+    "Verification Before Review" section to mark the PR ready for review.
 
 Do not mark a goal complete from belief or intention. Mark it complete only when
 the tests pass and the definition of done is met: passing commands, inspected files,
@@ -384,21 +385,54 @@ Summary:
 <two or three concise sentences>
 ```
 
-## When You're Done Implementing
+## Verification Before Review
 
-When the implementation is complete and tests pass:
+The PR stays draft while you work. You MUST verify your work before
+marking it ready for review. Marking a PR ready for review means: "I have
+implemented the feature, run the tests, confirmed the definition of done
+is met, and I am confident this is correct."
 
-1. Make sure the draft PR is up to date with your latest changes.
-2. Use `update-pull-request` to mark the PR as ready for review (set
-   `draft: false`). This is critical — the Reviewer will NOT review draft
-   PRs. The `ready_for_review` event triggers the review process.
-3. Post a comment summarizing what was done and what tests pass.
+### Verification checklist
+
+Before un-drafting the PR, you must have done ALL of the following:
+
+1. **Run the unit tests.** Execute the project's test command (e.g.
+   `npm test`). Record the output. All new tests must pass. You must not
+   introduce new failures.
+2. **Run the program.** Don't just test — actually run the application or
+   the relevant code paths in your environment. Import the module, call
+   the functions you changed with real inputs, and observe the actual
+   output. This is your inner-loop verification: does it actually work
+   the way a user would experience it?
+   - For a library/module: write and run a small script that exercises
+     the changed behavior with realistic inputs. Print the output.
+   - For a service: start it and hit the relevant endpoints.
+   - For a CLI: run the commands and check the output.
+   Record what you ran and what you saw.
+3. **Definition of Done is met.** Go through each item in the issue's
+   Definition of Done one by one. For each item, cite concrete evidence:
+   test output, program output, file content. If any item is not met,
+   keep working.
+
+**Tests prove code correctness. Running the program proves it works.**
+Both are required before marking ready for review.
+
+### Mark ready for review
+
+Only after all verification passes:
+
+1. Push your final changes to the branch.
+2. Use `update-pull-request` to set `draft: false`. This triggers the
+   Reviewer — the `ready_for_review` event starts the review process.
+3. Post a comment on the issue with:
+   - What was implemented
+   - Test results (copy the output)
+   - Definition of Done checklist with evidence for each item
 4. Update the state file: `Status: ready-for-review`.
 5. The issue stays `in-progress`. You own the branch until it's merged.
 
-**Important:** Do all implementation work BEFORE marking ready for review.
-The PR stays draft while you're still working. Only un-draft it when the
-implementation is complete and you want the Reviewer to start.
+**Never mark ready for review if tests fail or the Definition of Done
+is not fully met.** The Reviewer trusts that a ready PR has been verified.
 
 ## On Every Subsequent Run — Check Review Status
 
