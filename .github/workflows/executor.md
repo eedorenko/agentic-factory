@@ -72,6 +72,7 @@ network:
   - rust
   - java
   - dotnet
+  - "github.com"
 
 safe-outputs:
   max-patch-size: 10240
