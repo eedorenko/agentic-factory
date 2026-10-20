@@ -11,7 +11,6 @@ on:
   workflow_run:
     workflows: [Executor, Advisor Agent, Review Agent]
     types: [completed]
-    branches: [main]
 
 max-daily-ai-credits: -1
 
