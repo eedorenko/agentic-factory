@@ -11,7 +11,7 @@ to know who to ask for help, who to escalate to, and what each team member
 | @advisor | Advisor | advisor.md | Triages issues, answers product questions, makes priority/scope decisions. The product knowledge center. |
 | @executor | Execution Agent | executor.md | Implements tasks via multi-run Goal pattern: plans if complex, codes, runs tests, runs the program, verifies Definition of Done, opens PRs. Communicates via issue and PR comments. |
 | @reviewer | Review Agent | reviewer.md | Multi-lens code review (Functional, Standards, Security, Readiness). Assigns Copilot as reviewer, incorporates its findings. Submits proper GitHub reviews (APPROVE/REQUEST_CHANGES). Severity taxonomy: Critical/High/Medium/Low. Depth tiers based on risk labels. |
-| — | Orchestrator | orchestrator.md | Routes work between stages, tracks blockers, manages capacity, pushes stuck work. Pure plumbing — no product decisions. |
+| @orchestrator | Orchestrator | orchestrator.md | Monitors pipeline health, detects stuck states, nudges agents via @mentions. Enforces Escalation Policy table. Runs after every agent completes + every 30m. Pure plumbing — no product decisions. |
 
 ## Feedback Agents
 
