@@ -26,10 +26,9 @@ function paginate(items, page, pageSize = 10) {
   };
 }
 
-function formatSearchResults(results, query) {
+function formatSearchResults(results) {
   if (results.totalItems === 0 || (results.items && results.items.length === 0 && !results.totalItems)) {
-    const suffix = query ? ` for "${query}"` : '';
-    return { ...results, summary: `No results found${suffix}` };
+    return { ...results, summary: 'No results found for your query. Try different keywords.' };
   }
   return {
     ...results,

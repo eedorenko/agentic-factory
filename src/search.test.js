@@ -51,13 +51,14 @@ describe('formatSearchResults', () => {
     assert.ok(formatted.summary.includes('page 1'));
   });
 
-  it('should show a no-results message when there are zero results', () => {
+  it('should show a fixed no-results message when there are zero results', () => {
     const formatted = formatSearchResults(paginate([], 1, 10));
-    assert.strictEqual(formatted.summary, 'No results found');
+    assert.strictEqual(formatted.summary, 'No results found for your query. Try different keywords.');
   });
 
-  it('should include the query in the no-results message', () => {
+  it('should not echo the query in the no-results message', () => {
     const formatted = formatSearchResults(paginate([], 1, 10), 'zzzz');
-    assert.strictEqual(formatted.summary, 'No results found for "zzzz"');
+    assert.strictEqual(formatted.summary, 'No results found for your query. Try different keywords.');
+    assert.ok(!formatted.summary.includes('zzzz'));
   });
 });
