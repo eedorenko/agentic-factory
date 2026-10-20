@@ -50,4 +50,14 @@ describe('formatSearchResults', () => {
     const formatted = formatSearchResults(results);
     assert.ok(formatted.summary.includes('page 1'));
   });
+
+  it('should show a no-results message when there are zero results', () => {
+    const formatted = formatSearchResults(paginate([], 1, 10));
+    assert.strictEqual(formatted.summary, 'No results found');
+  });
+
+  it('should include the query in the no-results message', () => {
+    const formatted = formatSearchResults(paginate([], 1, 10), 'zzzz');
+    assert.strictEqual(formatted.summary, 'No results found for "zzzz"');
+  });
 });

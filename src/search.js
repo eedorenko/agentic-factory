@@ -26,7 +26,11 @@ function paginate(items, page, pageSize = 10) {
   };
 }
 
-function formatSearchResults(results) {
+function formatSearchResults(results, query) {
+  if (results.totalItems === 0 || (results.items && results.items.length === 0 && !results.totalItems)) {
+    const suffix = query ? ` for "${query}"` : '';
+    return { ...results, summary: `No results found${suffix}` };
+  }
   return {
     ...results,
     summary: `Showing page ${results.page} of ${results.totalPages}`,
