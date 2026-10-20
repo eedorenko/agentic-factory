@@ -33,3 +33,19 @@ describe('renderFooter', () => {
     assert.ok(html.includes('Copyright'));
   });
 });
+
+describe('footer item count', () => {
+  it('should include item count when provided', () => {
+    assert.strictEqual(getFooterContent('S', 5).itemCountText, 'Searching 5 items');
+    assert.ok(renderFooter('S', 5).includes('Searching 5 items'));
+  });
+
+  it('should include zero count', () => {
+    assert.ok(renderFooter('S', 0).includes('Searching 0 items'));
+  });
+
+  it('should be unchanged without item count', () => {
+    assert.strictEqual(getFooterContent('S').itemCountText, undefined);
+    assert.ok(!renderFooter('S').includes('Searching'));
+  });
+});
