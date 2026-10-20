@@ -6,7 +6,7 @@ description: |
   events. Pure plumbing — no product decisions.
 
 on:
-  schedule: every 30m
+  schedule: every 5m
   workflow_dispatch:
 
 max-daily-ai-credits: -1
@@ -77,8 +77,8 @@ Scan comments on `in-progress` issues for unanswered @mentions:
 - Issues labeled `in-progress` with no PR and no agent comment in 24+ hours
   → post: "@executor this issue appears stuck. What's blocking progress?"
   → add `needs-attention` label
-- Issues labeled `ready` that haven't moved to `in-progress` in 2+ hours
-  → post: "@executor issue #[N] has been `ready` for [N] hours. Pick it up."
+- Issues labeled `ready` that haven't moved to `in-progress` in 10+ minutes
+  → post: "@executor issue #[N] has been `ready` for [N] minutes. Pick it up."
 - **Stuck draft PR:** Issues labeled `in-progress` where the executor's
   last comment says "ready for review" or "completed" but the linked PR is
   still a draft → the executor's safe-output was likely cancelled by
