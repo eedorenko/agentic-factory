@@ -12,6 +12,16 @@ on:
     types: [created]
   reaction: eyes
   steps:
+    - name: Skip internal gh-aw issues
+      id: aw_check
+      env:
+        ISSUE_TITLE: ${{ github.event.issue.title }}
+      run: |
+        if echo "$ISSUE_TITLE" | grep -q "^\[aw\]"; then
+          echo "internal=true" >> "$GITHUB_OUTPUT"
+        else
+          echo "internal=false" >> "$GITHUB_OUTPUT"
+        fi
     - name: Check if comment is for this agent
       id: mention_check
       if: github.event_name == 'issue_comment'
@@ -24,7 +34,9 @@ on:
           echo "relevant=false" >> "$GITHUB_OUTPUT"
         fi
 
-if: github.event_name != 'issue_comment' || needs.pre_activation.outputs.mention_check_relevant == 'true'
+if: |
+  needs.pre_activation.outputs.aw_check_internal != 'true' &&
+  (github.event_name != 'issue_comment' || needs.pre_activation.outputs.mention_check_relevant == 'true')
 
 max-daily-ai-credits: -1
 

@@ -22,6 +22,17 @@ on:
   pull_request_review:
     types: [submitted]
   steps:
+    - name: Skip internal gh-aw issues
+      id: aw_check
+      if: github.event.issue
+      env:
+        ISSUE_TITLE: ${{ github.event.issue.title }}
+      run: |
+        if echo "$ISSUE_TITLE" | grep -q "^\[aw\]"; then
+          echo "internal=true" >> "$GITHUB_OUTPUT"
+        else
+          echo "internal=false" >> "$GITHUB_OUTPUT"
+        fi
     - name: Check if comment is for this agent
       id: mention_check
       if: github.event_name == 'issue_comment' || github.event_name == 'pull_request_review_comment'
@@ -35,11 +46,12 @@ on:
         fi
 
 if: |
-  github.event_name == 'schedule' ||
+  needs.pre_activation.outputs.aw_check_internal != 'true' &&
+  (github.event_name == 'schedule' ||
   github.event_name == 'workflow_dispatch' ||
   github.event_name == 'issues' ||
   github.event_name == 'pull_request_review' ||
-  needs.pre_activation.outputs.mention_check_relevant == 'true'
+  needs.pre_activation.outputs.mention_check_relevant == 'true')
 
 max-daily-ai-credits: -1
 
