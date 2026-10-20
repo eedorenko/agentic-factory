@@ -60,6 +60,24 @@ When an agent needs input, choose the best responder:
 7. **Uncertain or high-risk** → @mention human from this file with your suggestion
 8. **Wrong agent asked you** → redirect to the right agent with context
 
+## Escalation Policy
+
+The Orchestrator enforces these rules. Agents should also be aware of what's
+expected of them — if you see yourself as the target, act before the
+Orchestrator has to nudge you.
+
+| Condition | Threshold | Action | Target |
+| --- | --- | --- | --- |
+| Issue is `ready`, not picked up | 10 min | "Pick up issue #N" | @executor |
+| Issue `in-progress`, no PR, no comment | 24h | "What's blocking?" | @executor |
+| Executor says ready-for-review but PR is still draft | 5 min | "Un-draft PR #N" | @executor |
+| PR ready for review, no review submitted | 1h | "Review PR #N" | @reviewer |
+| @mention unanswered | 1h | Nudge the mentioned agent | mentioned agent |
+| @mention unanswered | 4h | Escalate to human | human from TEAM.md |
+| Issue `blocked`, no human response | 48h | Re-escalate with context | human from TEAM.md |
+| Issue `needs-info`, no reporter response | 7 days | Close as stale | — |
+| 5+ issues `in-progress` simultaneously | — | Warn about capacity | @advisor |
+
 ## Anti-Loop Rules
 
 - Never @mention yourself in your response

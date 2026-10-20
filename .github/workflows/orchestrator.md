@@ -46,74 +46,31 @@ Advisor's job. You handle process.
 
 Read `TEAM.md` (via `AGENTS.md`) for the team directory and routing rules.
 
-## Periodic Run (every 30 minutes)
+## Periodic Run
 
-You run every 30 minutes to keep the pipeline healthy. The Execution Agent
-handles picking up `ready` issues and moving them to `in-progress` — that's
-not your job. Your job is monitoring and unblocking.
+You run every 5 minutes to keep the pipeline healthy. Your job is
+monitoring and unblocking — not picking up work yourself.
 
-Scan `in-progress` and `ready` issues for problems. Read every issue's
-comments to understand the current state.
+### What to do
 
-### 1. Unanswered @mention Detection (MOST IMPORTANT)
+1. Read `TEAM.md` — specifically the **Escalation Policy** table.
+2. Scan all open issues and their linked PRs.
+3. For each row in the Escalation Policy table, check if the condition
+   is met for any issue or PR. If the threshold has passed, take the
+   action: post a comment @mentioning the target.
+4. When nudging or escalating, always quote the original question or
+   state so the target doesn't have to read the whole thread.
+5. Add `needs-attention` label to issues with stuck or escalated state.
 
-Scan comments on `in-progress` issues for unanswered @mentions:
-
-- Look for comments containing `@advisor`, `@architect`, `@qa`, `@sre`,
-  or any @handle from TEAM.md
-- Check if the mentioned agent or human responded in a later comment
-- If an @mention has no response:
-  - **Under 1 hour old** → do nothing, give them time
-  - **1-4 hours old** → nudge the mentioned agent/human: "Reminder:
-    @[handle] was asked a question on this issue [link to comment].
-    Could you take a look?"
-  - **4+ hours old** → escalate to the human from TEAM.md who covers
-    that area: "@[human] the @[agent] hasn't responded to a question
-    on #[issue] for [N] hours. The question is: [quote it briefly].
-    Could you help unblock this?"
-
-### 2. Stuck Work Detection
-
-- Issues labeled `in-progress` with no PR and no agent comment in 24+ hours
-  → post: "@executor this issue appears stuck. What's blocking progress?"
-  → add `needs-attention` label
-- Issues labeled `ready` that haven't moved to `in-progress` in 10+ minutes
-  → post: "@executor issue #[N] has been `ready` for [N] minutes. Pick it up."
-- **Stuck draft PR:** Issues labeled `in-progress` where the executor's
-  last comment says "ready for review" or "completed" but the linked PR is
-  still a draft → the executor's safe-output was likely cancelled by
-  concurrency. Post: "@executor PR #[N] is still draft but you reported
-  it as ready. Please un-draft it."
-- **Review not started:** Issues where the PR has been marked ready for
-  review (not draft) for 1+ hours but has no review from @reviewer →
-  post: "@reviewer PR #[N] is ready for review. Please review."
-
-### 3. Blocked Work Re-escalation
-
-- Issues with `blocked` label for 48+ hours with no human response
-  → re-escalate: read the blocked comment, find who was asked, @mention
-  them again: "This has been blocked for [N] days. The question was:
-  [quote]. @[human] could you prioritize this?"
-
-### 4. Capacity Check
-
-- If 5+ issues are `in-progress` simultaneously, post a warning comment
-  on the newest one: "High concurrency — consider deferring this issue.
-  @advisor should we pause this?"
-
-### 5. Stale Issues
-
-- Issues labeled `needs-info` with no response from the reporter in 7+ days
-  → post: "No response in 7 days. Closing as stale. Reopen if you can
-  provide the requested information."
+The Escalation Policy table in TEAM.md is the single source of truth
+for detection rules, thresholds, and actions. Do not invent rules
+beyond what the table says.
 
 ## Rules
 
 - No product decisions. Never change priority, never reject issues, never
   decide scope. That's @advisor's job.
-- Pure plumbing: route, push, unblock, report.
-- When you nudge or escalate, always quote the original question so the
-  responder doesn't have to read the whole thread.
+- Pure plumbing: route, nudge, unblock, report.
 - When in doubt about a decision, @mention @advisor or the relevant human
   from TEAM.md.
 - Be concise in comments — other agents and humans read them.
