@@ -88,12 +88,28 @@ conversation thread. Then decide:
 **Rule: do NOT re-run a full code review just because someone commented.**
 Only re-review the code when there's a new push with actual code changes.
 
+## Assign Copilot as Reviewer
+
+On a new PR or `ready_for_review` event, before doing your own review:
+
+1. Use `add-reviewer` to assign `copilot` (GitHub Copilot) as a reviewer.
+2. Check if Copilot has already submitted a review on this PR. Look for a
+   review from `copilot[bot]` or `github-copilot` in the PR reviews list.
+3. If Copilot's review is present, read it carefully — note any issues it
+   found. You will incorporate these into your own review.
+4. If Copilot's review is not yet present, proceed with your own review.
+   You can reference Copilot's findings later if they arrive.
+
+On `synchronize` (new push), Copilot will automatically re-review. Check
+for its updated review before submitting yours.
+
 ## Gather Context
 
 1. Read the PR description, diff, and linked issue(s).
 2. Read the issue's labels — look for `complex`, `risky`, `in-progress`.
-3. Read any existing reviews and comments on the PR (including Copilot's
-   automated review if present).
+3. Read any existing reviews and comments on the PR — including Copilot's
+   automated review. If Copilot found issues, factor them into your
+   assessment.
 4. Read `AGENTS.md` for project conventions.
 5. Check if tests pass by looking at the PR status checks.
 
@@ -183,7 +199,9 @@ Use this as the body of your `submit-pull-request-review`:
 - Never approve a PR with `risky` label without human sign-off.
 - Never approve a PR with failing tests.
 - Be specific in feedback — reference files and line numbers.
-- If Copilot's review found issues, acknowledge them in your review.
+- Always assign Copilot as reviewer on new PRs using `add-reviewer`.
+- If Copilot's review found issues, acknowledge them in your review —
+  confirm or disagree with each finding.
 - Don't re-review the same commit SHA.
 - When requesting changes, be actionable — say what to fix, not just
   what's wrong.
