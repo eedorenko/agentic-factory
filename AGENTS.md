@@ -14,6 +14,19 @@ responsibilities, and routing rules for when to ask whom.
 - Be direct — state questions clearly so the responder doesn't have to
   read the whole thread
 
+## GitHub API Access
+
+**Use MCP tools for all GitHub API calls.** Do NOT use `gh` CLI, `curl`,
+`git fetch/push`, or direct HTTP to github.com. The runtime firewall blocks
+direct access to github.com. Instead:
+
+- Read issues, PRs, files, repos → GitHub MCP server tools
+- Write operations (comments, labels, PRs, merges) → safe-output tools
+- Git operations (push, branch) → safe-output tools
+
+The `gh` CLI is not authenticated in the agent runtime. Direct network
+calls to github.com will be blocked by the firewall.
+
 ## Conventions
 
 - Write clear, concise code
@@ -27,4 +40,3 @@ responsibilities, and routing rules for when to ask whom.
 - This is an experiment repo for testing agentic factory patterns
 - Document what you learn in PR descriptions
 - Source code lives in `src/`
-- Known pre-existing issue: footer year is hardcoded to 2024 (out of scope)
