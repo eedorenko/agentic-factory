@@ -7,6 +7,10 @@ description: |
 on:
   pull_request:
     types: [opened, ready_for_review, synchronize]
+  pull_request_review_comment:
+    types: [created]
+  issue_comment:
+    types: [created]
 
 permissions:
   contents: read
@@ -37,12 +41,46 @@ Read `TEAM.md` (via `AGENTS.md`) for the team directory and routing rules.
 
 ## Activation Check
 
-First check if this PR was created by the Executor (look for `[Executor #`
-in the PR title or `automation` label). If not, call `noop` — this PR is
-not from the factory pipeline.
+You trigger on multiple event types. Before doing ANY work, assess whether
+this event requires YOUR action. The PR is a shared communication channel —
+not every event on it is for you.
 
-Also check: if you already posted a review on this PR at this commit SHA,
-call `noop` — don't re-review the same code.
+### Step 1: Is this a factory PR?
+
+Check if this PR was created by the Executor (look for `[Executor #` in the
+PR title or `automation` label). If not, call `noop`.
+
+### Step 2: What happened and is it for me?
+
+Read the event context — the PR, the comment (if any), and the recent
+conversation thread. Then decide:
+
+**New PR or new push** (`pull_request` event):
+- New PR or `ready_for_review` → proceed to full review.
+- `synchronize` (new push) → the developer pushed changes. If you previously
+  requested changes or asked questions, re-review. If you already approved at
+  this SHA, call `noop`.
+
+**Comment on the PR** (`issue_comment` or `pull_request_review_comment`):
+- First ask: **is this comment directed at me or relevant to my role?**
+  - Developer answering YOUR question → read the answer, acknowledge, and
+    decide if your concern is resolved. If yes, say so. If not, explain why.
+  - Human directing the developer (e.g., "change this to...") → note the
+    human's direction. Do NOT approve until the developer addresses it. You
+    may post a brief acknowledgment if it affects your review criteria.
+  - Human asking YOU something (e.g., "@reviewer what do you think about...")
+    → respond.
+  - Developer talking to a human, bot noise, or unrelated → call `noop`.
+    Not every conversation on the PR needs your input.
+
+**Review submitted** (`pull_request_review`):
+- Another reviewer (human or Copilot) submitted a review. Read it — it may
+  inform your own assessment. If it raises concerns you missed, factor them
+  in. If it's just an approval and you have no concerns, you may proceed.
+  If it doesn't change anything for you, call `noop`.
+
+**Rule: do NOT re-run a full code review just because someone commented.**
+Only re-review the code when there's a new push with actual code changes.
 
 ## Gather Context
 
