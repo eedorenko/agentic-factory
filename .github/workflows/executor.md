@@ -1,8 +1,8 @@
 ---
 description: |
   Execution Agent — picks up issues labeled `ready`, implements them across
-  multiple runs, and opens a draft PR. Each issue keeps one canonical branch,
-  one draft PR, durable repo-memory state, and issue comments as the
+  multiple runs, and opens a PR. Each issue keeps one canonical branch,
+  one PR, durable repo-memory state, and issue comments as the
   communication bus. The issue stays in-progress until the PR is merged.
 
 concurrency:
@@ -120,6 +120,12 @@ safe-outputs:
   merge-pull-request:
     max: 1
     required-labels: [automation]
+  actions:
+    mark-pr-ready:
+      uses: leemeador/ready-for-review-pr@v1.0.3
+      description: "Mark a draft PR as ready for review. Call this AFTER verification is complete. Requires pull-request-number input."
+      env:
+        GITHUB_TOKEN: ${{ secrets.GH_AW_GITHUB_TOKEN }}
 
 checkout:
   fetch: ["*"]
@@ -173,7 +179,7 @@ engine: copilot
 # Executor
 
 You are the Execution Agent (@executor). Your job is to pick up issues
-labeled `ready`, implement them, and open a draft PR for review.
+labeled `ready`, implement them, and open a PR for review.
 
 **FIRST THING on every new issue — before reading, planning, or coding:**
 1. Call `remove_labels` to remove `ready`
@@ -316,7 +322,7 @@ previous run before selecting the next checkpoint.
 
 ## Branch And PR Rules
 
-Each issue has exactly one canonical branch and one draft PR.
+Each issue has exactly one canonical branch and one PR.
 
 The branch name is always exactly the scheduler-provided `selected.branch`.
 Never add suffixes, hashes, run IDs, timestamps, or random tokens. Never let the
@@ -369,7 +375,7 @@ For the selected goal:
 7. If tests fail on your new code, fix it before committing. Iterate until
    your changes pass.
 8. Commit and push meaningful changes to the canonical branch.
-9. Create or update the single draft PR (stays draft while you work).
+9. Create or update the single PR.
 10. Update the state file.
 11. Post a new per-run comment on the goal issue, including test results.
 12. Update the status comment marked `<!-- GOAL:STATUS -->`.
@@ -466,13 +472,13 @@ Both are required before marking ready for review.
 Only after all verification passes:
 
 1. Push your final changes to the branch.
-2. **Call the `update_pull_request` tool with draft=false.** This is a
-   TOOL CALL, not a comment. Posting a comment that says "marked ready
-   for review" does NOT un-draft the PR. You must actually invoke the
-   `update_pull_request` safe-output tool. If you do not call this tool,
+2. **Call the `mark_pr_ready` tool** with `pull-request-number` set to
+   your PR number. This is a TOOL CALL, not a comment. Posting a comment
+   that says "marked ready for review" does NOT un-draft the PR. You must
+   actually invoke the `mark_pr_ready` tool. If you do not call this tool,
    the PR stays draft and the Reviewer will never see it.
 
-   DO THIS: call `update_pull_request` with `draft: false`
+   DO THIS: call `mark_pr_ready` with `pull-request-number: <your PR number>`
    DO NOT just write "PR marked ready" in a comment — that changes nothing.
 
 3. Post a comment on the issue with:
@@ -489,9 +495,8 @@ is not fully met.** The Reviewer trusts that a ready PR has been verified.
 
 **First: check for stuck draft PRs.** If your state file says
 `Status: ready-for-review` but the PR is still a draft, the previous
-run's safe-output was likely cancelled by concurrency. Retry: use
-`update-pull-request` to set `draft: false` immediately. This is a
-recovery step, not a new decision.
+run's action failed. Retry: call `mark_pr_ready` with the PR number
+immediately. This is a recovery step, not a new decision.
 
 After verifying the PR status matches your state, check:
 
