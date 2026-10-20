@@ -33,4 +33,16 @@ function formatSearchResults(results) {
   };
 }
 
-module.exports = { searchItems, paginate, formatSearchResults };
+function escapeCSV(value) {
+  const str = value == null ? '' : String(value);
+  return /[",\r\n]/.test(str) ? `"${str.replace(/"/g, '""')}"` : str;
+}
+
+function exportToCSV(results) {
+  const rows = (results && results.items ? results.items : []).map(
+    item => `${escapeCSV(item.title)},${escapeCSV(item.description)}`
+  );
+  return ['title,description', ...rows].join('\n');
+}
+
+module.exports = { searchItems, paginate, formatSearchResults, exportToCSV };

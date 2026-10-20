@@ -1,6 +1,6 @@
 const { describe, it } = require('node:test');
 const assert = require('node:assert');
-const { searchItems, paginate, formatSearchResults } = require('./search');
+const { searchItems, paginate, formatSearchResults, exportToCSV } = require('./search');
 
 const testItems = Array.from({ length: 25 }, (_, i) => ({
   title: `Item ${i + 1}`,
@@ -49,5 +49,26 @@ describe('formatSearchResults', () => {
     const results = paginate(testItems, 1, 10);
     const formatted = formatSearchResults(results);
     assert.ok(formatted.summary.includes('page 1'));
+  });
+});
+
+describe('exportToCSV', () => {
+  it('should export normal results', () => {
+    const csv = exportToCSV({ items: [{ title: 'A', description: 'B' }, { title: 'C', description: 'D' }] });
+    assert.strictEqual(csv, 'title,description\nA,B\nC,D');
+  });
+
+  it('should return only header for empty results', () => {
+    assert.strictEqual(exportToCSV({ items: [] }), 'title,description');
+  });
+
+  it('should escape commas and quotes', () => {
+    const csv = exportToCSV({ items: [{ title: 'a, b', description: 'say "hi"' }] });
+    assert.strictEqual(csv, 'title,description\n"a, b","say ""hi"""');
+  });
+
+  it('should quote values with newlines', () => {
+    const csv = exportToCSV({ items: [{ title: 'x\ny', description: 'z' }] });
+    assert.strictEqual(csv, 'title,description\n"x\ny",z');
   });
 });
