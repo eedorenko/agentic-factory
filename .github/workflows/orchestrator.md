@@ -78,7 +78,15 @@ Scan comments on `in-progress` issues for unanswered @mentions:
   → post: "@executor this issue appears stuck. What's blocking progress?"
   → add `needs-attention` label
 - Issues labeled `ready` that haven't moved to `in-progress` in 2+ hours
-  → process them (add `in-progress`, remove `ready`)
+  → post: "@executor issue #[N] has been `ready` for [N] hours. Pick it up."
+- **Stuck draft PR:** Issues labeled `in-progress` where the executor's
+  last comment says "ready for review" or "completed" but the linked PR is
+  still a draft → the executor's safe-output was likely cancelled by
+  concurrency. Post: "@executor PR #[N] is still draft but you reported
+  it as ready. Please un-draft it."
+- **Review not started:** Issues where the PR has been marked ready for
+  review (not draft) for 1+ hours but has no review from @reviewer →
+  post: "@reviewer PR #[N] is ready for review. Please review."
 
 ### 3. Blocked Work Re-escalation
 
