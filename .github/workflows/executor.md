@@ -456,7 +456,13 @@ is not fully met.** The Reviewer trusts that a ready PR has been verified.
 
 ## On Every Subsequent Run — Check Review Status
 
-After your PR is in review, check its status on each run:
+**First: check for stuck draft PRs.** If your state file says
+`Status: ready-for-review` but the PR is still a draft, the previous
+run's safe-output was likely cancelled by concurrency. Retry: use
+`update-pull-request` to set `draft: false` immediately. This is a
+recovery step, not a new decision.
+
+After verifying the PR status matches your state, check:
 
 ### PR Approved
 1. Merge the PR using `merge-pull-request`. Do NOT ask a human to merge —
