@@ -6,6 +6,7 @@ description: |
   Reads TEAM.md for routing rules. Escalates to humans when uncertain.
 
 concurrency:
+  group: "advisor-${{ github.event.issue.number || 'default' }}"
   job-discriminator: "${{ github.event.issue.number }}"
   cancel-in-progress: false
   queue: max

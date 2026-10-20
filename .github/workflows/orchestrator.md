@@ -6,6 +6,7 @@ description: |
   events. Pure plumbing — no product decisions.
 
 concurrency:
+  group: "orchestrator"
   cancel-in-progress: false
   queue: max
 
