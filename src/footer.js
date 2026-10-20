@@ -2,10 +2,12 @@
  * Footer component utilities.
  */
 
-function getFooterContent(siteName) {
+function getFooterContent(siteName, itemCount) {
   // BUG: Hardcoded year instead of dynamic
   const year = 2024;
+  const hasCount = Number.isFinite(itemCount);
   return {
+    ...(hasCount && { itemCountText: `Searching ${itemCount} items` }),
     copyright: `Copyright ${year} ${siteName}. All rights reserved.`,
     links: [
       { text: 'Privacy Policy', url: '/privacy' },
@@ -15,11 +17,11 @@ function getFooterContent(siteName) {
   };
 }
 
-function renderFooter(siteName) {
-  const content = getFooterContent(siteName);
+function renderFooter(siteName, itemCount) {
+  const content = getFooterContent(siteName, itemCount);
   return `<footer>
   <p>${content.copyright}</p>
-  <nav>
+${content.itemCountText ? `  <p>${content.itemCountText}</p>\n` : ''}  <nav>
     ${content.links.map(link => `<a href="${link.url}">${link.text}</a>`).join(' | ')}
   </nav>
 </footer>`;
