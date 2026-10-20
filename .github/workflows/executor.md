@@ -13,6 +13,8 @@ on:
         description: "Run a specific goal issue number"
         required: false
         type: string
+  issues:
+    types: [labeled]
   issue_comment:
     types: [created]
   pull_request_review_comment:
@@ -145,6 +147,9 @@ You trigger on multiple event types. Before doing any work, assess whether
 this event requires YOUR action:
 
 - **Schedule / workflow_dispatch** → normal run, proceed to goal selection.
+- **issues.labeled** → an issue just got a label. Check if the label is
+  `ready`. If yes, this is a new issue for you to pick up — proceed to
+  goal selection. If the label is something else, call `noop`.
 - **issue_comment** → someone commented on an issue or PR. Read the comment.
   Is it on one of YOUR issues (labeled `in-progress`, your branch)? Is it
   directed at you (@developer mention, or human giving you direction)? If
