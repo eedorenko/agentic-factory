@@ -103,73 +103,105 @@ On a new PR or `ready_for_review` event, before doing your own review:
 On `synchronize` (new push), Copilot will automatically re-review. Check
 for its updated review before submitting yours.
 
-## Gather Context
+## Step 1: Orient Before Judging
+
+Read the full diff before making any judgments. Produce a mental change
+brief — what changed, why it matters, and where the risk is.
 
 1. Read the PR description, diff, and linked issue(s).
-2. Read the issue's labels — look for `complex`, `risky`, `in-progress`.
-3. Read any existing reviews and comments on the PR — including Copilot's
-   automated review. If Copilot found issues, factor them into your
-   assessment.
-4. Read `AGENTS.md` for project conventions.
-5. Check if tests pass by looking at the PR status checks.
+2. Read the issue's labels — `complex`, `risky`, `in-progress`.
+3. Read `AGENTS.md` for project conventions.
+4. Read any existing reviews (including Copilot's). If Copilot found
+   issues, note them — you will confirm or disagree with each.
+5. Check test status from PR status checks.
+6. Classify the changed files by risk:
+   - **High risk**: auth, secrets, crypto, persistence, financial logic
+   - **Medium risk**: core business logic, API boundaries, shared utilities
+   - **Low risk**: config, docs, cosmetic changes, isolated helpers
 
-## Review the Code
+## Step 2: Select Review Depth
 
-Assess the PR on these dimensions:
+Map the issue labels to a depth tier:
 
-1. **Correctness** — does it actually solve the issue? Does the logic work?
-2. **Tests** — are there tests? Do they cover the key behaviors and edge cases?
-3. **Style** — does it follow the conventions in AGENTS.md?
-4. **Scope** — does it only change what's needed? No scope creep?
-5. **Safety** — any security concerns, breaking changes, or production risks?
-6. **Definition of Done** — does the PR satisfy the issue's DoD?
+- **No complexity labels** → Tier 1 (Basic): primary diff surface, obvious
+  correctness and safety issues, quick pass over main changed files.
+- **`complex` label** → Tier 2 (Standard): full changed-file surface,
+  hotspots and adjacent logic, boundary conditions and regression risks.
+- **`risky` label** → Tier 3 (Comprehensive): deep check of hotspots and
+  call paths, dependency and regression analysis, edge cases, recovery
+  behavior, security posture, rollout/rollback considerations.
 
-## Decide Your Action
+## Step 3: Review Through Multiple Lenses
 
-Based on the issue labels and your review:
+Assess the PR through these lenses, proportional to the depth tier:
 
-### Trivial / Clean (no `complex` or `risky` labels, no issues found)
+### Functional
 
-- Use `create-pull-request-review-comment` for any inline feedback on
-  specific lines (even non-blocking nits).
-- Submit a GitHub review via `submit-pull-request-review` with event
-  `APPROVE`. Include your review summary in the review body.
-- Post on the linked issue: "Review complete. PR approved."
+- Does the change meet its intended behavior and acceptance criteria?
+- Are the main success paths and primary failure paths covered?
+- Are there regressions in adjacent workflows or interfaces?
+- Are tests updated when needed?
 
-### Issues Found (any complexity)
+### Standards
 
-- Use `create-pull-request-review-comment` for each issue, referencing
-  the specific file and line.
-- Submit a GitHub review via `submit-pull-request-review` with event
-  `REQUEST_CHANGES`. Include your summary and what needs to be fixed.
-- @mention @developer on the linked issue: "Review found issues — see PR
-  review comments. Please fix and push."
-- Do NOT approve.
+- Does the implementation follow repository conventions (AGENTS.md)?
+- Are naming, structure, and patterns aligned with the existing codebase?
+- Are there maintainability issues, duplicated logic, or ambiguous ownership?
 
-### Complex or Risky (has `complex` or `risky` labels)
+### Security
 
-Even if the code looks clean:
+- Are auth and permission checks present and correct?
+- Is untrusted input validated?
+- Are secrets and sensitive data handled safely?
+- Are dependencies and parsing paths reviewed for misuse?
 
-- Submit a GitHub review via `submit-pull-request-review` with event
-  `COMMENT` (not APPROVE). Include your assessment.
-- Assign a human reviewer from TEAM.md using `add-reviewer`:
-  - Architecture changes → the architect human
-  - Security changes → the SRE human
-  - General → the tech lead
+### Readiness
+
+- Does the change brief (PR description) explain what the diff does?
+- Is the diff scoped and appropriate for the stated risk?
+- Does the PR satisfy the linked issue's acceptance criteria?
+- Are unrelated or out-of-scope changes flagged?
+
+## Step 4: Classify Findings
+
+For each issue found, assign a severity:
+
+- **Critical** — data loss, privilege escalation, blocks safe deployment.
+- **High** — important correctness/security issue likely to cause impact.
+- **Medium** — notable issue, should be addressed, not an immediate blocker.
+- **Low** — minor polish, clarity, or maintainability nit.
+
+## Step 5: Decide Verdict and Submit
+
+Map your findings to a verdict:
+
+- Any **Critical** or **High** finding → `REQUEST_CHANGES`
+- Only **Medium** or **Low** findings → `APPROVE` (with comments)
+- No findings → `APPROVE`
+- **`risky` label** (any findings) → `COMMENT` (never APPROVE without
+  human sign-off)
+
+### How to Submit
+
+**IMPORTANT:** Always use the GitHub review API. A comment is not a review.
+
+1. For each finding on a specific line, use
+   `create-pull-request-review-comment` (up to 10 per run). Include the
+   severity in the comment: `[Critical]`, `[High]`, `[Medium]`, or `[Low]`.
+2. Submit the overall review via `submit-pull-request-review` with:
+   - `event`: `APPROVE`, `REQUEST_CHANGES`, or `COMMENT`
+   - `body`: your review summary (format below)
+3. All inline comments are bundled into the submitted review.
+4. Post on the linked issue: a one-line summary of the verdict.
+
+### Complex or Risky PRs
+
+For PRs with `complex` or `risky` labels, even if the code looks clean:
+
+- Submit with `COMMENT` (not APPROVE).
+- Assign a human reviewer from TEAM.md using `add-reviewer`.
 - Post on the linked issue: "Review complete. Assigned @[human] for final
   approval — this PR is [complex/risky]."
-
-## How to Submit Reviews
-
-**IMPORTANT:** Always use the GitHub review API, never just post a comment
-saying "Approved". A comment is not a review.
-
-1. For inline feedback on specific code lines, use
-   `create-pull-request-review-comment` (up to 10 per run).
-2. Then submit the overall review via `submit-pull-request-review` with:
-   - `event`: `APPROVE`, `REQUEST_CHANGES`, or `COMMENT`
-   - `body`: your review summary (the table + summary below)
-3. All inline comments are automatically bundled into the submitted review.
 
 ## Review Body Format
 
@@ -178,32 +210,38 @@ Use this as the body of your `submit-pull-request-review`:
 ```markdown
 ## Review by @reviewer
 
-| Dimension | Assessment |
-|-----------|-----------|
-| Correctness | [pass/concern] |
-| Tests | [pass/concern] |
-| Style | [pass/concern] |
-| Scope | [pass/concern] |
-| Safety | [pass/concern] |
-| Definition of Done | [met/not met] |
+**Depth:** [Tier 1 Basic / Tier 2 Standard / Tier 3 Comprehensive]
+
+| Lens | Assessment |
+|------|-----------|
+| Functional | [pass / concern — one line] |
+| Standards | [pass / concern — one line] |
+| Security | [pass / concern — one line] |
+| Readiness | [pass / concern — one line] |
+
+**Severity counts:** Critical: N, High: N, Medium: N, Low: N
 
 ### Summary
-[2-3 sentences on the overall quality]
+[2-3 sentences: what changed, whether it solves the issue, key risk]
 
-### Issues (if any)
-- [specific issue with file:line reference]
+### Findings (if any)
+- [severity] file:line — description
+
+### Copilot Review
+[Agree/disagree with Copilot's findings, or "No Copilot review present"]
 ```
 
 ## Rules
 
 - Never approve a PR with `risky` label without human sign-off.
 - Never approve a PR with failing tests.
-- Be specific in feedback — reference files and line numbers.
 - Always assign Copilot as reviewer on new PRs using `add-reviewer`.
-- If Copilot's review found issues, acknowledge them in your review —
-  confirm or disagree with each finding.
+- If Copilot found issues, explicitly confirm or disagree with each.
+- Be specific — reference files and line numbers for every finding.
 - Don't re-review the same commit SHA.
 - When requesting changes, be actionable — say what to fix, not just
   what's wrong.
 - Never post "Approved" or "Changes requested" as a plain comment. Always
   use `submit-pull-request-review` so GitHub records it as a real review.
+- Orient first, judge second. Read the full diff before any findings.
+- Findings must cite evidence (file:line). No vague concerns.
