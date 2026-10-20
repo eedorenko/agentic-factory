@@ -2,9 +2,10 @@
  * Footer component utilities.
  */
 
-function getFooterContent(siteName) {
+function getFooterContent(siteName, itemCount) {
   const year = new Date().getFullYear();
-  return {
+  const hasCount = itemCount !== undefined && itemCount !== null;
+  const content = {
     copyright: `Copyright ${year} ${siteName}. All rights reserved.`,
     links: [
       { text: 'Privacy Policy', url: '/privacy' },
@@ -12,12 +13,16 @@ function getFooterContent(siteName) {
       { text: 'Contact', url: '/contact' },
     ],
   };
+  if (hasCount) {
+    content.itemCountText = `Searching ${itemCount} items`;
+  }
+  return content;
 }
 
-function renderFooter(siteName) {
-  const content = getFooterContent(siteName);
+function renderFooter(siteName, itemCount) {
+  const content = getFooterContent(siteName, itemCount);
   return `<footer>
-  <p>${content.copyright}</p>
+  <p>${content.copyright}</p>${content.itemCountText ? `\n  <p>${content.itemCountText}</p>` : ''}
   <nav>
     ${content.links.map(link => `<a href="${link.url}">${link.text}</a>`).join(' | ')}
   </nav>

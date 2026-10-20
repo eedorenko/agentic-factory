@@ -19,6 +19,16 @@ describe('getFooterContent', () => {
     const content = getFooterContent('TestSite');
     assert.strictEqual(content.links.length, 3);
   });
+
+  it('should include item count when provided', () => {
+    const content = getFooterContent('TestSite', 42);
+    assert.strictEqual(content.itemCountText, 'Searching 42 items');
+  });
+
+  it('should omit item count when not provided', () => {
+    const content = getFooterContent('TestSite');
+    assert.strictEqual(content.itemCountText, undefined);
+  });
 });
 
 describe('renderFooter', () => {
@@ -31,5 +41,10 @@ describe('renderFooter', () => {
   it('should include copyright text', () => {
     const html = renderFooter('TestSite');
     assert.ok(html.includes('Copyright'));
+  });
+
+  it('should render item count when provided', () => {
+    assert.ok(renderFooter('TestSite', 5).includes('Searching 5 items'));
+    assert.ok(!renderFooter('TestSite').includes('Searching'));
   });
 });
