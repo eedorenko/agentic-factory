@@ -457,8 +457,15 @@ Both are required before marking ready for review.
 Only after all verification passes:
 
 1. Push your final changes to the branch.
-2. Use `update-pull-request` to set `draft: false`. This triggers the
-   Reviewer — the `ready_for_review` event starts the review process.
+2. **Call the `update_pull_request` tool with draft=false.** This is a
+   TOOL CALL, not a comment. Posting a comment that says "marked ready
+   for review" does NOT un-draft the PR. You must actually invoke the
+   `update_pull_request` safe-output tool. If you do not call this tool,
+   the PR stays draft and the Reviewer will never see it.
+
+   DO THIS: call `update_pull_request` with `draft: false`
+   DO NOT just write "PR marked ready" in a comment — that changes nothing.
+
 3. Post a comment on the issue with:
    - What was implemented
    - Test results (copy the output)
