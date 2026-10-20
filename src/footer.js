@@ -2,7 +2,7 @@
  * Footer component utilities.
  */
 
-function getFooterContent(siteName) {
+function getFooterContent(siteName, itemCount) {
   // BUG: Hardcoded year instead of dynamic
   const year = 2024;
   return {
@@ -12,13 +12,14 @@ function getFooterContent(siteName) {
       { text: 'Terms of Service', url: '/terms' },
       { text: 'Contact', url: '/contact' },
     ],
+    ...(itemCount !== undefined && itemCount !== null && { itemCountText: `Searching ${itemCount} items` }),
   };
 }
 
-function renderFooter(siteName) {
-  const content = getFooterContent(siteName);
+function renderFooter(siteName, itemCount) {
+  const content = getFooterContent(siteName, itemCount);
   return `<footer>
-  <p>${content.copyright}</p>
+  <p>${content.copyright}</p>${content.itemCountText ? `\n  <p>${content.itemCountText}</p>` : ''}
   <nav>
     ${content.links.map(link => `<a href="${link.url}">${link.text}</a>`).join(' | ')}
   </nav>
