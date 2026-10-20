@@ -15,6 +15,19 @@ describe('getFooterContent', () => {
     assert.ok(content.copyright.includes(String(currentYear)));
   });
 
+  it('should include item count when provided', () => {
+    const content = getFooterContent('TestSite', 42);
+    assert.strictEqual(content.itemCount, 'Searching across 42 items');
+    assert.ok(renderFooter('TestSite', 42).includes('Searching across 42 items'));
+    assert.strictEqual(getFooterContent('TestSite', 0).itemCount, 'Searching across 0 items');
+  });
+
+  it('should omit item count when not provided (backward compat)', () => {
+    const content = getFooterContent('TestSite');
+    assert.strictEqual(content.itemCount, undefined);
+    assert.ok(!renderFooter('TestSite').includes('Searching across'));
+  });
+
   it('should include standard links', () => {
     const content = getFooterContent('TestSite');
     assert.strictEqual(content.links.length, 3);
