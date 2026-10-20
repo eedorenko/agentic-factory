@@ -6,8 +6,12 @@ description: |
   events. Pure plumbing — no product decisions.
 
 on:
-  schedule: every 5m
+  schedule: every 30m
   workflow_dispatch:
+  workflow_run:
+    workflows: [Executor, Advisor Agent, Review Agent]
+    types: [completed]
+    branches: [main]
 
 max-daily-ai-credits: -1
 
@@ -36,10 +40,14 @@ Advisor's job. You handle process.
 
 Read `TEAM.md` (via `AGENTS.md`) for the team directory and routing rules.
 
-## Periodic Run
+## When You Run
 
-You run every 5 minutes to keep the pipeline healthy. Your job is
-monitoring and unblocking — not picking up work yourself.
+You trigger in two ways:
+- **After any agent finishes** (`workflow_run: completed`) — check if the
+  agent's work created a stuck state or needs follow-up.
+- **Every 30 minutes** (schedule) — safety net sweep for anything missed.
+
+Your job is monitoring and unblocking — not picking up work yourself.
 
 ### What to do
 
