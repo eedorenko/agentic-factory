@@ -22,10 +22,11 @@ on:
   pull_request_review:
     types: [submitted]
 
+max-daily-ai-credits: -1
+
 permissions: read-all
 
 timeout-minutes: 60
-max-daily-ai-credits: 200K
 
 network:
   allowed:

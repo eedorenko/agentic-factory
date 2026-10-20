@@ -12,6 +12,8 @@ on:
   issue_comment:
     types: [created]
 
+max-daily-ai-credits: -1
+
 permissions:
   contents: read
   issues: read

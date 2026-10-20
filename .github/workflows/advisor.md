@@ -12,6 +12,8 @@ on:
     types: [created]
   reaction: eyes
 
+max-daily-ai-credits: -1
+
 permissions:
   contents: read
   issues: read

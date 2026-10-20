@@ -9,6 +9,8 @@ on:
   schedule: every 30m
   workflow_dispatch:
 
+max-daily-ai-credits: -1
+
 permissions:
   contents: read
   issues: read
