@@ -11,6 +11,22 @@ on:
     types: [created]
   issue_comment:
     types: [created]
+  steps:
+    - name: Check if comment is for this agent
+      id: mention_check
+      if: github.event_name == 'issue_comment' || github.event_name == 'pull_request_review_comment'
+      env:
+        COMMENT_BODY: ${{ github.event.comment.body }}
+      run: |
+        if echo "$COMMENT_BODY" | grep -qi "@reviewer"; then
+          echo "relevant=true" >> "$GITHUB_OUTPUT"
+        else
+          echo "relevant=false" >> "$GITHUB_OUTPUT"
+        fi
+
+if: |
+  github.event_name == 'pull_request' ||
+  needs.pre_activation.outputs.mention_check_relevant == 'true'
 
 max-daily-ai-credits: -1
 

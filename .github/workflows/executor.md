@@ -21,6 +21,25 @@ on:
     types: [created]
   pull_request_review:
     types: [submitted]
+  steps:
+    - name: Check if comment is for this agent
+      id: mention_check
+      if: github.event_name == 'issue_comment' || github.event_name == 'pull_request_review_comment'
+      env:
+        COMMENT_BODY: ${{ github.event.comment.body }}
+      run: |
+        if echo "$COMMENT_BODY" | grep -qi "@executor"; then
+          echo "relevant=true" >> "$GITHUB_OUTPUT"
+        else
+          echo "relevant=false" >> "$GITHUB_OUTPUT"
+        fi
+
+if: |
+  github.event_name == 'schedule' ||
+  github.event_name == 'workflow_dispatch' ||
+  github.event_name == 'issues' ||
+  github.event_name == 'pull_request_review' ||
+  needs.pre_activation.outputs.mention_check_relevant == 'true'
 
 max-daily-ai-credits: -1
 
