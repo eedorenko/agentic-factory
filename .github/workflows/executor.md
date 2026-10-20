@@ -74,6 +74,9 @@ safe-outputs:
       - blocked
     target: "*"
     max: 3
+  merge-pull-request:
+    max: 1
+    required-labels: [automation]
 
 checkout:
   fetch: ["*"]
@@ -388,11 +391,11 @@ When the implementation is complete and tests pass:
 After your PR is in review, check its status on each run:
 
 ### PR Approved
-1. Merge the PR.
-2. Delete the branch.
-3. Add the `done` label, remove `in-progress`.
-4. Post a final comment: "PR merged. Issue complete."
-5. Update the state file: `Status: done`.
+1. Merge the PR using `merge-pull-request`. Do NOT ask a human to merge —
+   you have merge capability.
+2. Add the `done` label, remove `in-progress`.
+3. Post a final comment on the issue: "PR merged. Issue complete."
+4. Update the state file: `Status: done`.
 
 ### Changes Requested or PR Comments
 1. Read ALL review comments and PR comments carefully — both inline code

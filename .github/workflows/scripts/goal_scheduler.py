@@ -24,6 +24,7 @@ import urllib.request
 from datetime import datetime, timezone
 
 GOAL_LABEL = "ready"
+ACTIVE_LABEL = "in-progress"
 COMPLETED_LABEL = "done"
 REPO_MEMORY_DIR = "/tmp/gh-aw/repo-memory/goal"
 OUTPUT_DIR = "/tmp/gh-aw"
@@ -176,8 +177,8 @@ def read_goal_state(number: int, title: str, repo_memory_dir: str = REPO_MEMORY_
         return parse_machine_state(handle.read())
 
 
-def fetch_goal_issues(repo: str, github_token: str, http_get_json=_http_get_json):
-    """Fetch open issues with the goal label."""
+def _fetch_issues_by_label(repo: str, github_token: str, label: str, http_get_json=_http_get_json):
+    """Fetch open issues with a specific label."""
 
     if not repo or not github_token:
         return []
@@ -186,10 +187,10 @@ def fetch_goal_issues(repo: str, github_token: str, http_get_json=_http_get_json
         "Authorization": "token {}".format(github_token),
         "Accept": "application/vnd.github.v3+json",
     }
-    label = urllib.parse.quote(GOAL_LABEL)
+    encoded_label = urllib.parse.quote(label)
     next_url = (
         "https://api.github.com/repos/{}/issues"
-        "?labels={}&state=open&per_page=100".format(repo, label)
+        "?labels={}&state=open&per_page=100".format(repo, encoded_label)
     )
     issues = []
     while next_url:
@@ -204,6 +205,23 @@ def fetch_goal_issues(repo: str, github_token: str, http_get_json=_http_get_json
                 continue
             issues.append(issue)
         next_url = parse_link_header(link_header)
+    return issues
+
+
+def fetch_goal_issues(repo: str, github_token: str, http_get_json=_http_get_json):
+    """Fetch open issues with the ready or in-progress labels."""
+
+    ready_issues = _fetch_issues_by_label(repo, github_token, GOAL_LABEL, http_get_json)
+    active_issues = _fetch_issues_by_label(repo, github_token, ACTIVE_LABEL, http_get_json)
+
+    # Deduplicate by issue number (an issue could have both labels)
+    seen = set()
+    issues = []
+    for issue in ready_issues + active_issues:
+        num = issue.get("number")
+        if num not in seen:
+            seen.add(num)
+            issues.append(issue)
     return issues
 
 

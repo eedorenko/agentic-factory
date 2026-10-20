@@ -23,10 +23,16 @@ tools:
 
 safe-outputs:
   add-comment:
-    max: 2
+    max: 3
     target: "*"
   add-reviewer:
     max: 2
+  create-pull-request-review-comment:
+    max: 10
+  submit-pull-request-review:
+    max: 2
+    allowed-events: [APPROVE, REQUEST_CHANGES, COMMENT]
+    supersede-older-reviews: true
 
 timeout-minutes: 15
 ---
@@ -108,34 +114,50 @@ Based on the issue labels and your review:
 
 ### Trivial / Clean (no `complex` or `risky` labels, no issues found)
 
-- Post a comment summarizing your review
-- Approve the PR
-- Post on the linked issue: "Review complete. PR looks good. Ready to merge."
+- Use `create-pull-request-review-comment` for any inline feedback on
+  specific lines (even non-blocking nits).
+- Submit a GitHub review via `submit-pull-request-review` with event
+  `APPROVE`. Include your review summary in the review body.
+- Post on the linked issue: "Review complete. PR approved."
 
 ### Issues Found (any complexity)
 
-- Post a detailed review with specific comments on the problematic lines
-- Request changes
+- Use `create-pull-request-review-comment` for each issue, referencing
+  the specific file and line.
+- Submit a GitHub review via `submit-pull-request-review` with event
+  `REQUEST_CHANGES`. Include your summary and what needs to be fixed.
 - @mention @developer on the linked issue: "Review found issues — see PR
-  comments. Please fix and push."
-- Do NOT approve
+  review comments. Please fix and push."
+- Do NOT approve.
 
 ### Complex or Risky (has `complex` or `risky` labels)
 
 Even if the code looks clean:
 
-- Post your review assessment
-- Do NOT approve
-- Assign a human reviewer from TEAM.md based on the area:
-  - Architecture changes → @mention the architect human
-  - Security changes → @mention the SRE human
-  - General → @mention the tech lead
+- Submit a GitHub review via `submit-pull-request-review` with event
+  `COMMENT` (not APPROVE). Include your assessment.
+- Assign a human reviewer from TEAM.md using `add-reviewer`:
+  - Architecture changes → the architect human
+  - Security changes → the SRE human
+  - General → the tech lead
 - Post on the linked issue: "Review complete. Assigned @[human] for final
   approval — this PR is [complex/risky]."
 
-## Review Comment Format
+## How to Submit Reviews
 
-Post your review as a PR comment:
+**IMPORTANT:** Always use the GitHub review API, never just post a comment
+saying "Approved". A comment is not a review.
+
+1. For inline feedback on specific code lines, use
+   `create-pull-request-review-comment` (up to 10 per run).
+2. Then submit the overall review via `submit-pull-request-review` with:
+   - `event`: `APPROVE`, `REQUEST_CHANGES`, or `COMMENT`
+   - `body`: your review summary (the table + summary below)
+3. All inline comments are automatically bundled into the submitted review.
+
+## Review Body Format
+
+Use this as the body of your `submit-pull-request-review`:
 
 ```markdown
 ## Review by @reviewer
@@ -154,9 +176,6 @@ Post your review as a PR comment:
 
 ### Issues (if any)
 - [specific issue with file:line reference]
-
-### Decision
-[Approved / Changes requested / Human review assigned]
 ```
 
 ## Rules
@@ -168,3 +187,5 @@ Post your review as a PR comment:
 - Don't re-review the same commit SHA.
 - When requesting changes, be actionable — say what to fix, not just
   what's wrong.
+- Never post "Approved" or "Changes requested" as a plain comment. Always
+  use `submit-pull-request-review` so GitHub records it as a real review.
