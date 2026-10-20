@@ -233,7 +233,7 @@ Important fields:
 - `selected.number`: issue number.
 - `selected.title`: issue title.
 - `selected.slug`: stable issue slug.
-- `selected.branch`: canonical branch, always `goal/<issue-number>-<slug>`.
+- `selected.branch`: canonical branch, always `executor/<issue-number>-<slug>`.
 - `selected.existing_pr`: open PR number for the canonical branch, or `null`.
 - `selected.definition_status`: `ready` or `needs_action`.
 - `selected.missing_sections`: sections the scheduler detected as missing.
@@ -290,7 +290,7 @@ sections directly.
 | Field | Value |
 |-------|-------|
 | Issue | #<issue> |
-| Branch | `goal/<issue>-<slug>` |
+| Branch | `executor/<issue>-<slug>` |
 | PR | - |
 | Status | active |
 | Last Run | - |

@@ -56,7 +56,7 @@ def slugify_issue_title(title: str, number: int | None = None) -> str:
 
 
 def branch_for_issue(number: int, title: str) -> str:
-    return "goal/{}-{}".format(number, slugify_issue_title(title, number))
+    return "executor/{}-{}".format(number, slugify_issue_title(title, number))
 
 
 def state_file_for_issue(number: int, title: str) -> str:
