@@ -5,6 +5,10 @@ description: |
   one draft PR, durable repo-memory state, and issue comments as the
   communication bus. The issue stays in-progress until the PR is merged.
 
+concurrency:
+  cancel-in-progress: false
+  queue: max
+
 on:
   schedule: every 1h
   workflow_dispatch:
