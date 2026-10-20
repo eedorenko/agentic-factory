@@ -12,31 +12,28 @@ on:
     types: [created]
   reaction: eyes
   steps:
-    - name: Skip internal gh-aw issues
-      id: aw_check
+    - name: Check relevance
+      id: gate
       env:
-        ISSUE_TITLE: ${{ github.event.issue.title }}
+        EVENT: ${{ github.event_name }}
+        ISSUE_TITLE: ${{ github.event.issue.title || '' }}
+        COMMENT_BODY: ${{ github.event.comment.body || '' }}
       run: |
         if echo "$ISSUE_TITLE" | grep -q "^\[aw\]"; then
-          echo "internal=true" >> "$GITHUB_OUTPUT"
-        else
-          echo "internal=false" >> "$GITHUB_OUTPUT"
+          echo "skip=true" >> "$GITHUB_OUTPUT"
+          exit 0
         fi
-    - name: Check if comment is for this agent
-      id: mention_check
-      if: github.event_name == 'issue_comment'
-      env:
-        COMMENT_BODY: ${{ github.event.comment.body }}
-      run: |
-        if echo "$COMMENT_BODY" | grep -qi "@advisor"; then
-          echo "relevant=true" >> "$GITHUB_OUTPUT"
-        else
-          echo "relevant=false" >> "$GITHUB_OUTPUT"
+        if [ "$EVENT" = "issue_comment" ]; then
+          if echo "$COMMENT_BODY" | grep -qi "@advisor"; then
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          fi
+          exit 0
         fi
+        echo "skip=false" >> "$GITHUB_OUTPUT"
 
-if: |
-  needs.pre_activation.outputs.aw_check_internal != 'true' &&
-  (github.event_name != 'issue_comment' || needs.pre_activation.outputs.mention_check_relevant == 'true')
+if: needs.pre_activation.outputs.gate_skip != 'true'
 
 max-daily-ai-credits: -1
 
