@@ -472,14 +472,20 @@ Both are required before marking ready for review.
 Only after all verification passes:
 
 1. Push your final changes to the branch.
-2. **Call the `mark_pr_ready` tool** with `pull-request-number` set to
-   your PR number. This is a TOOL CALL, not a comment. Posting a comment
-   that says "marked ready for review" does NOT un-draft the PR. You must
-   actually invoke the `mark_pr_ready` tool. If you do not call this tool,
-   the PR stays draft and the Reviewer will never see it.
+2. **Call the `mark_pr_ready` tool.** You MUST pass `pull-request-number`
+   explicitly — it will NOT be inferred from context. Example:
 
-   DO THIS: call `mark_pr_ready` with `pull-request-number: <your PR number>`
-   DO NOT just write "PR marked ready" in a comment — that changes nothing.
+   ```
+   mark_pr_ready(pull-request-number: "75")
+   ```
+
+   Replace 75 with your actual PR number. If you do not pass
+   `pull-request-number`, the action silently does nothing and the PR
+   stays draft forever.
+
+   This is a TOOL CALL, not a comment. Writing "PR marked ready" in a
+   comment changes nothing. The PR stays draft until you call this tool
+   with the PR number.
 
 3. Post a comment on the issue with:
    - What was implemented
@@ -495,8 +501,13 @@ is not fully met.** The Reviewer trusts that a ready PR has been verified.
 
 **First: check for stuck draft PRs.** If your state file says
 `Status: ready-for-review` but the PR is still a draft, the previous
-run's action failed. Retry: call `mark_pr_ready` with the PR number
-immediately. This is a recovery step, not a new decision.
+run failed to un-draft. Retry immediately:
+
+```
+mark_pr_ready(pull-request-number: "<your PR number>")
+```
+
+You MUST pass the PR number explicitly. This is a recovery step.
 
 After verifying the PR status matches your state, check:
 
