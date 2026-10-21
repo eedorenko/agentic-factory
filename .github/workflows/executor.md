@@ -81,6 +81,7 @@ safe-outputs:
     target: "*"
     hide-older-comments: false
   create-pull-request:
+    draft: false
     labels: [automation]
     protected-files:
       policy: fallback-to-issue
