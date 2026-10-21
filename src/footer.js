@@ -13,7 +13,7 @@ function getFooterContent(siteName, itemCount) {
     ],
   };
   if (itemCount !== undefined && itemCount !== null) {
-    content.searchInfo = `Searching ${itemCount} items`;
+    content.searchInfo = `Searching ${Number(itemCount)} items`;
   }
   return content;
 }
