@@ -53,4 +53,12 @@ describe('renderFooter', () => {
     const html = renderFooter('TestSite');
     assert.ok(html.includes('Copyright'));
   });
+
+  it('should render search info for a positive count', () => {
+    assert.ok(renderFooter('TestSite', 42).includes('<p>Searching 42 items</p>'));
+  });
+
+  it('should render search info for a zero count', () => {
+    assert.ok(renderFooter('TestSite', 0).includes('<p>Searching 0 items</p>'));
+  });
 });
