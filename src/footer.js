@@ -12,8 +12,9 @@ function getFooterContent(siteName, itemCount) {
       { text: 'Contact', url: '/contact' },
     ],
   };
-  if (itemCount !== undefined && itemCount !== null) {
-    content.searchInfo = `Searching ${itemCount} items`;
+  const count = typeof itemCount === 'string' && itemCount.trim() !== '' ? Number(itemCount) : itemCount;
+  if (typeof count === 'number' && Number.isFinite(count)) {
+    content.searchInfo = `Searching ${count} items`;
   }
   return content;
 }

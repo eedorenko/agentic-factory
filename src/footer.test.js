@@ -25,6 +25,12 @@ describe('getFooterContent', () => {
     assert.strictEqual(content.searchInfo, 'Searching 7 items');
   });
 
+  it('should coerce numeric string and ignore invalid counts', () => {
+    assert.strictEqual(getFooterContent('TestSite', '12').searchInfo, 'Searching 12 items');
+    assert.strictEqual(getFooterContent('TestSite', '<b>').searchInfo, undefined);
+    assert.strictEqual(getFooterContent('TestSite', NaN).searchInfo, undefined);
+  });
+
   it('should omit item count when not provided (backward compat)', () => {
     const content = getFooterContent('TestSite');
     assert.strictEqual(content.searchInfo, undefined);
