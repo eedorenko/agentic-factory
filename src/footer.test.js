@@ -33,3 +33,15 @@ describe('renderFooter', () => {
     assert.ok(html.includes('Copyright'));
   });
 });
+
+describe('item count', () => {
+  it('includes item count when provided', () => {
+    assert.strictEqual(getFooterContent('T', 5).itemCount, 'Searching 5 items');
+    assert.ok(renderFooter('T', 5).includes('Searching 5 items'));
+  });
+
+  it('omits item count when not provided', () => {
+    assert.strictEqual(getFooterContent('T').itemCount, undefined);
+    assert.ok(!renderFooter('T').includes('Searching'));
+  });
+});
