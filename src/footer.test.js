@@ -21,6 +21,20 @@ describe('getFooterContent', () => {
   });
 });
 
+describe('getFooterContent item count', () => {
+  it('should include item count when provided', () => {
+    const content = getFooterContent('TestSite', 42);
+    assert.strictEqual(content.searchInfo, 'Searching 42 items');
+    assert.ok(renderFooter('TestSite', 42).includes('Searching 42 items'));
+  });
+
+  it('should work without item count (backward compatible)', () => {
+    const content = getFooterContent('TestSite');
+    assert.strictEqual(content.searchInfo, undefined);
+    assert.ok(!renderFooter('TestSite').includes('Searching'));
+  });
+});
+
 describe('renderFooter', () => {
   it('should render HTML footer', () => {
     const html = renderFooter('TestSite');
