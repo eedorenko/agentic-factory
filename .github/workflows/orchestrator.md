@@ -7,15 +7,11 @@ description: |
 
 concurrency:
   group: "orchestrator"
-  cancel-in-progress: false
-  queue: max
+  cancel-in-progress: true
 
 on:
-  schedule: every 30m
+  schedule: every 10m
   workflow_dispatch:
-  workflow_run:
-    workflows: [Executor, Advisor Agent, Review Agent]
-    types: [completed]
   issue_comment:
     types: [created]
   steps:
@@ -76,9 +72,8 @@ Read `TEAM.md` (via `AGENTS.md`) for the team directory and routing rules.
 ## When You Run
 
 You trigger in two ways:
-- **After any agent finishes** (`workflow_run: completed`) — check if the
-  agent's work created a stuck state or needs follow-up.
-- **Every 30 minutes** (schedule) — safety net sweep for anything missed.
+- **Every 10 minutes** (schedule) — scan the board for stuck states.
+- **When @orchestrator is mentioned** — an agent or human pinged you.
 
 Your job is monitoring and unblocking — not picking up work yourself.
 
