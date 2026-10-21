@@ -438,12 +438,24 @@ Summary:
 
 After a PR exists, check its status on each run:
 
-### PR Approved
-1. Merge the PR using `merge-pull-request`. Do NOT ask a human to merge —
-   you have merge capability.
-2. Add the `done` label, remove `in-progress`.
+### PR Approved (reviews are positive, no changes requested)
+1. **Call `merge_pull_request` to merge the PR.** This is a tool call.
+   Do NOT just label `done` without merging. Do NOT ask a human to
+   merge. You have the `merge_pull_request` tool — use it.
+
+   ```
+   merge_pull_request()
+   ```
+
+   The PR must have the `automation` label (it does — create-pull-request
+   adds it automatically).
+
+2. After merging, add the `done` label and remove `in-progress`.
 3. Post a final comment on the issue: "PR merged. Issue complete."
 4. Update the state file: `Status: done`.
+
+**Do NOT mark `done` without merging. The issue is not done until the
+code is on main.**
 
 ### Changes Requested or PR Comments
 1. Read ALL review comments and PR comments carefully — both inline code

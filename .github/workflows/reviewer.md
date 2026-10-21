@@ -211,23 +211,28 @@ For each issue found, assign a severity:
 
 ## Step 5: Decide Verdict and Submit
 
-Map your findings to a verdict:
+Map your findings to a verdict and submit with the EXACT event:
 
-- Any **Critical** or **High** finding → `REQUEST_CHANGES`
-- Only **Medium** or **Low** findings → `APPROVE` (with comments)
-- No findings → `APPROVE`
-- **`risky` label** (any findings) → `COMMENT` (never APPROVE without
+- Any **Critical** or **High** finding → submit with event `REQUEST_CHANGES`
+- Only **Medium** or **Low** findings → submit with event `APPROVE`
+- No findings → submit with event `APPROVE`
+- **`risky` label** → submit with event `COMMENT` (never APPROVE without
   human sign-off)
+
+**If there are no Critical or High findings and the issue is not risky,
+you MUST submit with event `APPROVE`. Do NOT use `COMMENT` when you
+should use `APPROVE`. A `COMMENT` review does not count as an approval
+and the PR cannot be merged.**
 
 ### How to Submit
 
-**IMPORTANT:** Always use the GitHub review API. A comment is not a review.
-
 1. For each finding on a specific line, use
    `create-pull-request-review-comment` (up to 10 per run). Include the
-   severity in the comment: `[Critical]`, `[High]`, `[Medium]`, or `[Low]`.
-2. Submit the overall review via `submit-pull-request-review` with:
-   - `event`: `APPROVE`, `REQUEST_CHANGES`, or `COMMENT`
+   severity: `[Critical]`, `[High]`, `[Medium]`, or `[Low]`.
+2. Submit via `submit-pull-request-review` with:
+   - `event`: **`APPROVE`**, `REQUEST_CHANGES`, or `COMMENT` (pick ONE
+     based on the verdict above — default to `APPROVE` when in doubt
+     and no blocking findings exist)
    - `body`: your review summary (format below)
 3. All inline comments are bundled into the submitted review.
 4. Post on the linked issue: a one-line summary of the verdict.
