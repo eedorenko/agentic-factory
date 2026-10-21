@@ -31,6 +31,10 @@ describe('getFooterContent item count', () => {
     assert.strictEqual(getFooterContent('TestSite', 0).searchInfo, 'Searching 0 items');
   });
 
+  it('should omit search info for non-numeric count', () => {
+    assert.strictEqual(getFooterContent('TestSite', '<b>x</b>').searchInfo, undefined);
+  });
+
   it('should omit search info when count not provided', () => {
     const content = getFooterContent('TestSite');
     assert.strictEqual(content.searchInfo, undefined);

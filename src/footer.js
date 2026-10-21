@@ -13,7 +13,10 @@ function getFooterContent(siteName, itemCount) {
     ],
   };
   if (itemCount !== undefined && itemCount !== null) {
-    content.searchInfo = `Searching ${itemCount} items`;
+    const count = Number(itemCount);
+    if (Number.isFinite(count)) {
+      content.searchInfo = `Searching ${count} items`;
+    }
   }
   return content;
 }
