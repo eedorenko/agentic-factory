@@ -4,6 +4,30 @@
       "repo": "github/gh-aw-actions/setup",
       "version": "v0.89.21",
       "sha": "924af5fdc64061cfbf66fb584c8b07e2ac230c60"
+    },
+    "leemeador/ready-for-review-pr@v1.0.3": {
+      "repo": "leemeador/ready-for-review-pr",
+      "version": "v1.0.3",
+      "sha": "c684eb967b1609ca20b53d011bfc1521b96418c7",
+      "inputs": {
+        "owner": {
+          "description": "GitHub pull request's owner or organization",
+          "default": "${{  github.repository_owner }}"
+        },
+        "pull-request-number": {
+          "description": "GitHub pull request number",
+          "default": "${{ github.event.number }}"
+        },
+        "repo": {
+          "description": "GitHub pull request's repo name",
+          "default": "${{ github.event.repository.name }}"
+        },
+        "token": {
+          "description": "Github Token used to make API request to mutate pull requests",
+          "default": "${{ github.token }}"
+        }
+      },
+      "action_description": "Converts the given pull request from a draft to be ready-to-review"
     }
   }
 }

@@ -120,12 +120,26 @@ safe-outputs:
   merge-pull-request:
     max: 1
     required-labels: [automation]
-  actions:
+  jobs:
     mark-pr-ready:
-      uses: ./.github/actions/mark-pr-ready
-      description: "Mark the draft PR as ready for review. Call this AFTER verification is complete. No inputs needed — finds the PR automatically."
+      description: "Mark a specific draft PR as ready for review. You MUST pass the pr_number."
+      runs-on: ubuntu-latest
+      permissions:
+        pull-requests: write
       env:
         GH_TOKEN: ${{ secrets.GH_AW_GITHUB_TOKEN }}
+      inputs:
+        pr_number:
+          description: "The PR number to mark as ready for review"
+          required: true
+          type: string
+      steps:
+        - name: Un-draft PR
+          env:
+            PR_NUMBER: ${{ inputs.pr_number }}
+          run: |
+            echo "Marking PR #$PR_NUMBER as ready for review..."
+            gh pr ready "$PR_NUMBER" --repo "$GITHUB_REPOSITORY"
 
 checkout:
   fetch: ["*"]
@@ -472,12 +486,15 @@ Both are required before marking ready for review.
 Only after all verification passes:
 
 1. Push your final changes to the branch.
-2. **Call the `mark_pr_ready` tool.** No inputs needed — it finds your
-   draft PR automatically. Just call it:
+2. **Call the `mark_pr_ready` tool** with `pr_number` set to your PR
+   number. Example:
 
    ```
-   mark_pr_ready()
+   mark_pr_ready(pr_number: "120")
    ```
+
+   Replace 120 with your actual PR number. You know the PR number
+   because you created it earlier with `create_pull_request`.
 
    This is a TOOL CALL, not a comment. Writing "PR marked ready" in a
    comment changes nothing. The PR stays draft until you call this tool.
@@ -496,8 +513,8 @@ is not fully met.** The Reviewer trusts that a ready PR has been verified.
 
 **First: check for stuck draft PRs.** If your state file says
 `Status: ready-for-review` but the PR is still a draft, the previous
-run failed to un-draft. Retry immediately: call `mark_pr_ready()`.
-This is a recovery step, not a new decision.
+run failed to un-draft. Retry: call `mark_pr_ready(pr_number: "<N>")`
+with the PR number from your state file. This is a recovery step.
 
 After verifying the PR status matches your state, check:
 
