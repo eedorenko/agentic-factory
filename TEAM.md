@@ -70,7 +70,7 @@ Orchestrator has to nudge you.
 | --- | --- | --- | --- |
 | Issue is `ready`, not picked up | 10 min | "Pick up issue #N" | @executor |
 | Issue `in-progress`, no PR, no comment | 24h | "What's blocking?" | @executor |
-| Executor says ready-for-review but PR is still draft | 5 min | "Un-draft PR #N" | @executor |
+| Issue `in-progress` with commits but no PR for 30+ min | 30 min | "Create PR for issue #N" | @executor |
 | PR ready for review, no review submitted | 1h | "Review PR #N" | @reviewer |
 | @mention unanswered | 1h | Nudge the mentioned agent | mentioned agent |
 | @mention unanswered | 4h | Escalate to human | human from TEAM.md |

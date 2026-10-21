@@ -81,7 +81,6 @@ safe-outputs:
     target: "*"
     hide-older-comments: false
   create-pull-request:
-    draft: true
     labels: [automation]
     protected-files:
       policy: fallback-to-issue
@@ -120,26 +119,6 @@ safe-outputs:
   merge-pull-request:
     max: 1
     required-labels: [automation]
-  jobs:
-    mark-pr-ready:
-      description: "Mark a specific draft PR as ready for review. You MUST pass the pr_number."
-      runs-on: ubuntu-latest
-      permissions:
-        pull-requests: write
-      env:
-        GH_TOKEN: ${{ secrets.GH_AW_GITHUB_TOKEN }}
-      inputs:
-        pr_number:
-          description: "The PR number to mark as ready for review"
-          required: true
-          type: string
-      steps:
-        - name: Un-draft PR
-          env:
-            PR_NUMBER: ${{ inputs.pr_number }}
-          run: |
-            echo "Marking PR #$PR_NUMBER as ready for review..."
-            gh pr ready "$PR_NUMBER" --repo "$GITHUB_REPOSITORY"
 
 checkout:
   fetch: ["*"]
@@ -377,29 +356,37 @@ Create or update the PR:
 
 ## Run Loop
 
+**Key rule: do NOT create a PR until verification is complete.** Work on
+the branch, push commits, run tests, run the program. Only call
+`create_pull_request` when the Definition of Done is fully met.
+
 For the selected goal:
 
 1. Read `AGENTS.md` or other repository instructions.
 2. Read the goal issue body and new human comments.
 3. Read the repo-memory state file.
 4. Choose the smallest useful checkpoint that advances the definition of done.
-5. Make changes on the canonical branch only when they are necessary.
+5. Make changes on the canonical branch.
 6. **Run the tests.** After every code change, run the project test command
    (e.g. `npm test`). Do not skip this. Record the output.
 7. If tests fail on your new code, fix it before committing. Iterate until
    your changes pass.
-8. Commit and push meaningful changes to the canonical branch.
-9. Create or update the single PR.
-10. Update the state file.
-11. Post a new per-run comment on the goal issue, including test results.
-12. Update the status comment marked `<!-- GOAL:STATUS -->`.
-13. If the definition of done is fully met and verified, follow the
-    "Verification Before Review" section to mark the PR ready for review.
+8. **Run the program.** Exercise the changed code with real inputs. Confirm
+   it works as intended, not just that tests pass.
+9. Commit and push to the canonical branch using `push_to_pull_request_branch`
+   (if a PR exists) or plain git push (if no PR yet).
+10. **Check the Definition of Done.** Go through each item one by one. For
+    each, cite concrete evidence: test output, program output, file content.
+11. **If DoD is fully met:** call `create_pull_request` (or update the
+    existing one). The PR is created ready for review — NOT as a draft.
+    The Reviewer triggers immediately on PR creation. Do not create the
+    PR until you are confident everything is verified.
+12. **If DoD is not yet met:** do NOT create a PR. Update the state file,
+    post a progress comment, and stop. The next run will continue.
+13. Update the state file and post a per-run comment on the issue.
 
-Do not mark a goal complete from belief or intention. Mark it complete only when
-the tests pass and the definition of done is met: passing commands, inspected files,
-reviewed artifacts, logs, screenshots, or other concrete proof named in the
-contract.
+Do not mark a goal complete from belief or intention. Mark it complete only
+when the tests pass, the program works, and the definition of done is met.
 
 ## Per-Run Issue Comment
 
@@ -446,77 +433,9 @@ Summary:
 <two or three concise sentences>
 ```
 
-## Verification Before Review
-
-The PR stays draft while you work. You MUST verify your work before
-marking it ready for review. Marking a PR ready for review means: "I have
-implemented the feature, run the tests, confirmed the definition of done
-is met, and I am confident this is correct."
-
-### Verification checklist
-
-Before un-drafting the PR, you must have done ALL of the following:
-
-1. **Run the unit tests.** Execute the project's test command (e.g.
-   `npm test`). Record the output. All new tests must pass. You must not
-   introduce new failures. **Pre-existing failures that also fail on main
-   are NOT your problem.** If a test was already failing before your change,
-   note it in your comment and proceed. Do not wait for guidance, do not ask
-   @advisor — just document the pre-existing failures and move on.
-2. **Run the program.** Don't just test — actually run the application or
-   the relevant code paths in your environment. Import the module, call
-   the functions you changed with real inputs, and observe the actual
-   output. This is your inner-loop verification: does it actually work
-   the way a user would experience it?
-   - For a library/module: write and run a small script that exercises
-     the changed behavior with realistic inputs. Print the output.
-   - For a service: start it and hit the relevant endpoints.
-   - For a CLI: run the commands and check the output.
-   Record what you ran and what you saw.
-3. **Definition of Done is met.** Go through each item in the issue's
-   Definition of Done one by one. For each item, cite concrete evidence:
-   test output, program output, file content. If any item is not met,
-   keep working.
-
-**Tests prove code correctness. Running the program proves it works.**
-Both are required before marking ready for review.
-
-### Mark ready for review
-
-Only after all verification passes:
-
-1. Push your final changes to the branch.
-2. **Call the `mark_pr_ready` tool** with `pr_number` set to your PR
-   number. Example:
-
-   ```
-   mark_pr_ready(pr_number: "120")
-   ```
-
-   Replace 120 with your actual PR number. You know the PR number
-   because you created it earlier with `create_pull_request`.
-
-   This is a TOOL CALL, not a comment. Writing "PR marked ready" in a
-   comment changes nothing. The PR stays draft until you call this tool.
-
-3. Post a comment on the issue with:
-   - What was implemented
-   - Test results (copy the output)
-   - Definition of Done checklist with evidence for each item
-4. Update the state file: `Status: ready-for-review`.
-5. The issue stays `in-progress`. You own the branch until it's merged.
-
-**Never mark ready for review if YOUR tests fail or the Definition of Done
-is not fully met.** The Reviewer trusts that a ready PR has been verified.
-
 ## On Every Subsequent Run — Check Review Status
 
-**First: check for stuck draft PRs.** If your state file says
-`Status: ready-for-review` but the PR is still a draft, the previous
-run failed to un-draft. Retry: call `mark_pr_ready(pr_number: "<N>")`
-with the PR number from your state file. This is a recovery step.
-
-After verifying the PR status matches your state, check:
+After a PR exists, check its status on each run:
 
 ### PR Approved
 1. Merge the PR using `merge-pull-request`. Do NOT ask a human to merge —

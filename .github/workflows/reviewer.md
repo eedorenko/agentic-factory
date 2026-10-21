@@ -91,9 +91,8 @@ not every event on it is for you.
 Check if this PR was created by the Executor (look for `[Executor #` in the
 PR title or `automation` label). If not, call `noop`.
 
-Also check: **is the PR still a draft?** If yes, call `noop`. The Executor
-marks PRs as ready for review when implementation is complete. Do not review
-draft PRs — the developer is still working.
+The Executor only creates a PR after verification is complete. If a PR
+exists, it is ready for review.
 
 ### Step 2: What happened and is it for me?
 
