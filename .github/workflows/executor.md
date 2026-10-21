@@ -122,10 +122,10 @@ safe-outputs:
     required-labels: [automation]
   actions:
     mark-pr-ready:
-      uses: leemeador/ready-for-review-pr@v1.0.3
-      description: "Mark a draft PR as ready for review. Call this AFTER verification is complete. Requires pull-request-number input."
+      uses: ./.github/actions/mark-pr-ready
+      description: "Mark the draft PR as ready for review. Call this AFTER verification is complete. No inputs needed — finds the PR automatically."
       env:
-        GITHUB_TOKEN: ${{ secrets.GH_AW_GITHUB_TOKEN }}
+        GH_TOKEN: ${{ secrets.GH_AW_GITHUB_TOKEN }}
 
 checkout:
   fetch: ["*"]
@@ -472,20 +472,15 @@ Both are required before marking ready for review.
 Only after all verification passes:
 
 1. Push your final changes to the branch.
-2. **Call the `mark_pr_ready` tool.** You MUST pass `pull-request-number`
-   explicitly — it will NOT be inferred from context. Example:
+2. **Call the `mark_pr_ready` tool.** No inputs needed — it finds your
+   draft PR automatically. Just call it:
 
    ```
-   mark_pr_ready(pull-request-number: "75")
+   mark_pr_ready()
    ```
-
-   Replace 75 with your actual PR number. If you do not pass
-   `pull-request-number`, the action silently does nothing and the PR
-   stays draft forever.
 
    This is a TOOL CALL, not a comment. Writing "PR marked ready" in a
-   comment changes nothing. The PR stays draft until you call this tool
-   with the PR number.
+   comment changes nothing. The PR stays draft until you call this tool.
 
 3. Post a comment on the issue with:
    - What was implemented
@@ -501,13 +496,8 @@ is not fully met.** The Reviewer trusts that a ready PR has been verified.
 
 **First: check for stuck draft PRs.** If your state file says
 `Status: ready-for-review` but the PR is still a draft, the previous
-run failed to un-draft. Retry immediately:
-
-```
-mark_pr_ready(pull-request-number: "<your PR number>")
-```
-
-You MUST pass the PR number explicitly. This is a recovery step.
+run failed to un-draft. Retry immediately: call `mark_pr_ready()`.
+This is a recovery step, not a new decision.
 
 After verifying the PR status matches your state, check:
 

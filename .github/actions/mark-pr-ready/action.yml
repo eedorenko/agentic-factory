@@ -1,0 +1,28 @@
+name: 'Mark PR Ready for Review'
+description: 'Marks the draft PR associated with the current issue as ready for review. No inputs needed — finds the PR automatically.'
+inputs:
+  token:
+    description: 'GitHub token with pull-requests write permission'
+    required: false
+    default: ${{ github.token }}
+runs:
+  using: 'composite'
+  steps:
+    - name: Find and un-draft PR
+      shell: bash
+      env:
+        GH_TOKEN: ${{ inputs.token }}
+        REPO: ${{ github.repository }}
+      run: |
+        # Find open draft PRs with [Executor title prefix
+        DRAFT_PRS=$(gh pr list --repo "$REPO" --state open --draft --json number,title --jq '.[] | select(.title | startswith("[Executor")) | .number')
+
+        if [ -z "$DRAFT_PRS" ]; then
+          echo "No draft Executor PRs found"
+          exit 0
+        fi
+
+        for PR in $DRAFT_PRS; do
+          echo "Marking PR #$PR as ready for review..."
+          gh pr ready "$PR" --repo "$REPO" && echo "✓ PR #$PR is now ready for review" || echo "✗ Failed to mark PR #$PR ready"
+        done
