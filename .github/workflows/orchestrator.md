@@ -10,7 +10,8 @@ concurrency:
   cancel-in-progress: true
 
 on:
-  schedule: every 10m
+  schedule:
+    - cron: "*/10 * * * *"
   workflow_dispatch:
   issue_comment:
     types: [created]
