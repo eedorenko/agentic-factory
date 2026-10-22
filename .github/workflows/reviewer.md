@@ -134,11 +134,14 @@ On a new PR or `ready_for_review` event, before doing your own review:
 
 1. Use `add-reviewer` to assign `copilot` (GitHub Copilot) as a reviewer.
 2. Check if Copilot has already submitted a review on this PR. Look for a
-   review from `copilot[bot]` or `github-copilot` in the PR reviews list.
+   review from `copilot[bot]`, `copilot-pull-request-reviewer`, or
+   `github-copilot` in the PR reviews list.
 3. If Copilot's review is present, read it carefully — note any issues it
    found. You will incorporate these into your own review.
-4. If Copilot's review is not yet present, proceed with your own review.
-   You can reference Copilot's findings later if they arrive.
+4. If Copilot's review is NOT yet present, wait — do not submit your own
+   review until Copilot's review arrives. Copilot typically reviews within
+   a few minutes. Call `noop` and let the next run pick it up after
+   Copilot has reviewed.
 
 On `synchronize` (new push), Copilot will automatically re-review. Check
 for its updated review before submitting yours.
@@ -237,7 +240,9 @@ and the PR cannot be merged.**
      and no blocking findings exist)
    - `body`: your review summary (format below)
 3. All inline comments are bundled into the submitted review.
-4. Post on the linked issue: a one-line summary of the verdict.
+4. Post on the linked issue: `@executor` + a one-line summary of the
+   verdict. You MUST include `@executor` so the executor is notified.
+   Example: "@executor Review complete for #N: approved, no findings."
 
 ### Complex or Risky PRs
 
