@@ -57,6 +57,9 @@ tools:
     toolsets: [pull_requests, issues, repos, search]
 
 safe-outputs:
+  github-app:
+    client-id: ${{ vars.FACTORY_APP_ID }}
+    private-key: ${{ secrets.FACTORY_APP_PRIVATE_KEY }}
   add-comment:
     max: 3
     target: "*"
