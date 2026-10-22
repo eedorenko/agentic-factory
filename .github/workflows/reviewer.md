@@ -33,11 +33,7 @@ on:
             echo "skip=true" >> "$GITHUB_OUTPUT"
             exit 0
           fi
-          if echo "$COMMENT_BODY" | grep -qi "@reviewer"; then
-            echo "skip=false" >> "$GITHUB_OUTPUT"
-          else
-            echo "skip=true" >> "$GITHUB_OUTPUT"
-          fi
+          echo "skip=false" >> "$GITHUB_OUTPUT"
           exit 0
         fi
         echo "skip=false" >> "$GITHUB_OUTPUT"
