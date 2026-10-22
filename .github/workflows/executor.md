@@ -118,6 +118,7 @@ safe-outputs:
     target: "*"
   merge-pull-request:
     max: 1
+    target: "*"
     required-labels: [automation]
 
 checkout:
