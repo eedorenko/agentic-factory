@@ -6,7 +6,7 @@ description: |
   events. Pure plumbing — no product decisions.
 
 concurrency:
-  group: "orchestrator"
+  group: "orchestrator-${{ github.event_name }}"
   cancel-in-progress: true
 
 on:
