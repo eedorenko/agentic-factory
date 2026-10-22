@@ -7,8 +7,7 @@ description: |
 
 concurrency:
   group: "executor-${{ github.event.issue.number || github.event.pull_request.number || 'default' }}"
-  cancel-in-progress: false
-  queue: max
+  cancel-in-progress: true
 
 on:
   schedule: every 1h

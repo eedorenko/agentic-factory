@@ -7,8 +7,7 @@ description: |
 
 concurrency:
   group: "advisor-${{ github.event.issue.number || 'default' }}"
-  cancel-in-progress: false
-  queue: max
+  cancel-in-progress: true
 
 on:
   issues:

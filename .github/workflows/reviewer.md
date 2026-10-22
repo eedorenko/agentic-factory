@@ -6,8 +6,7 @@ description: |
 
 concurrency:
   group: "reviewer-${{ github.event.issue.number || github.event.pull_request.number || 'default' }}"
-  cancel-in-progress: false
-  queue: max
+  cancel-in-progress: true
 
 on:
   pull_request:
