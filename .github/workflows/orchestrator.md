@@ -13,6 +13,8 @@ on:
   schedule:
     - cron: "*/10 * * * *"
   workflow_dispatch:
+  repository_dispatch:
+    types: [orchestrator-heartbeat]
   issue_comment:
     types: [created]
   steps:
