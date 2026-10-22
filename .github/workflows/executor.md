@@ -32,6 +32,7 @@ on:
         EVENT: ${{ github.event_name }}
         ISSUE_TITLE: ${{ github.event.issue.title || '' }}
         COMMENT_BODY: ${{ github.event.comment.body || '' }}
+        LABEL_NAME: ${{ github.event.label.name || '' }}
       run: |
         # Skip gh-aw internal issues
         if echo "$ISSUE_TITLE" | grep -q "^\[aw\]"; then
@@ -51,6 +52,14 @@ on:
             echo "skip=true" >> "$GITHUB_OUTPUT"
           fi
           exit 0
+        fi
+        # Skip issues.labeled for 'done' — executor's own completion label
+        if [ "$EVENT" = "issues" ]; then
+          LABEL="${LABEL_NAME:-}"
+          if [ "$LABEL" = "done" ]; then
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
         fi
         # All other events (schedule, workflow_dispatch, issues, pull_request_review) pass through
         echo "skip=false" >> "$GITHUB_OUTPUT"
@@ -369,25 +378,31 @@ For the selected goal:
 4. Choose the smallest useful checkpoint that advances the definition of done.
 5. Make changes on the canonical branch.
 6. **Run the tests.** After every code change, run the project test command
-   (e.g. `npm test`). Do not skip this. Record the output.
-7. If tests fail on your new code, fix it before committing. Iterate until
-   your changes pass.
-8. **Run the program.** Exercise the changed code with real inputs. Confirm
-   it works as intended, not just that tests pass.
-9. Commit and push to the canonical branch using `push_to_pull_request_branch`
-   (if a PR exists) or plain git push (if no PR yet).
-10. **Check the Definition of Done.** Go through each item one by one. For
-    each, cite concrete evidence: test output, program output, file content.
-11. **If DoD is fully met:** call `create_pull_request` (or update the
-    existing one). The PR is created ready for review — NOT as a draft.
-    The Reviewer triggers immediately on PR creation. Do not create the
-    PR until you are confident everything is verified.
-12. **If DoD is not yet met:** do NOT create a PR. Update the state file,
-    post a progress comment, and stop. The next run will continue.
-13. Update the state file and post a per-run comment on the issue.
+   (e.g. `npm test`). If your tests fail, fix and iterate until they pass.
+7. **Run the program.** Don't just test — actually run the application.
+   Import the module, call the functions you changed with real inputs,
+   observe the actual output. This is your inner-loop verification.
+   - For a library/module: write a small script that exercises the changed
+     behavior. Run it. Print the output.
+   - For a service: start it and hit the endpoints.
+   - For a CLI: run the commands.
+   Record exactly what you ran and what you saw. If the output is wrong,
+   fix the code and re-test. Do NOT proceed until the program works.
+8. Commit and push to the canonical branch.
+9. **Check the Definition of Done.** Go through each item one by one. For
+   each, cite concrete evidence: test output, program output, file content.
+10. **If DoD is fully met AND the program works:** call `create_pull_request`.
+    The PR is created ready for review (not draft). The Reviewer triggers
+    immediately. Do NOT create the PR until you have run the program and
+    confirmed it works.
+11. **If DoD is not yet met or the program doesn't work:** do NOT create a
+    PR. Fix the code, re-test, re-run the program. Only create the PR when
+    everything is verified.
+12. Update the state file and post a per-run comment on the issue with
+    test results AND program output as evidence.
 
-Do not mark a goal complete from belief or intention. Mark it complete only
-when the tests pass, the program works, and the definition of done is met.
+**The PR is your seal of quality.** Creating it means: "I wrote the code,
+ran the tests, ran the program, confirmed it works, and the DoD is met."
 
 ## Per-Run Issue Comment
 
@@ -439,23 +454,22 @@ Summary:
 After a PR exists, check its status on each run:
 
 ### PR Approved (reviews are positive, no changes requested)
-1. **Call `merge_pull_request` to merge the PR.** This is a tool call.
-   Do NOT just label `done` without merging. Do NOT ask a human to
-   merge. You have the `merge_pull_request` tool — use it.
 
-   ```
-   merge_pull_request()
-   ```
+Merging takes TWO runs because writes are buffered — you cannot check
+the merge result in the same run that calls merge.
 
-   The PR must have the `automation` label (it does — create-pull-request
-   adds it automatically).
+**Run A — Merge only:**
+Call `merge_pull_request` and NOTHING ELSE. No labels, no comments.
+Just merge. The next run will verify.
 
-2. After merging, add the `done` label and remove `in-progress`.
-3. Post a final comment on the issue: "PR merged. Issue complete."
-4. Update the state file: `Status: done`.
+**Run B — Verify and close out:**
+On your next run, read the PR state via MCP tools (e.g. `get_pull_request`).
+- If the PR state is `MERGED`: call `add_labels(done)`, `remove_labels(in-progress)`,
+  and `add_comment("PR merged. Issue complete.")`.
+- If the PR is NOT merged: the merge failed. Read the error from the
+  previous run's logs. Try again or report the problem.
 
-**Do NOT mark `done` without merging. The issue is not done until the
-code is on main.**
+**Never label `done` without confirming the PR is actually merged.**
 
 ### Changes Requested or PR Comments
 1. Read ALL review comments and PR comments carefully — both inline code

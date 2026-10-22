@@ -77,6 +77,7 @@ Orchestrator has to nudge you.
 | Issue `blocked`, no human response | 48h | Re-escalate with context | human from TEAM.md |
 | Issue `needs-info`, no reporter response | 7 days | Close as stale | — |
 | 5+ issues `in-progress` simultaneously | — | Warn about capacity | @advisor |
+| Issue `done` but linked PR not merged | 5 min | "@executor issue #N labeled done but PR not merged. Merge it or fix the label." | @executor |
 
 ## Anti-Loop Rules
 
