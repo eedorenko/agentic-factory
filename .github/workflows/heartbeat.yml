@@ -11,7 +11,8 @@ jobs:
       - name: Trigger orchestrator
         env:
           GH_TOKEN: ${{ secrets.GH_AW_GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
         run: |
-          gh api repos/${{ github.repository }}/dispatches \
-            -f event_type=orchestrator-heartbeat \
-            -f client_payload='{}' || echo "dispatch failed"
+          gh api "repos/$REPO/dispatches" -X POST --input - <<'PAYLOAD' || echo "dispatch failed"
+          {"event_type": "orchestrator-heartbeat", "client_payload": {"trigger": "heartbeat"}}
+          PAYLOAD
