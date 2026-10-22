@@ -2,9 +2,9 @@
  * Footer component utilities.
  */
 
-function getFooterContent(siteName) {
+function getFooterContent(siteName, itemCount) {
   const year = new Date().getFullYear();
-  return {
+  const content = {
     copyright: `Copyright ${year} ${siteName}. All rights reserved.`,
     links: [
       { text: 'Privacy Policy', url: '/privacy' },
@@ -12,13 +12,17 @@ function getFooterContent(siteName) {
       { text: 'Contact', url: '/contact' },
     ],
   };
+  if (itemCount !== undefined && itemCount !== null) {
+    content.searchInfo = `Searching ${itemCount} items`;
+  }
+  return content;
 }
 
-function renderFooter(siteName) {
-  const content = getFooterContent(siteName);
+function renderFooter(siteName, itemCount) {
+  const content = getFooterContent(siteName, itemCount);
   return `<footer>
   <p>${content.copyright}</p>
-  <nav>
+${content.searchInfo ? `  <p>${content.searchInfo}</p>\n` : ''}  <nav>
     ${content.links.map(link => `<a href="${link.url}">${link.text}</a>`).join(' | ')}
   </nav>
 </footer>`;
